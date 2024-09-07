@@ -13,6 +13,8 @@ import calendar
 from urllib.parse import quote
 import requests
 import random
+
+from config import CITY_ID, COUNTRY
 search_url = "https://list.didsoft.com/get?email=rajeshkumardevapp@gmail.com&pass=zxamw8&pid=http1000&showcountry=no&level=1&country=US"
 search_url2 = "https://list.didsoft.com/get?email=rajeshkumardevapp@gmail.com&pass=zxamw8&pid=http1000&showcountry=no&level=2&country=US"
 search_url3 = "https://list.didsoft.com/get?email=rajeshkumardevapp@gmail.com&pass=zxamw8&pid=http1000&showcountry=no&level=3&country=US"
@@ -257,9 +259,9 @@ def get_data(placename):
 
         
         df={
-        "CityId": "85ab5e34-3d98-406f-a8c1-77df8ed68c2c",
+        "CityId": CITY_ID,
         "PlaceName": placeName,
-        "Country": "USA",
+        "Country": COUNTRY,
         "Address":  address.replace(f"{placeName}, ",''),
         "Zipcode": zipcode,
         "Latitude": lat,
@@ -391,4 +393,4 @@ def get_data(placename):
     
 # city_id='c118807b-e7a0-4999-efcf-08dab69f5de6'
 
-# get_data("Sri Non Thai Street Food 39 Great George St, Leeds LS1 3BB, United Kingdom","","")
+# get_data("House of Hookah 410 14th St NW, Atlanta, GA 30318")

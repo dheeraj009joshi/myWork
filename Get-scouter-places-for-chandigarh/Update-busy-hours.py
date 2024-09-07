@@ -22,12 +22,17 @@ def job():
         "filterTerm":CITY_ID,
         "filterType": "EQUALS",
         "filterBy": "cityId"
-        }
+        },
+        
+        {"filterTerm": "pub,bar,lounge,club",
+        "filterBy": "PlaceType",
+        "filterType": "MULTICONTAINS"
+        },
         ]
     }
-
+    print(data)
     main=re.post(f"{BASE_URL}/api/v1/Place/List",json=data).json()
-    
+    # print(main["data"])
     googlePlaceName=[]
     for i in main["data"]:
         # print(i)

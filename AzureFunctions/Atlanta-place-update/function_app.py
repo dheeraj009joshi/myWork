@@ -1,4 +1,5 @@
-# from apscheduler.schedulers.blocking import BlockingScheduler
+import logging
+import azure.functions as func
 import requests as re
 import urllib.request
 # import schedule
@@ -10,19 +11,37 @@ import logging
 import json
 from concurrent.futures import ThreadPoolExecutor as PoolExecutor
 import random
+app = func.FunctionApp()
+
+@app.schedule(schedule="0 */1 * * * *", arg_name="myTimer", run_on_startup=True,
+              use_monitor=False) 
+def timer_trigger_update_atlanta_places(myTimer: func.TimerRequest) -> None:
+    if myTimer.past_due:
+        logging.info('The timer is past due!')
+        job()
+    logging.info('Python timer trigger function executed.')
+    
+    
+# from apscheduler.schedulers.blocking import BlockingScheduler
+
 # from Mail_function import mail_send
 
-from config import BASE_URL, CITY_ID, SEARCH_URL1, SEARCH_URL2, SEARCH_URL3
+from config import BASE_URL, SEARCH_URL1, SEARCH_URL2, SEARCH_URL3
 
 def job():
     # data={"cityId":"85ab5e34-3d98-406f-a8c1-77df8ed68c2c"}
     data={
     "filterInfo": [
         {
-        "filterTerm":CITY_ID,
+        "filterTerm":"85ab5e34-3d98-406f-a8c1-77df8ed68c2c",
         "filterType": "EQUALS",
         "filterBy": "cityId"
-        }
+        },
+        
+        {"filterTerm": "pub,bar,lounge,club",
+        "filterBy": "PlaceType",
+        "filterType": "MULTICONTAINS"
+        },
         ]
     }
 
@@ -143,32 +162,9 @@ def job():
         start_updating=time.time()
     print("Data  inserted to  db ")
 
-while True:
-    # try:
-        
-        try:
-            job()
-    
-        except URLError:
-            print("http err ")
-            print("Connection refused by the server..")
-            print("Let me sleep for 5 minuter ")
-            print("ZZzzzz...")
-            time.sleep(300)
-            print("Was a nice sleep, now let me continue...")
-    # except:
-    #     sender_email = "datamanagement@tikuntech.com"
-    #     receiver_email = ["dlovej009@gmail.com"]
-    #     password = "Maidenatlanta123"
-    #     # message=""
-    #     print("Done")
-    #     subject="Tikuntech"
-    #     message =f" There is some error found in script ."
-    #     # mail_send(subject,sender_email,password,receiver_email,message)  
-    #     continue
-    
-    
-        
 
+            
+    
+       
 
     

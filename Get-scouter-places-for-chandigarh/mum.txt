@@ -9305,3 +9305,20 @@ current_popularity =75, name = Bat & Ball Pub 2150 B Johnson Ferry Rd NE, Atlant
 current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
 current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
 current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =75, name = Tamaasha | Tucker's Best Lounge & Bar 6330 Lawrenceville Hwy, Tucker, GA 30084
+current_popularity =100, name = House of Hookah 410 14th St NW, Atlanta, GA 30318
+current_popularity =100, name = Northside Tavern 1058 Howell Mill Rd NW, Atlanta, GA 30318
+current_popularity =92, name = The EARL 488 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =100, name = The Righteous Room 1051 Ponce De Leon Ave NE, Atlanta, GA 30306
+current_popularity =80, name = Smith's Olde Bar 1578 Piedmont Ave NE, Atlanta, GA 30324
+current_popularity =97, name = Mixx Atlanta 1492 Piedmont Ave NE ste b, Atlanta, GA 30309
+current_popularity =100, name = Northside Tavern 1058 Howell Mill Rd NW, Atlanta, GA 30318
+current_popularity =75, name = Tamaasha | Tucker's Best Lounge & Bar 6330 Lawrenceville Hwy, Tucker, GA 30084
+current_popularity =100, name = House of Hookah 410 14th St NW, Atlanta, GA 30318
+current_popularity =92, name = The EARL 488 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =100, name = The Righteous Room 1051 Ponce De Leon Ave NE, Atlanta, GA 30306
+current_popularity =80, name = Smith's Olde Bar 1578 Piedmont Ave NE, Atlanta, GA 30324
+current_popularity =97, name = Mixx Atlanta 1492 Piedmont Ave NE ste b, Atlanta, GA 30309
+current_popularity =100, name = Sister Louisa's Church of the Living Room & Ping Pong Emporium 466 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =75, name = Twin Peaks 3365 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Oscar's Bar 1510 Piedmont Ave NE UNIT C, Atlanta, GA 30309
