@@ -22,12 +22,7 @@ def job():
         "filterTerm":CITY_ID,
         "filterType": "EQUALS",
         "filterBy": "cityId"
-        },
-        
-        {"filterTerm": "pub,bar,lounge,club",
-        "filterBy": "PlaceType",
-        "filterType": "MULTICONTAINS"
-        },
+        }
         ]
     }
     print(data)
