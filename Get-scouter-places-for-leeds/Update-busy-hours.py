@@ -149,14 +149,8 @@ while True:
         try:
             job()
     
-        except URLError:
-            print("http err ")
-            print("Connection refused by the server..")
-            print("Let me sleep for 5 minuter ")
-            print("ZZzzzz...")
-            time.sleep(300)
-            print("Was a nice sleep, now let me continue...")
-    # except:
+        except :
+            pass
     #     sender_email = "datamanagement@tikuntech.com"
     #     receiver_email = ["dlovej009@gmail.com"]
     #     password = "Maidenatlanta123"
