@@ -7862,6 +7862,7 @@ current_popularity =100, name = Future Atlanta 50 Lower Alabama Street Suite 180
 current_popularity =100, name = Future Atlanta 50 Lower Alabama Street Suite 180, Atlanta, GA 30303
 current_popularity =100, name = Future Atlanta 50 Lower Alabama Street Suite 180, Atlanta, GA 30303
 current_popularity =100, name = Future Atlanta 50 Lower Alabama Street Suite 180, Atlanta, GA 30303
+<<<<<<< HEAD
 current_popularity =73, name = Admirals Club 6000 N Terminal Pkwy, Atlanta, GA 30320
 current_popularity =73, name = Admirals Club 6000 N Terminal Pkwy, Atlanta, GA 30320
 current_popularity =73, name = Admirals Club 6000 N Terminal Pkwy, Atlanta, GA 30320
@@ -15391,3 +15392,1448 @@ current_popularity =100, name = Thos. O'Reilly's Public House 227 Sandy Springs 
 current_popularity =100, name = The Brotherhood of Pursuits and Pastimes 54 New Briggate, Leeds LS1 6NU, United Kingdom
 current_popularity =100, name = Brudenell Social Club 33 Queen's Rd, Burley, Leeds LS6 1NY, United Kingdom
 current_popularity =84, name = Establishment 1197 Peachtree St NE Suite 517, Atlanta, GA 30305
+=======
+current_popularity =84, name = The Whitehall Restaurant & Bar West Point, Whitehall Rd, Leeds LS1 4JY, United Kingdom
+current_popularity =83, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = Electric Shuffle Leeds 123 The Headrow, Leeds LS1 5RD, United Kingdom
+current_popularity =90, name = The Brewhouse Cafe 401 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = Park Bar 150 Walton St NW, Atlanta, GA 30303
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =95, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =73, name = Unit C, Toast Bar West Point, Wellington St, Leeds LS1 4JY, United Kingdom
+current_popularity =84, name = The Whitehall Restaurant & Bar West Point, Whitehall Rd, Leeds LS1 4JY, United Kingdom
+current_popularity =83, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = Park Bar 150 Walton St NW, Atlanta, GA 30303
+current_popularity =90, name = The Brewhouse Cafe 401 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = Electric Shuffle Leeds 123 The Headrow, Leeds LS1 5RD, United Kingdom
+current_popularity =95, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =73, name = Unit C, Toast Bar West Point, Wellington St, Leeds LS1 4JY, United Kingdom
+current_popularity =100, name = Carousel Bar Leeds 117 Albion St, Leeds LS2 8DY, United Kingdom
+current_popularity =100, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =77, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =78, name = HOBNOB Neighborhood Tavern 1221 Ashford Crossing, Atlanta, GA 30346
+current_popularity =74, name = Jake's Bar & Still Room 29 Call Ln, Leeds LS1 7BT, United Kingdom
+current_popularity =77, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Fadó Irish Pub 933 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =93, name = The Brotherhood of Pursuits and Pastimes 54 New Briggate, Leeds LS1 6NU, United Kingdom
+current_popularity =77, name = Editor's Draught 88 Wellington St, Leeds LS1 4LT, United Kingdom
+current_popularity =84, name = The Whitehall Restaurant & Bar West Point, Whitehall Rd, Leeds LS1 4JY, United Kingdom
+current_popularity =83, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Brewhouse Cafe 401 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Electric Shuffle Leeds 123 The Headrow, Leeds LS1 5RD, United Kingdom
+current_popularity =100, name = Park Bar 150 Walton St NW, Atlanta, GA 30303
+current_popularity =95, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =100, name = Carousel Bar Leeds 117 Albion St, Leeds LS2 8DY, United Kingdom
+current_popularity =73, name = Unit C, Toast Bar West Point, Wellington St, Leeds LS1 4JY, United Kingdom
+current_popularity =100, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =77, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =78, name = HOBNOB Neighborhood Tavern 1221 Ashford Crossing, Atlanta, GA 30346
+current_popularity =77, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =74, name = Jake's Bar & Still Room 29 Call Ln, Leeds LS1 7BT, United Kingdom
+current_popularity =100, name = Fadó Irish Pub 933 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =93, name = The Brotherhood of Pursuits and Pastimes 54 New Briggate, Leeds LS1 6NU, United Kingdom
+current_popularity =77, name = Editor's Draught 88 Wellington St, Leeds LS1 4LT, United Kingdom
+current_popularity =84, name = The Whitehall Restaurant & Bar West Point, Whitehall Rd, Leeds LS1 4JY, United Kingdom
+current_popularity =83, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Brewhouse Cafe 401 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = Park Bar 150 Walton St NW, Atlanta, GA 30303
+current_popularity =100, name = Electric Shuffle Leeds 123 The Headrow, Leeds LS1 5RD, United Kingdom
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =95, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =100, name = Carousel Bar Leeds 117 Albion St, Leeds LS2 8DY, United Kingdom
+current_popularity =73, name = Unit C, Toast Bar West Point, Wellington St, Leeds LS1 4JY, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =77, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =77, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =78, name = HOBNOB Neighborhood Tavern 1221 Ashford Crossing, Atlanta, GA 30346
+current_popularity =74, name = Jake's Bar & Still Room 29 Call Ln, Leeds LS1 7BT, United Kingdom
+current_popularity =100, name = Fadó Irish Pub 933 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =93, name = The Brotherhood of Pursuits and Pastimes 54 New Briggate, Leeds LS1 6NU, United Kingdom
+current_popularity =77, name = Editor's Draught 88 Wellington St, Leeds LS1 4LT, United Kingdom
+current_popularity =84, name = The Whitehall Restaurant & Bar West Point, Whitehall Rd, Leeds LS1 4JY, United Kingdom
+current_popularity =83, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Brewhouse Cafe 401 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = Park Bar 150 Walton St NW, Atlanta, GA 30303
+current_popularity =100, name = Electric Shuffle Leeds 123 The Headrow, Leeds LS1 5RD, United Kingdom
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =95, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =73, name = Unit C, Toast Bar West Point, Wellington St, Leeds LS1 4JY, United Kingdom
+current_popularity =100, name = Carousel Bar Leeds 117 Albion St, Leeds LS2 8DY, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =78, name = HOBNOB Neighborhood Tavern 1221 Ashford Crossing, Atlanta, GA 30346
+current_popularity =77, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =77, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =74, name = Jake's Bar & Still Room 29 Call Ln, Leeds LS1 7BT, United Kingdom
+current_popularity =100, name = Fadó Irish Pub 933 Peachtree St NE, Atlanta, GA 30309
+current_popularity =93, name = The Brotherhood of Pursuits and Pastimes 54 New Briggate, Leeds LS1 6NU, United Kingdom
+current_popularity =77, name = Editor's Draught 88 Wellington St, Leeds LS1 4LT, United Kingdom
+current_popularity =84, name = The Whitehall Restaurant & Bar West Point, Whitehall Rd, Leeds LS1 4JY, United Kingdom
+current_popularity =83, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Brewhouse Cafe 401 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = Electric Shuffle Leeds 123 The Headrow, Leeds LS1 5RD, United Kingdom
+current_popularity =100, name = Park Bar 150 Walton St NW, Atlanta, GA 30303
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =95, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =73, name = Unit C, Toast Bar West Point, Wellington St, Leeds LS1 4JY, United Kingdom
+current_popularity =100, name = Carousel Bar Leeds 117 Albion St, Leeds LS2 8DY, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =78, name = HOBNOB Neighborhood Tavern 1221 Ashford Crossing, Atlanta, GA 30346
+current_popularity =77, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =100, name = Fadó Irish Pub 933 Peachtree St NE, Atlanta, GA 30309
+current_popularity =74, name = Jake's Bar & Still Room 29 Call Ln, Leeds LS1 7BT, United Kingdom
+current_popularity =77, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =93, name = The Brotherhood of Pursuits and Pastimes 54 New Briggate, Leeds LS1 6NU, United Kingdom
+current_popularity =77, name = Editor's Draught 88 Wellington St, Leeds LS1 4LT, United Kingdom
+current_popularity =84, name = The Whitehall Restaurant & Bar West Point, Whitehall Rd, Leeds LS1 4JY, United Kingdom
+current_popularity =83, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = Park Bar 150 Walton St NW, Atlanta, GA 30303
+current_popularity =100, name = Electric Shuffle Leeds 123 The Headrow, Leeds LS1 5RD, United Kingdom
+current_popularity =90, name = The Brewhouse Cafe 401 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =95, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =73, name = Unit C, Toast Bar West Point, Wellington St, Leeds LS1 4JY, United Kingdom
+current_popularity =100, name = Carousel Bar Leeds 117 Albion St, Leeds LS2 8DY, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =78, name = HOBNOB Neighborhood Tavern 1221 Ashford Crossing, Atlanta, GA 30346
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =77, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =77, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =74, name = Jake's Bar & Still Room 29 Call Ln, Leeds LS1 7BT, United Kingdom
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = Fadó Irish Pub 933 Peachtree St NE, Atlanta, GA 30309
+current_popularity =93, name = The Brotherhood of Pursuits and Pastimes 54 New Briggate, Leeds LS1 6NU, United Kingdom
+current_popularity =77, name = Editor's Draught 88 Wellington St, Leeds LS1 4LT, United Kingdom
+current_popularity =84, name = The Whitehall Restaurant & Bar West Point, Whitehall Rd, Leeds LS1 4JY, United Kingdom
+current_popularity =83, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Brewhouse Cafe 401 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = Park Bar 150 Walton St NW, Atlanta, GA 30303
+current_popularity =100, name = Electric Shuffle Leeds 123 The Headrow, Leeds LS1 5RD, United Kingdom
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =95, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =73, name = Unit C, Toast Bar West Point, Wellington St, Leeds LS1 4JY, United Kingdom
+current_popularity =100, name = Carousel Bar Leeds 117 Albion St, Leeds LS2 8DY, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =77, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =78, name = HOBNOB Neighborhood Tavern 1221 Ashford Crossing, Atlanta, GA 30346
+current_popularity =77, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Fadó Irish Pub 933 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =74, name = Jake's Bar & Still Room 29 Call Ln, Leeds LS1 7BT, United Kingdom
+current_popularity =93, name = The Brotherhood of Pursuits and Pastimes 54 New Briggate, Leeds LS1 6NU, United Kingdom
+current_popularity =77, name = Editor's Draught 88 Wellington St, Leeds LS1 4LT, United Kingdom
+current_popularity =84, name = The Whitehall Restaurant & Bar West Point, Whitehall Rd, Leeds LS1 4JY, United Kingdom
+current_popularity =83, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Brewhouse Cafe 401 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = Park Bar 150 Walton St NW, Atlanta, GA 30303
+current_popularity =100, name = Electric Shuffle Leeds 123 The Headrow, Leeds LS1 5RD, United Kingdom
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =95, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =73, name = Unit C, Toast Bar West Point, Wellington St, Leeds LS1 4JY, United Kingdom
+current_popularity =100, name = Carousel Bar Leeds 117 Albion St, Leeds LS2 8DY, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =77, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =78, name = HOBNOB Neighborhood Tavern 1221 Ashford Crossing, Atlanta, GA 30346
+current_popularity =77, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =100, name = Fadó Irish Pub 933 Peachtree St NE, Atlanta, GA 30309
+current_popularity =74, name = Jake's Bar & Still Room 29 Call Ln, Leeds LS1 7BT, United Kingdom
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =93, name = The Brotherhood of Pursuits and Pastimes 54 New Briggate, Leeds LS1 6NU, United Kingdom
+current_popularity =77, name = Editor's Draught 88 Wellington St, Leeds LS1 4LT, United Kingdom
+current_popularity =84, name = The Whitehall Restaurant & Bar West Point, Whitehall Rd, Leeds LS1 4JY, United Kingdom
+current_popularity =83, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Brewhouse Cafe 401 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = Electric Shuffle Leeds 123 The Headrow, Leeds LS1 5RD, United Kingdom
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Park Bar 150 Walton St NW, Atlanta, GA 30303
+current_popularity =95, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =73, name = Unit C, Toast Bar West Point, Wellington St, Leeds LS1 4JY, United Kingdom
+current_popularity =100, name = Carousel Bar Leeds 117 Albion St, Leeds LS2 8DY, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =78, name = HOBNOB Neighborhood Tavern 1221 Ashford Crossing, Atlanta, GA 30346
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =77, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =77, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Fadó Irish Pub 933 Peachtree St NE, Atlanta, GA 30309
+current_popularity =74, name = Jake's Bar & Still Room 29 Call Ln, Leeds LS1 7BT, United Kingdom
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =93, name = The Brotherhood of Pursuits and Pastimes 54 New Briggate, Leeds LS1 6NU, United Kingdom
+current_popularity =77, name = Editor's Draught 88 Wellington St, Leeds LS1 4LT, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =72, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =72, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =85, name = Outlaws Yacht Club 38 New York St, Leeds LS2 7DY, United Kingdom
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =85, name = Outlaws Yacht Club 38 New York St, Leeds LS2 7DY, United Kingdom
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =85, name = Outlaws Yacht Club 38 New York St, Leeds LS2 7DY, United Kingdom
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =85, name = Outlaws Yacht Club 38 New York St, Leeds LS2 7DY, United Kingdom
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =85, name = Outlaws Yacht Club 38 New York St, Leeds LS2 7DY, United Kingdom
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =85, name = Outlaws Yacht Club 38 New York St, Leeds LS2 7DY, United Kingdom
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =85, name = Outlaws Yacht Club 38 New York St, Leeds LS2 7DY, United Kingdom
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =99, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =75, name = The Moot Hall Arms 11 Mill Hill, Leeds LS1 5DQ, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =85, name = Outlaws Yacht Club 38 New York St, Leeds LS2 7DY, United Kingdom
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =99, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =75, name = The Moot Hall Arms 11 Mill Hill, Leeds LS1 5DQ, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =85, name = Outlaws Yacht Club 38 New York St, Leeds LS2 7DY, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =99, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =75, name = The Moot Hall Arms 11 Mill Hill, Leeds LS1 5DQ, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =85, name = Outlaws Yacht Club 38 New York St, Leeds LS2 7DY, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =99, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =75, name = The Moot Hall Arms 11 Mill Hill, Leeds LS1 5DQ, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =85, name = Outlaws Yacht Club 38 New York St, Leeds LS2 7DY, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =99, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =75, name = The Moot Hall Arms 11 Mill Hill, Leeds LS1 5DQ, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =85, name = Outlaws Yacht Club 38 New York St, Leeds LS2 7DY, United Kingdom
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =99, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =75, name = The Moot Hall Arms 11 Mill Hill, Leeds LS1 5DQ, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =85, name = Outlaws Yacht Club 38 New York St, Leeds LS2 7DY, United Kingdom
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =99, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =75, name = The Moot Hall Arms 11 Mill Hill, Leeds LS1 5DQ, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =85, name = Outlaws Yacht Club 38 New York St, Leeds LS2 7DY, United Kingdom
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =99, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =75, name = The Moot Hall Arms 11 Mill Hill, Leeds LS1 5DQ, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =85, name = Outlaws Yacht Club 38 New York St, Leeds LS2 7DY, United Kingdom
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =99, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =75, name = The Moot Hall Arms 11 Mill Hill, Leeds LS1 5DQ, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =85, name = Outlaws Yacht Club 38 New York St, Leeds LS2 7DY, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =99, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =75, name = The Moot Hall Arms 11 Mill Hill, Leeds LS1 5DQ, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =85, name = Outlaws Yacht Club 38 New York St, Leeds LS2 7DY, United Kingdom
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =99, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =75, name = The Moot Hall Arms 11 Mill Hill, Leeds LS1 5DQ, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =85, name = Outlaws Yacht Club 38 New York St, Leeds LS2 7DY, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =99, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =75, name = The Moot Hall Arms 11 Mill Hill, Leeds LS1 5DQ, United Kingdom
+current_popularity =100, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =78, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =85, name = Outlaws Yacht Club 38 New York St, Leeds LS2 7DY, United Kingdom
+current_popularity =74, name = The Ship Inn Queens Arcade, 71 Briggate, Leeds LS1 6LH, United Kingdom
+current_popularity =100, name = Duck & Drake 43 Kirkgate, Leeds LS2 7DR, United Kingdom
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =76, name = Manuel's Tavern 602 North Highland Avenue Northeast, Atlanta, GA 30307
+current_popularity =100, name = Irby's Tavern 322 East Paces Ferry Rd NE, Atlanta, GA 30305
+current_popularity =84, name = The Midway Pub 552 Flat Shoals Ave SE, Atlanta, GA 30316
+current_popularity =85, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =83, name = Billions Lounge 28 Cross Stamford St, Leeds LS7 1BA, United Kingdom
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = Drawbar 1 Interlock Ave NW, Atlanta, GA 30318
+current_popularity =89, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =89, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =100, name = Drawbar 1 Interlock Ave NW, Atlanta, GA 30318
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =100, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = CRU Peters Street 301 Peters St SW, Atlanta, GA 30313
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =89, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = Drawbar 1 Interlock Ave NW, Atlanta, GA 30318
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =100, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =89, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =100, name = Drawbar 1 Interlock Ave NW, Atlanta, GA 30318
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =100, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =89, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =100, name = Drawbar 1 Interlock Ave NW, Atlanta, GA 30318
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =100, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =89, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =100, name = Drawbar 1 Interlock Ave NW, Atlanta, GA 30318
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =100, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =89, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =100, name = Drawbar 1 Interlock Ave NW, Atlanta, GA 30318
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =100, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =89, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =100, name = Drawbar 1 Interlock Ave NW, Atlanta, GA 30318
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =89, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =89, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =89, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =89, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =89, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =89, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =75, name = Bat & Ball Pub 2150 B Johnson Ferry Rd NE, Atlanta, GA 30319
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =75, name = Bat & Ball Pub 2150 B Johnson Ferry Rd NE, Atlanta, GA 30319
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =75, name = Bat & Ball Pub 2150 B Johnson Ferry Rd NE, Atlanta, GA 30319
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =75, name = Bat & Ball Pub 2150 B Johnson Ferry Rd NE, Atlanta, GA 30319
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =75, name = Bat & Ball Pub 2150 B Johnson Ferry Rd NE, Atlanta, GA 30319
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =75, name = Bat & Ball Pub 2150 B Johnson Ferry Rd NE, Atlanta, GA 30319
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =75, name = Bat & Ball Pub 2150 B Johnson Ferry Rd NE, Atlanta, GA 30319
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =100, name = 6, Be At One - Millennium Square Leeds Millennium Square, Leeds LS2 3AD, United Kingdom
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =75, name = Bat & Ball Pub 2150 B Johnson Ferry Rd NE, Atlanta, GA 30319
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =100, name = 6, Be At One - Millennium Square Leeds Millennium Square, Leeds LS2 3AD, United Kingdom
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =75, name = Bat & Ball Pub 2150 B Johnson Ferry Rd NE, Atlanta, GA 30319
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =100, name = 6, Be At One - Millennium Square Leeds Millennium Square, Leeds LS2 3AD, United Kingdom
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =75, name = Bat & Ball Pub 2150 B Johnson Ferry Rd NE, Atlanta, GA 30319
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =100, name = 6, Be At One - Millennium Square Leeds Millennium Square, Leeds LS2 3AD, United Kingdom
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =75, name = Bat & Ball Pub 2150 B Johnson Ferry Rd NE, Atlanta, GA 30319
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =100, name = 6, Be At One - Millennium Square Leeds Millennium Square, Leeds LS2 3AD, United Kingdom
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =75, name = Bat & Ball Pub 2150 B Johnson Ferry Rd NE, Atlanta, GA 30319
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =100, name = 6, Be At One - Millennium Square Leeds Millennium Square, Leeds LS2 3AD, United Kingdom
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =75, name = Bat & Ball Pub 2150 B Johnson Ferry Rd NE, Atlanta, GA 30319
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =100, name = 6, Be At One - Millennium Square Leeds Millennium Square, Leeds LS2 3AD, United Kingdom
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =75, name = Bat & Ball Pub 2150 B Johnson Ferry Rd NE, Atlanta, GA 30319
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =100, name = 6, Be At One - Millennium Square Leeds Millennium Square, Leeds LS2 3AD, United Kingdom
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =75, name = Bat & Ball Pub 2150 B Johnson Ferry Rd NE, Atlanta, GA 30319
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =100, name = 6, Be At One - Millennium Square Leeds Millennium Square, Leeds LS2 3AD, United Kingdom
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =75, name = Bat & Ball Pub 2150 B Johnson Ferry Rd NE, Atlanta, GA 30319
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =100, name = 6, Be At One - Millennium Square Leeds Millennium Square, Leeds LS2 3AD, United Kingdom
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =75, name = Bat & Ball Pub 2150 B Johnson Ferry Rd NE, Atlanta, GA 30319
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =100, name = Mean-Eyed Cat Bar Leeds 14 Merrion St, Leeds LS1 6PQ, United Kingdom
+current_popularity =100, name = The White Swan 5 Swan St, Leeds LS1 6LG, United Kingdom
+current_popularity =77, name = Lions the Ultra Lounge 3979 Buford Hwy NE, Atlanta, GA 30345
+current_popularity =94, name = Boogalou Restaurant & Lounge 239 Ponce De Leon Ave NE, Atlanta, GA 30308
+current_popularity =96, name = The Vortex 438 Moreland Ave NE, Atlanta, GA 30307
+current_popularity =90, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =100, name = HOBNOB Neighborhood Tavern 804 Town Blvd A1010, Atlanta, GA 30319
+current_popularity =96, name = Brewdog Atlanta 112 Krog St NE, Atlanta, GA 30307
+current_popularity =100, name = The Corner Pub 627 E College Ave, Decatur, GA 30030
+current_popularity =75, name = Blake's On The Park 227 10th St NE, Atlanta, GA 30309
+current_popularity =100, name = The T 465 Boulevard SE Suite 103-A, Atlanta, GA 30312
+current_popularity =100, name = Lingering Shade Social Club 660 Irwin St NE, Atlanta, GA 30312
+current_popularity =88, name = Euclid Avenue Yacht Club 1136 Euclid Ave NE, Atlanta, GA 30307
+current_popularity =100, name = 6, Be At One - Millennium Square Leeds Millennium Square, Leeds LS2 3AD, United Kingdom
+current_popularity =79, name = Power, Corruption & Lies 36 Call Ln, Leeds LS1 6DT, United Kingdom
+current_popularity =96, name = Friends of Ham 4-8 New Station St, Leeds LS1 5DL, United Kingdom
+current_popularity =81, name = Blue Martini Atlanta 3402 Piedmont Rd NE, Atlanta, GA 30305
+current_popularity =100, name = Hapeville Corner Tavern 573 N Central Ave, Hapeville, GA 30354
+current_popularity =73, name = HOBNOB Neighborhood Tavern 245 18th St NW, Atlanta, GA 30363
+current_popularity =98, name = Marcus Bar & Grille 525 Edgewood Ave SE, Atlanta, GA 30312
+current_popularity =100, name = Manny's Grant Park 580 Woodward Ave SE UNIT C, Atlanta, GA 30312
+current_popularity =75, name = Bat & Ball Pub 2150 B Johnson Ferry Rd NE, Atlanta, GA 30319
+current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
+current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
+current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+>>>>>>> 74c94ccd9961fe61fb0e9ead5379cc989ec816a9

@@ -13,6 +13,8 @@ import calendar
 from urllib.parse import quote
 import requests
 import random
+
+from config import CITY_ID, COUNTRY
 search_url = "https://list.didsoft.com/get?email=rajeshkumardevapp@gmail.com&pass=zxamw8&pid=http1000&showcountry=no&level=1&country=US"
 search_url2 = "https://list.didsoft.com/get?email=rajeshkumardevapp@gmail.com&pass=zxamw8&pid=http1000&showcountry=no&level=2&country=US"
 search_url3 = "https://list.didsoft.com/get?email=rajeshkumardevapp@gmail.com&pass=zxamw8&pid=http1000&showcountry=no&level=3&country=US"
@@ -257,9 +259,9 @@ def get_data(placename):
 
         
         df={
-        "CityId": "723289d5-9983-4a2f-6538-08dcc857d3e1",
+        "CityId": CITY_ID,
         "PlaceName": placeName,
-        "Country": "UK",
+        "Country": COUNTRY,
         "Address":  address.replace(f"{placeName}, ",''),
         "Zipcode": zipcode,
         "Latitude": lat,

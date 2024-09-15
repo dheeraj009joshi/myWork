@@ -12,22 +12,17 @@ from concurrent.futures import ThreadPoolExecutor as PoolExecutor
 import random
 # from Mail_function import mail_send
 
-from config import BASE_URL, SEARCH_URL1, SEARCH_URL2, SEARCH_URL3
+from config import BASE_URL, CITY_ID, SEARCH_URL1, SEARCH_URL2, SEARCH_URL3
 
 def job():
     # data={"cityId":"85ab5e34-3d98-406f-a8c1-77df8ed68c2c"}
     data={
     "filterInfo": [
         {
-        "filterTerm":"85ab5e34-3d98-406f-a8c1-77df8ed68c2c",
+        "filterTerm":CITY_ID,
         "filterType": "EQUALS",
         "filterBy": "cityId"
-        },
-        
-        {"filterTerm": "pub,bar,lounge,club",
-        "filterBy": "PlaceType",
-        "filterType": "MULTICONTAINS"
-        },
+        }
         ]
     }
 
@@ -154,13 +149,9 @@ while True:
         try:
             job()
     
-        except URLError:
-            print("http err ")
-            print("Connection refused by the server..")
-            print("Let me sleep for 5 minuter ")
-            print("ZZzzzz...")
-            time.sleep(300)
-            print("Was a nice sleep, now let me continue...")
+        except exception as error  :
+            print(error)
+            pass
     # except:
     #     sender_email = "datamanagement@tikuntech.com"
     #     receiver_email = ["dlovej009@gmail.com"]
