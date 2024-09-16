@@ -149,7 +149,7 @@ while True:
         try:
             job()
     
-        except exception as error  :
+        except Exception as error  :
             print(error)
             pass
     #     sender_email = "datamanagement@tikuntech.com"
