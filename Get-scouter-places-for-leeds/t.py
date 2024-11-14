@@ -1,27 +1,8 @@
 import requests as re
 
-data={
-    "filterInfo": [
-        {
-        "filterTerm":"c118807b-e7a0-4999-efcf-08dab69f5de6",
-        "filterType": "EQUALS",
-        "filterBy": "cityId"
-        },
-        
-        {"filterTerm": "pub,bar,lounge,club",
-        "filterBy": "PlaceType",
-        "filterType": "MULTICONTAINS"
-        },
-        ]
-    }
-BASE_URL="https://scouterlive.azurewebsites.net"
-main=re.post(f"{BASE_URL}/api/v1/Place/List",json=data).json()
+data={"CityId": "723289d5-9983-4a2f-6538-08dcc857d3e1", "PlaceName": "Chapel Allerton", "Country": "UK", "Address": "Leeds, UK", "Zipcode": 0, "Latitude": 53.828859099999995, "Longitude": -1.5379201999999998, "PlaceType": "", "BusyHoursSun": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0", "BusyHoursMon": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0", "BusyHoursTue": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0", "BusyHoursWed": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0", "BusyHoursThu": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0", "BusyHoursFri": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0", "BusyHoursSat": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0", "RaceWhite": 20, "RaceBlack": 20, "RaceAsian": 20, "RaceLatino": 20, "RaceIndian": 20, "GenderMale": 45, "GenderFemale": 45, "GenderOthers": 10, "InterestGay": 15, "InterestStraight": 70, "InterestBisexual": 15, "PriceRange": "$", "PhoneNumber": "", "GooglePlaceName": "Chapel Allerton Leeds, UK", "GooglePlaceImage": "https://lh3.googleusercontent.com/gps-proxy/ALd4DhFKG6wDxFwk_Eo60z9JqcxEFhLZG_spdLKcGEHPpE327jgOXQGaac7w1cNm0qqPMI3cYdmpP-5XuuXgeTcQE568q_gb8PjtMwr6tnkyN5-5ASDZXWABtx99M-jNi9UJuoX8tBnc53_ZGKQsiAm2qkk2GiCC091hSSWFaNN3JlTuOfrlHkaa2tv7=w408-h272-k-no", "Rating": "", "Rating_n": "", "CurrentPopularity": "0", "CurrentPopularityStatus": "", "TimeSpent": "", "GoogleMapLocation": "https://www.google.de/maps/preview/place/Chapel+Allerton,+Leeds,+UK/@53.8288591,-1.5379202,2355a,13.1y/data=!4m2!3m1!1s0x48795be57c25804d:0xdc0cbe1d42756d6b", "FacebookLink": "", "TimeZone": "Europe/London", "Neighborhood": "Chapel Allerton, Leeds", "AverageTimeSpent":""}
 
-googlePlaceName=[]
-for i in main["data"]:
-    # print(i)
-    place_name=i["GooglePlaceName"]
-    googlePlaceName.append(place_name)
-rows = googlePlaceName
-# rows=['park bar atlanta']
-print(len(rows))
+url="https://scouterlive.azurewebsites.net/api/v1/Place/Insert"
+
+req=re.post(url,data=data)
+print(req)

@@ -9305,3 +9305,6 @@ current_popularity =75, name = Bat & Ball Pub 2150 B Johnson Ferry Rd NE, Atlant
 current_popularity =80, name = The Vortex Bar & Grill 878 Peachtree St NE, Atlanta, GA 30309
 current_popularity =100, name = Meehan's Public House Downtown 200 Peachtree St, Atlanta, GA 30303
 current_popularity =99, name = Limerick Junction Pub 822 North Highland Avenue Northeast, Atlanta, GA 30306
+current_popularity =100, name = Bella Italia - Leeds Briggate 145 Briggate, Leeds LS1 6BR, United Kingdom
+current_popularity =87, name = The Fox and Newt Pub Fox and Newt Pub, 9 Burley St, Leeds LS3 1LD, United Kingdom
+current_popularity =76, name = The Botanist Trinity Leeds 67 Boar Ln, Leeds LS1 6HW, United Kingdom

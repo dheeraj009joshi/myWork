@@ -14,26 +14,45 @@ from urllib.parse import quote
 import requests
 import random
 
-from config import CITY_ID, COUNTRY
-search_url = "https://list.didsoft.com/get?email=rajeshkumardevapp@gmail.com&pass=zxamw8&pid=http1000&showcountry=no&level=1&country=US"
-search_url2 = "https://list.didsoft.com/get?email=rajeshkumardevapp@gmail.com&pass=zxamw8&pid=http1000&showcountry=no&level=2&country=US"
-search_url3 = "https://list.didsoft.com/get?email=rajeshkumardevapp@gmail.com&pass=zxamw8&pid=http1000&showcountry=no&level=3&country=US"
+SEARCH_URL1='https://list.didsoft.com/get?email=tikuntechnologies@gmail.com&pass=bwnh68&pid=http1000&showcountry=no'
+SEARCH_URL2='https://list.didsoft.com/get?email=tikuntechnologies@gmail.com&pass=bwnh68&pid=http1000&showcountry=no&leve2=1&country=US'
+SEARCH_URL3='https://list.didsoft.com/get?email=tikuntechnologies@gmail.com&pass=bwnh68&pid=http1000&showcountry=no&leve3=1&country=US'
 urls=[]
 
-resp = urllib.request.urlopen(urllib.request.Request(url=search_url, data=None))
+resp = urllib.request.urlopen(urllib.request.Request(url=SEARCH_URL1, data=None))
 data = resp.read().decode('utf-8').split('/*""*/')[0]
 for i in data.split("\n"):
     urls.append(i)
-resp = urllib.request.urlopen(urllib.request.Request(url=search_url2, data=None))
+resp = urllib.request.urlopen(urllib.request.Request(url=SEARCH_URL2, data=None))
 data = resp.read().decode('utf-8').split('/*""*/')[0]
 for i in data.split("\n"):
     urls.append(i)
-resp = urllib.request.urlopen(urllib.request.Request(url=search_url3, data=None))
+resp = urllib.request.urlopen(urllib.request.Request(url=SEARCH_URL3, data=None))
 data = resp.read().decode('utf-8').split('/*""*/')[0]
 for i in data.split("\n"):
     urls.append(i)
 print(len(urls))
-def get_data(placename):
+
+
+
+import requests
+
+def insert_place(data,action):
+    if action =="insert":
+        url = "https://portal.maiden-ai.com/api/v1/cube/Scouter%20Galactic%20Pvt%20Ltd/night%20life/scoutermap/Place/insert"
+    elif action == "update":
+        url = "https://portal.maiden-ai.com/api/v1/cube/Scouter%20Galactic%20Pvt%20Ltd/night%20life/scoutermap/Place/update"
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJVc2VySWQiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJEZXZpY2VJZCI6IjFCREVEODlCLUI1OTAtNEYwQy1BRTc0LUMyODY0OTRFMDNEOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjExLzE0LzIwMjQgMDQ6MDI6NTAiLCJuYmYiOjE3MzE1NTY5NzAsImV4cCI6MTc2MzA5Mjk3MCwiaWF0IjoxNzMxNTU2OTcwfQ.MkSV__2iuV2IOSpissPc3HlSD_YEzlj7CPCJZkHfxvE"
+    }
+
+    response = requests.post(url, headers=headers, json=data)
+    
+    return response.json()
+
+
+def get_data(placename,CITY_ID,COUNTRY, action):
     try:
         # data=json.loads(str(data).replace("'",'"'))
         # print(type(data))
@@ -233,6 +252,11 @@ def get_data(placename):
         lng = index_get(info, 9, 3) or 0
         img=(index_get(info, 72,0,1,6,0)) 
         googleMapLocation = index_get(info, 42) or ""
+        try:
+            googleImages = [index_get(img_data, 6,0) for img_data in index_get(info, 52,0,0,14) ]
+            print(googleImages)
+        except:
+            googleImages=img
         facebookLink = index_get(info, 7, 0) or ""
         placeName = index_get(info, 11) or ""
         timeZone = index_get(info, 30) or ""
@@ -288,7 +312,7 @@ def get_data(placename):
         "PriceRange":priceRange,
         "PhoneNumber": tel,
         "GooglePlaceName": address.replace(f"{placeName},",placeName),
-        "GooglePlaceImage":img,
+        "GooglePlaceImage":googleImages,
         "Rating": rating,
         "Rating_n": rating_n,
         "CurrentPopularity": current_popularity,
@@ -307,15 +331,14 @@ def get_data(placename):
         print("")
         print("")
         if df['PlaceName']!="":
-
-            aa=requests.post("https://scouterlive.azurewebsites.net/api/v1/Place/Insert",json=df)
-            print(aa.json())
-            return aa.json()
+            aa=insert_place(df,action)
+            return aa
         return df
 
     except Exception as e :
         print(f"got error {e}")
         
+
 
 
 # from concurrent.futures import ThreadPoolExecutor as PoolExecutor
@@ -394,4 +417,5 @@ def get_data(placename):
     
 # city_id='c118807b-e7a0-4999-efcf-08dab69f5de6'
 
-# get_data("Sri Non Thai Street Food 39 Great George St, Leeds LS1 3BB, United Kingdom","","")
+# a=get_data(" The Woods, Leeds Chapel Allerton, Leeds LS7 3PD","723289d5-9983-4a2f-6538-08dcc857d3e1","UK","insert")
+# print(a)

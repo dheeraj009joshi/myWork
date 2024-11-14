@@ -7,7 +7,7 @@ import pandas as pd
 import argparse
 import os
 import sys
-
+from config import CITY_ID,COUNTRY
 from insert_places import get_data
 # from insert_places import get_data
 
@@ -91,7 +91,7 @@ def main():
         total = args.total
     else:
         # if no total is passed, we set the value to random big number
-        total = 100000000 # change according to you 
+        total = 100000 # change according to you 
 
     if not args.search:
         search_list = []
@@ -235,7 +235,8 @@ def main():
                     
                     
                     business.latitude, business.longitude = extract_coordinates_from_url(page.url)
-                    get_data(f"{business.name} {business.address}")
+                    search_string=search_for.split("in")[-1]
+                    get_data(f"{business.name} {business.address}",CITY_ID,COUNTRY,"insert")
                     # print(business)
                     print(business)
                     business_list.business_list.append(business)

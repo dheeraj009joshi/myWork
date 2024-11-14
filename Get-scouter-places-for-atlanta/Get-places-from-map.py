@@ -7,7 +7,7 @@ import pandas as pd
 import argparse
 import os
 import sys
-
+from config import CITY_ID,COUNTRY
 from insert_places import get_data
 # from insert_places import get_data
 
@@ -97,14 +97,10 @@ def main():
         search_list = []
         # read search from input.txt file
         input_file_name = 'input.txt'
-        # Get the absolute path of the file in the current working directory
-        input_file_path = os.path.join(os.getcwd(), input_file_name)
-        # Check if the file exists
-        if os.path.exists(input_file_path):
-        # Open the file in read mode
-            with open(input_file_path, 'r') as file:
-            # Read all lines into a list
-                search_list = file.readlines()
+        with open(input_file_name, 'r') as file:
+        # Read all lines into a list
+            print(file)
+            search_list = file.readlines()
                 
         if len(search_list) == 0:
             print('Error occured: You must either pass the -s search argument, or add searches to input.txt')
@@ -235,7 +231,7 @@ def main():
                     
                     
                     business.latitude, business.longitude = extract_coordinates_from_url(page.url)
-                    get_data(f"{business.name} {business.address}")
+                    get_data(f"{business.name} {business.address}",CITY_ID,COUNTRY,"insert")
                     # print(business)
                     print(business)
                     business_list.business_list.append(business)
