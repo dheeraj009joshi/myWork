@@ -91,7 +91,7 @@ def main():
         total = args.total
     else:
         # if no total is passed, we set the value to random big number
-        total = 10000000 # change according to you 
+        total = 10000000000 # change according to you 
 
     if not args.search:
         search_list = []
@@ -110,7 +110,7 @@ def main():
     # scraping
     ###########
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        browser = p.chromium.launch(headless=False)
         page = browser.new_page()
 
         page.goto("https://www.google.com/maps", timeout=60000)
@@ -231,8 +231,8 @@ def main():
                     
                     
                     business.latitude, business.longitude = extract_coordinates_from_url(page.url)
-                    get_data(f"{business.name} {business.address}",CITY_ID,COUNTRY,"insert")
-                    # print(business)
+                    aa=get_data(f"{business.name} {business.address}",CITY_ID,COUNTRY,"insert")
+                    print(aa)
                     print(business)
                     business_list.business_list.append(business)
                 except Exception as e:

@@ -14,6 +14,50 @@ import random
 
 from config import BASE_URL, CITY_ID, SEARCH_URL1, SEARCH_URL2, SEARCH_URL3
 
+def get_token():
+
+
+    # Define the URL and headers
+    url = 'https://portal.maiden-ai.com/api/v1/cube/Scouter Galactic Pvt Ltd/night life/UserManagement/User/RegisterDeviceWithPhone'
+    headers = {
+        'Content-Type': 'application/json'
+    }
+    # Define the data payload
+    data = {
+        "Json": {
+            "OrganizationId": "2F811577-56EC-4BDF-8E3C-6190FDC63BA8",
+            "User": {
+                "CountryCode": "+91",
+                "Phone": "9032389802",
+                "Latitude": 19.39719,
+                "Longitude": 78.48653
+            },
+            "UserDevice": {
+                "DeviceId": "1BDED89B-B590-4F0C-AE74-C286494E03D8",
+                "DeviceToken": "1BDED89B-B590-4F0C-AE74-C286494E03D8",
+                "Language": "en-US",
+                "DeviceName": "nexus",
+                "DeviceType": "android",
+                "DeviceOSVersion": "12.3.1",
+                "AppName": "Confess Ltd",
+                "AppVersion": "1.0"
+            }
+        }
+    }
+
+    # Send the POST request
+    response = re.post(url, headers=headers, data=json.dumps(data))
+
+    # Print the response
+    if response.status_code == 200:
+        return response.json()['data']["Token"]
+    else:
+        print("Failed to get data:", response.status_code, response.text)
+
+
+
+
+
 def job():
     # data={"cityId":"85ab5e34-3d98-406f-a8c1-77df8ed68c2c"}
     data={
@@ -22,15 +66,24 @@ def job():
         "filterTerm":CITY_ID,
         "filterType": "EQUALS",
         "filterBy": "cityId"
+        
         }
-        ]
+        ],
+    "pageSize": 100000 
     }
-
-    main=re.post(f"{BASE_URL}/api/v1/Place/List",json=data).json()
-    
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': f'Bearer {get_token()}'
+    }
+    main=re.post(f"{BASE_URL}/api/v1/cube/Scouter Galactic Pvt Ltd/night life/scoutermap/Place/list",json=data,headers=headers).json()
     googlePlaceName=[]
+    a=0
+    f=open("dddddddd.txt","w")
+    f.write(str(main))
+    print(main)
     for i in main["data"]:
-        # print(i)
+        
+        a+=1
         place_name=i["GooglePlaceName"]
         googlePlaceName.append(place_name)
     rows = googlePlaceName
@@ -135,7 +188,11 @@ def job():
                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.1.2222.33 Safari/537.36",
                    "Accept-Encoding": "*",
                    "Connection": "keep-alive", "Accept": "*/*"}
-        response = re.post(f"{BASE_URL}/api/v1/Place/UpdateCurrentPopularity",json=updateRecords[n * insertnumber :start], headers=headers, timeout=20 *60)
+        headers = {
+        'Content-Type': 'application/json',
+        'Authorization': f'Bearer {get_token()}'
+    }
+        response = re.post(f"{BASE_URL}/api/v1/cube/Scouter Galactic Pvt Ltd/night life/scoutermap/Place/UpdateCurrentPopularity",json=updateRecords[n * insertnumber :start], headers=headers, timeout=20 *60)
 
         print(response.content)
         end_update_100=time.time()
@@ -152,7 +209,6 @@ while True:
         except Exception as error  :
             print(error)
             pass
-    # except:
     #     sender_email = "datamanagement@tikuntech.com"
     #     receiver_email = ["dlovej009@gmail.com"]
     #     password = "Maidenatlanta123"

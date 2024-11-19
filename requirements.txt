@@ -1,0 +1,7 @@
+Requirements:- 
+
+1. alternative/new method for this url 
+          ----  {BASE_URL}/api/v1/Place/UpdateCurrentPopularity
+          sample body:- [{ 'googlePlaceName': "googlePlaceName", 'currentpopularity': current_popularity },......]
+          
+

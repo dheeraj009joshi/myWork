@@ -253,7 +253,7 @@ def get_data(placename,CITY_ID,COUNTRY, action):
         img=(index_get(info, 72,0,1,6,0)) 
         googleMapLocation = index_get(info, 42) or ""
         try:
-            googleImages = [index_get(img_data, 6,0) for img_data in index_get(info, 52,0,0,14) ]
+            googleImages =",".join( [index_get(img_data, 6,0) for img_data in index_get(info, 52,0,0,14) ])
             print(googleImages)
         except:
             googleImages=img
