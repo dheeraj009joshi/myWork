@@ -38,10 +38,17 @@ print(len(urls))
 import requests
 
 def insert_place(data,action):
-    if action =="insert":
+    
+    if action =="detail":
+        return data
+    elif action =="mobile-detail":
+        return data
+    elif action =="insert":
         url = "https://portal.maiden-ai.com/api/v1/cube/Scouter%20Galactic%20Pvt%20Ltd/night%20life/scoutermap/Place/insert"
     elif action == "update":
         url = "https://portal.maiden-ai.com/api/v1/cube/Scouter%20Galactic%20Pvt%20Ltd/night%20life/scoutermap/Place/update"
+    elif action == "mobile-insert":
+        url = "https://scouterlive.azurewebsites.net/api/v1/Place/Insert"
     headers = {
         "Content-Type": "application/json",
         "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJVc2VySWQiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJEZXZpY2VJZCI6IjFCREVEODlCLUI1OTAtNEYwQy1BRTc0LUMyODY0OTRFMDNEOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjExLzE0LzIwMjQgMDQ6MDI6NTAiLCJuYmYiOjE3MzE1NTY5NzAsImV4cCI6MTc2MzA5Mjk3MCwiaWF0IjoxNzMxNTU2OTcwfQ.MkSV__2iuV2IOSpissPc3HlSD_YEzlj7CPCJZkHfxvE"
@@ -52,7 +59,7 @@ def insert_place(data,action):
     return response.json()
 
 
-def get_data(placename,CITY_ID,COUNTRY, action):
+def get_data(placename,CITY_ID,COUNTRY, action,address):
     try:
         # data=json.loads(str(data).replace("'",'"'))
         # print(type(data))
@@ -240,8 +247,8 @@ def get_data(placename,CITY_ID,COUNTRY, action):
         a=open("info_27.txt","w",encoding="utf-8")
         a.write(str(index_get(info)))
         populartimes, timewait = get_popularity_for_day(popular_times)
-        rating = json.dumps(rating or "")
-        rating_n = json.dumps(rating_n or "")
+        rating = json.dumps(rating or None)
+        rating_n = json.dumps(rating_n or None)
         current_popularity = json.dumps(current_popularity or 0)
         time_spent  = str(time_spent or []).strip('[]')
         priceRange = len(str(index_get(info, 4, 2) or '$'))
@@ -324,6 +331,13 @@ def get_data(placename,CITY_ID,COUNTRY, action):
         "Neighborhood": neighborhood,
         "AverageTimeSpent":avgTimeSpent,
     }
+        
+        
+        
+        if df["Rating"]== None or df["Rating"]=="null" :
+            df.pop("Rating")
+        if df["Rating_n"]== None or df["Rating_n"]=="null":
+            df.pop("Rating_n")
         print("")
         print("")
         print("")
@@ -333,7 +347,9 @@ def get_data(placename,CITY_ID,COUNTRY, action):
         if df['PlaceName']!="":
             aa=insert_place(df,action)
             return aa
-        return df
+        else:
+            return None
+        
 
     except Exception as e :
         print(f"got error {e}")
@@ -417,5 +433,5 @@ def get_data(placename,CITY_ID,COUNTRY, action):
     
 # city_id='c118807b-e7a0-4999-efcf-08dab69f5de6'
 
-# a=get_data(" The Woods, Leeds Chapel Allerton, Leeds LS7 3PD","723289d5-9983-4a2f-6538-08dcc857d3e1","UK","insert")
+# a=get_data("The White Swan, Yeadon High Street, Yeadon, LS19 7TA","723289d5-9983-4a2f-6538-08dcc857d3e1","UK","insert","High Street, Yeadon, LS19 7TA")
 # print(a)

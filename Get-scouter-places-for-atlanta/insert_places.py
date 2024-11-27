@@ -38,13 +38,20 @@ print(len(urls))
 import requests
 
 def insert_place(data,action):
-    if action =="insert":
+    
+    if action =="detail":
+        return data
+    elif action =="mobile-detail":
+        return data
+    elif action =="insert":
         url = "https://portal.maiden-ai.com/api/v1/cube/Scouter%20Galactic%20Pvt%20Ltd/night%20life/scoutermap/Place/insert"
     elif action == "update":
         url = "https://portal.maiden-ai.com/api/v1/cube/Scouter%20Galactic%20Pvt%20Ltd/night%20life/scoutermap/Place/update"
+    elif action == "mobile-insert":
+        url = "https://scouterlive.azurewebsites.net/api/v1/Place/Insert"
     headers = {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJVc2VySWQiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJEZXZpY2VJZCI6IjFCREVEODlCLUI1OTAtNEYwQy1BRTc0LUMyODY0OTRFMDNEOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjExLzE5LzIwMjQgMTI6MTU6MDUiLCJuYmYiOjE3MzIwMTg1MDUsImV4cCI6MTc2MzU1NDUwNSwiaWF0IjoxNzMyMDE4NTA1fQ.C3hycswaAgRvhEFesttElyq2CYI0uvqa9Y1nimar3hk"
+        "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJVc2VySWQiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJEZXZpY2VJZCI6IjFCREVEODlCLUI1OTAtNEYwQy1BRTc0LUMyODY0OTRFMDNEOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjExLzE0LzIwMjQgMDQ6MDI6NTAiLCJuYmYiOjE3MzE1NTY5NzAsImV4cCI6MTc2MzA5Mjk3MCwiaWF0IjoxNzMxNTU2OTcwfQ.MkSV__2iuV2IOSpissPc3HlSD_YEzlj7CPCJZkHfxvE"
     }
 
     response = requests.post(url, headers=headers, json=data)
@@ -52,7 +59,7 @@ def insert_place(data,action):
     return response.json()
 
 
-def get_data(placename,CITY_ID,COUNTRY, action):
+def get_data(placename,CITY_ID,COUNTRY, action,address):
     try:
         # data=json.loads(str(data).replace("'",'"'))
         # print(type(data))
@@ -240,8 +247,8 @@ def get_data(placename,CITY_ID,COUNTRY, action):
         a=open("info_27.txt","w",encoding="utf-8")
         a.write(str(index_get(info)))
         populartimes, timewait = get_popularity_for_day(popular_times)
-        rating = json.dumps(rating or "")
-        rating_n = json.dumps(rating_n or "")
+        rating = json.dumps(rating or None)
+        rating_n = json.dumps(rating_n or None)
         current_popularity = json.dumps(current_popularity or 0)
         time_spent  = str(time_spent or []).strip('[]')
         priceRange = len(str(index_get(info, 4, 2) or '$'))
@@ -324,6 +331,13 @@ def get_data(placename,CITY_ID,COUNTRY, action):
         "Neighborhood": neighborhood,
         "AverageTimeSpent":avgTimeSpent,
     }
+        
+        
+        
+        if df["Rating"]== None or df["Rating"]=="null" :
+            df.pop("Rating")
+        if df["Rating_n"]== None or df["Rating_n"]=="null":
+            df.pop("Rating_n")
         print("")
         print("")
         print("")
@@ -333,7 +347,9 @@ def get_data(placename,CITY_ID,COUNTRY, action):
         if df['PlaceName']!="":
             aa=insert_place(df,action)
             return aa
-        return df
+        else:
+            return None
+        
 
     except Exception as e :
         print(f"got error {e}")
@@ -417,11 +433,5 @@ def get_data(placename,CITY_ID,COUNTRY, action):
     
 # city_id='c118807b-e7a0-4999-efcf-08dab69f5de6'
 
-# a=get_data(" The Woods, Leeds Chapel Allerton, Leeds LS7 3PD","723289d5-9983-4a2f-6538-08dcc857d3e1","UK","insert")
+# a=get_data("The White Swan, Yeadon High Street, Yeadon, LS19 7TA","723289d5-9983-4a2f-6538-08dcc857d3e1","UK","insert","High Street, Yeadon, LS19 7TA")
 # print(a)
-# dd={'CityId': '85ab5e34-3d98-406f-a8c1-77df8ed68c2c', 'PlaceName': "Marlow's Tavern", 'Country': 'USA', 'Address': '2355 Cumberland Pkwy SE #10, Atlanta, GA 30339, United States', 'Zipcode': 30339, 'Latitude': 33.859458599999996, 'Longitude': -84.4807799, 'PlaceType': 'Bar', 'BusyHoursSun': '0,0,0,0,0,0,0,0,0,0,0,22,30,30,28,26,28,40,48,48,32,0,0,0', 'BusyHoursMon': '0,0,0,0,0,0,0,0,0,0,0,28,42,47,43,46,54,67,71,64,46,0,0,0', 'BusyHoursTue': '0,0,0,0,0,0,0,0,0,0,0,27,38,42,44,44,49,59,74,76,55,0,0,0', 'BusyHoursWed': '0,0,0,0,0,0,0,0,0,0,0,18,32,41,36,35,50,64,79,72,57,0,0,0', 'BusyHoursThu': '0,0,0,0,0,0,0,0,0,0,0,20,26,31,34,44,58,84,98,100,84,0,0,0', 'BusyHoursFri': '0,0,0,0,0,0,0,0,0,0,0,18,36,50,66,70,77,84,96,90,68,0,0,0', 'BusyHoursSat': '0,0,0,0,0,0,0,0,0,0,0,39,55,59,57,56,59,62,69,62,43,0,0,0', 'RaceWhite': 20, 'RaceBlack': 20, 'RaceAsian': 20, 'RaceLatino': 20, 'RaceIndian': 20, 'GenderMale': 45, 'GenderFemale': 45, 'GenderOthers': 10, 'InterestGay': 15, 'InterestStraight': 70, 'InterestBisexual': 15, 'PriceRange': '$$', 'PhoneNumber': '+1 770-432-2526', 'GooglePlaceName': "Marlow's Tavern 2355 Cumberland Pkwy SE #10, Atlanta, GA 30339, United States", 'GooglePlaceImage': 'https://lh5.googleusercontent.com/p/AF1QipMvDyLtqfnnPIgoHhUokFig6_Hyg5lQgHrqraYT=w150-h150-k-no-p,https://lh5.googleusercontent.com/p/AF1QipM-Tfm26iZY8nSV7OFsTh-IMROxkkkoU2mJbgBs=w150-h150-k-no-p,https://lh5.googleusercontent.com/p/AF1QipOBv037dtJeQUePXTBFJDSUPu-4w5thU3jHxdNv=w150-h150-k-no-p,https://lh5.googleusercontent.com/p/AF1QipO33os2tPFO5T6thWmgI_SOWkg71AWkutNpOlP3=w150-h150-k-no-p,https://lh5.googleusercontent.com/p/AF1QipOV8s303c8rQa3AMCDhk9HsB_eNlElgC6OGCu39=w150-h150-k-no-p,https://lh5.googleusercontent.com/p/AF1QipOtezMyfF86DmiNNiQTtuQe4j1ge8k_t5CX982i=w150-h150-k-no-p,https://lh5.googleusercontent.com/p/AF1QipNadLDN8g8XoIjr7zKed9YSnuOYwF819cNusCRl=w150-h150-k-no-p', 'Rating': '4.5', 'Rating_n': '2018', 'CurrentPopularity': '0', 'CurrentPopularityStatus': '', 'TimeSpent': '', 'GoogleMapLocation': "https://www.google.de/maps/preview/place/Marlow's+Tavern,+2355+Cumberland+Pkwy+SE+%2310,+Atlanta,+GA+30339,+United+States/@33.8594586,-84.4807799,3313a,13.1y/data=!4m2!3m1!1s0x88f510876300b0fb:0x61bde6c0edd657b4", 'FacebookLink': 'https://www.marlowstavern.com/georgia/vinings&opi=79508299&sa=U&ved=0ahUKEwim-fOmh9uJAxWxHhAIHS7vBNkQ61gIFigQ&usg=AOvVaw1wEQFkKncccYn4WeXq8lUe', 'TimeZone': 'America/New_York', 'Neighborhood': 'Cumberland', 'AverageTimeSpent': ''}
-# a=insert_place(dd,"insert")
-
-
-# print(a)
-
