@@ -12,7 +12,7 @@ from concurrent.futures import ThreadPoolExecutor as PoolExecutor
 import random
 # from Mail_function import mail_send
 
-from config import BASE_URL, CITY_ID, SEARCH_URL1, SEARCH_URL2, SEARCH_URL3
+from config import BASE_URL_OLD, CITY_ID, SEARCH_URL1, SEARCH_URL2, SEARCH_URL3
 
 def get_token():
 
@@ -72,9 +72,8 @@ def job():
     }
     headers = {
         'Content-Type': 'application/json',
-        'Authorization': f'Bearer {get_token()}'
     }
-    main=re.post(f"{BASE_URL}/api/v1/cube/Scouter Galactic Pvt Ltd/night life/scoutermap/Place/list",json=data,headers=headers).json()
+    main=re.post(f"{BASE_URL_OLD}/api/v1/Place/list",json=data,headers=headers).json()
     print(main)
     googlePlaceName=[]
     for i in main["data"]:
@@ -178,16 +177,16 @@ def job():
     insertnumber = 100
     for n in range(int(len(updateRecords)/insertnumber)+1):
         start = (n + 1) * insertnumber
-        print(len(updateRecords[n * insertnumber :start]))
+        # print(len(updateRecords[n * insertnumber :start]))
         headers = {'Content-Type': 'application/json',
                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.1.2222.33 Safari/537.36",
                    "Accept-Encoding": "*",
                    "Connection": "keep-alive", "Accept": "*/*"}
         headers = {
         'Content-Type': 'application/json',
-        'Authorization': f'Bearer {get_token()}'
     }
-        response = re.post(f"{BASE_URL}/api/v1/cube/Scouter Galactic Pvt Ltd/night life/scoutermap/Place/UpdateCurrentPopularity",json=updateRecords[n * insertnumber :start], headers=headers, timeout=20 *60)
+        print(updateRecords[n * insertnumber :start])
+        response = re.post(f"{BASE_URL_OLD}/api/v1/Place/UpdateCurrentPopularity",json=updateRecords[n * insertnumber :start], headers=headers, timeout=20 *60)
 
         print(response.content)
         end_update_100=time.time()

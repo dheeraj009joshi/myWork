@@ -1,5 +1,6 @@
 #SERVER CONFIG
 BASE_URL='https://portal.maiden-ai.com'
+BASE_URL_OLD='https://scouterlive.azurewebsites.net'
 
 
 
