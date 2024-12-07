@@ -1,8 +1,8 @@
 
 
-PROXIES_SEARCH_URL1='https://list.didsoft.com/get?email=tikuntechnologies@gmail.com&pass=bwnh68&pid=http1000&showcountry=no'
-PROXIES_SEARCH_URL2='https://list.didsoft.com/get?email=tikuntechnologies@gmail.com&pass=bwnh68&pid=http1000&showcountry=no&leve2=1&country=US'
-PROXIES_SEARCH_URL3='https://list.didsoft.com/get?email=tikuntechnologies@gmail.com&pass=bwnh68&pid=http1000&showcountry=no&leve3=1&country=US'
+PROXIES_SEARCH_URL1='http://list.didsoft.com/get?email=tikuntechnologies@gmail.com&pass=bwnh68&pid=http1000&showcountry=no'
+PROXIES_SEARCH_URL2='http://list.didsoft.com/get?email=tikuntechnologies@gmail.com&pass=bwnh68&pid=http1000&showcountry=no&leve2=1&country=US'
+PROXIES_SEARCH_URL3='http://list.didsoft.com/get?email=tikuntechnologies@gmail.com&pass=bwnh68&pid=http1000&showcountry=no&leve3=1&country=US'
 
 mobile_urls={
     

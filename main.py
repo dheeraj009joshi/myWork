@@ -8,7 +8,8 @@ import random
 import re
 import ssl
 from urllib.parse import quote
-from config import PROXIES_SEARCH_URL1,PROXIES_SEARCH_URL2,PROXIES_SEARCH_URL3,mobile_urls
+from config import CITY_DATA, PROXIES_SEARCH_URL1,PROXIES_SEARCH_URL2,PROXIES_SEARCH_URL3,mobile_urls
+from hikerapi import Client
 
 
 from playwright.sync_api import sync_playwright
@@ -26,28 +27,25 @@ import urllib.request
 class ScouterPlaces:
     
     def __init__(self):
-        self.proxies=self.get_proxies_urls()
+        self.proxies=[]
         self.headers= {
         "Content-Type": "application/json",
         "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJVc2VySWQiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJEZXZpY2VJZCI6IjFCREVEODlCLUI1OTAtNEYwQy1BRTc0LUMyODY0OTRFMDNEOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjExLzE0LzIwMjQgMDQ6MDI6NTAiLCJuYmYiOjE3MzE1NTY5NzAsImV4cCI6MTc2MzA5Mjk3MCwiaWF0IjoxNzMxNTU2OTcwfQ.MkSV__2iuV2IOSpissPc3HlSD_YEzlj7CPCJZkHfxvE"
     }
         
     def get_proxies_urls(self):
-        urls=[]
-        resp = urllib.request.urlopen(urllib.request.Request(url=PROXIES_SEARCH_URL1, data=None))
-        data = resp.read().decode('utf-8').split('/*""*/')[0]
-        for i in data.split("\n"):
-            urls.append(i)
-        resp = urllib.request.urlopen(urllib.request.Request(url=PROXIES_SEARCH_URL2, data=None))
-        data = resp.read().decode('utf-8').split('/*""*/')[0]
-        for i in data.split("\n"):
-            urls.append(i)
-        resp = urllib.request.urlopen(urllib.request.Request(url=PROXIES_SEARCH_URL3, data=None))
-        data = resp.read().decode('utf-8').split('/*""*/')[0]
-        for i in data.split("\n"):
-            urls.append(i)
-        # self.proxies=urls
+        urls = []
+        for search_url in [PROXIES_SEARCH_URL1,PROXIES_SEARCH_URL2,PROXIES_SEARCH_URL3]:
+            try:
+                resp = urllib.request.urlopen(urllib.request.Request(url=search_url, data=None))
+                data = resp.read().decode('utf-8').split('/*""*/')[0]
+                urls.extend(data.split("\n"))
+            except Exception as e:
+                print(f"Error fetching from {search_url}: {e}")
+        print(len(urls))
         return urls
+
+        # return urls
 
     def get_place_info_from_google(self,placename,CITY_ID,COUNTRY):
         try:
@@ -132,6 +130,14 @@ class ScouterPlaces:
                     return array
                 except (IndexError, TypeError):
                     return None
+            def extract_openingtiming(i,start_index,end_index):
+                d=str(i[1][0]).replace("\u202f","").split("–")
+                print(d)
+                start=d[0].replace("am","") if "am" in d[0] else  str(int(d[0].replace("pm",""))+12) 
+                end=d[1].replace("am","") if "am" in d[1] else  str(int(d[1].replace("pm",""))+12) 
+                OpeningHour.insert(start_index,start)
+                OpeningHour.insert(end_index,end)
+            
             params_url = {
                     "tbm": "map",
                     "tch": 1,
@@ -220,6 +226,24 @@ class ScouterPlaces:
             neighborhood = index_get(info,14) or ""
             vibe = index_get(info,100)
             avgTimeSpent = index_get(info,117,0) or ""
+            OpeningHour=[]
+            openhours=index_get(info, 34,1) or ""
+            for i in openhours:
+                if i[0]=="Sunday":
+                    extract_openingtiming(i,0,1)
+                if i[0]=="Monday":
+                    extract_openingtiming(i,2,3)
+                if i[0]=="Tuesday":
+                    extract_openingtiming(i,4,5)
+                if i[0]=="Wednesday":
+                    extract_openingtiming(i,6,7)
+                if i[0]=="Thursday":
+                    extract_openingtiming(i,8,9)
+                if i[0]=="Friday":
+                    extract_openingtiming(i,10,11)
+                if i[0]=="Saturday":
+                    extract_openingtiming(i,12,13)
+            OpeningHour=",".join(OpeningHour)
             zipcode = 0
 
             for strs in address.replace(',',"").split(" "):
@@ -253,6 +277,7 @@ class ScouterPlaces:
             "BusyHoursThu": populartimes[4].replace(" ",""),
             "BusyHoursFri":populartimes[5].replace(" ",""),
             "BusyHoursSat": populartimes[6].replace(" ",""),
+            "OpeningHours ":OpeningHour,
             "RaceWhite": 20,
             "RaceBlack": 20,
             "RaceAsian": 20,
@@ -528,3 +553,56 @@ class ScouterPlaces:
                     except Exception as e:
                         print(f'Error occured: {e}')
             browser.close()
+            
+            
+    def get_places_data(self,CityID):
+        data={
+        "filterInfo": [
+            {
+            "filterTerm":CityID,
+            "filterType": "EQUALS",
+            "filterBy": "cityId"
+            }
+            ],
+        "pageSize": 100000 
+        }
+        headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJVc2VySWQiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJEZXZpY2VJZCI6IjFCREVEODlCLUI1OTAtNEYwQy1BRTc0LUMyODY0OTRFMDNEOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjExLzE5LzIwMjQgMTI6MTU6MDUiLCJuYmYiOjE3MzIwMTg1MDUsImV4cCI6MTc2MzU1NDUwNSwiaWF0IjoxNzMyMDE4NTA1fQ.C3hycswaAgRvhEFesttElyq2CYI0uvqa9Y1nimar3hk"
+    }
+
+        main=requests.post(f"https://scouterlive.azurewebsites.net/api/v1/Place/list",json=data,headers=headers).json()
+        print(main)
+        return main['data']
+    
+    def get_top3_posts_for_place(self,placeData):
+        print(placeData["InstagramLocation"])
+        urls=[]
+        cl=Client("zkixRmPS48UJQYoGMFnFNi1pFS9tH3cx")
+        posts=cl.location_medias_top_v1(placeData["InstagramLocation"],3)
+        for data in posts:
+            if data["media_type"] == 1:
+                urls.append(data["thumbnail_url"])
+            elif data["media_type"] == 2 and  data['product_type'] == "clips":
+                urls.append(data["thumbnail_url"])
+                
+            elif data["media_type"] == 8 and  data['product_type'] == "carousel_container":
+                urls.append(data['resources'][0]['thumbnail_url'])
+        return ",".join(urls)
+                
+    def update_places(self ,placeId,data):
+        data["PlaceId"]=placeId
+        res=requests.post(mobile_urls['BASE_URL']+mobile_urls['PLACE_UPDATE'],json=data,headers=self.headers).json()
+        print(res)      
+        
+aa=ScouterPlaces()
+aa.get_proxies_urls()
+print("proxies done")
+places=aa.get_places_data(CITY_DATA['LEEDS']['ID'])
+for plcedetail in places:
+    place_images=aa.get_top3_posts_for_place(plcedetail)
+    place_json=aa.get_place_info_from_google(plcedetail['GooglePlaceName'],plcedetail['CityId'],plcedetail["Country"])
+    
+    place_json["MigratedImages"]=place_images
+    print(place_json)
+    update=aa.update_places(plcedetail["PlaceId"],place_json)

@@ -43,16 +43,7 @@ class BusinessList:
             (asdict(business) for business in self.business_list), sep="_"
         )
 
-    # def save_to_excel(self, filename):
-    #     """saves pandas dataframe to excel (xlsx) file
-
-    #     Args:
-    #         filename (str): filename
-    #     """
-
-    #     if not os.path.exists(self.save_at):
-    #         os.makedirs(self.save_at)
-    #     self.dataframe().to_excel(f"output/{filename}.xlsx", index=False)
+  
 
     def save_to_csv(self, filename):
         """saves pandas dataframe to csv file
