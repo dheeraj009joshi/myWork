@@ -43,12 +43,13 @@ class ScouterPlaces:
             except Exception as e:
                 print(f"Error fetching from {search_url}: {e}")
         print(len(urls))
+        self.proxies=urls
         return urls
 
         # return urls
 
     def get_place_info_from_google(self,placename,CITY_ID,COUNTRY):
-        try:
+        # try:
             address = quote(placename).split()
             user_agent = random.choice(user_agent_list)
             headers = {'User-Agent': user_agent}
@@ -133,8 +134,12 @@ class ScouterPlaces:
             def extract_openingtiming(i,start_index,end_index):
                 d=str(i[1][0]).replace("\u202f","").split("–")
                 print(d)
-                start=d[0].replace("am","") if "am" in d[0] else  str(int(d[0].replace("pm",""))+12) 
-                end=d[1].replace("am","") if "am" in d[1] else  str(int(d[1].replace("pm",""))+12) 
+                try:
+                    start=d[0].replace("am","").replace("AM","") if "am"  in d[0] or "AM" in d[0] else  str(int(str(d[0]).lower().replace("pm",""))+12) 
+                    end=d[1].replace("am","").replace("AM","") if "am"  in d[1] or "AM" in d[1] else  str(int(str(d[1]).lower().replace("pm",""))+12) 
+                except:
+                    start="0"
+                    end="0"
                 OpeningHour.insert(start_index,start)
                 OpeningHour.insert(end_index,end)
             
@@ -277,7 +282,7 @@ class ScouterPlaces:
             "BusyHoursThu": populartimes[4].replace(" ",""),
             "BusyHoursFri":populartimes[5].replace(" ",""),
             "BusyHoursSat": populartimes[6].replace(" ",""),
-            "OpeningHours ":OpeningHour,
+            "OpeningHours":OpeningHour,
             "RaceWhite": 20,
             "RaceBlack": 20,
             "RaceAsian": 20,
@@ -307,9 +312,9 @@ class ScouterPlaces:
             
             
             return df
-        except:
-            print("exception occer")
-            return None
+        # except:
+        #     print("exception occer")
+        #     return None
              
     def insert_place(self,placename,address,CITY_ID,CITY,COUNTRY):
         data=self.get_place_info_from_google(placename,CITY_ID,COUNTRY)
@@ -579,8 +584,10 @@ class ScouterPlaces:
         print(placeData["InstagramLocation"])
         urls=[]
         cl=Client("zkixRmPS48UJQYoGMFnFNi1pFS9tH3cx")
-        posts=cl.location_medias_top_v1(placeData["InstagramLocation"],3)
+        posts=cl.location_medias_top_v1(placeData["InstagramLocation"],5)
         for data in posts:
+            print(data)
+            print(type(data))
             if data["media_type"] == 1:
                 urls.append(data["thumbnail_url"])
             elif data["media_type"] == 2 and  data['product_type'] == "clips":
@@ -592,6 +599,7 @@ class ScouterPlaces:
                 
     def update_places(self ,placeId,data):
         data["PlaceId"]=placeId
+        print(data)
         res=requests.post(mobile_urls['BASE_URL']+mobile_urls['PLACE_UPDATE'],json=data,headers=self.headers).json()
         print(res)      
         
@@ -599,10 +607,12 @@ aa=ScouterPlaces()
 aa.get_proxies_urls()
 print("proxies done")
 places=aa.get_places_data(CITY_DATA['LEEDS']['ID'])
-for plcedetail in places:
-    place_images=aa.get_top3_posts_for_place(plcedetail)
+for plcedetail in places[7:]:
+    print(plcedetail)
     place_json=aa.get_place_info_from_google(plcedetail['GooglePlaceName'],plcedetail['CityId'],plcedetail["Country"])
-    
-    place_json["MigratedImages"]=place_images
-    print(place_json)
-    update=aa.update_places(plcedetail["PlaceId"],place_json)
+    if plcedetail['InstagramLocation']!=None:
+        place_images=aa.get_top3_posts_for_place(plcedetail)
+        place_json["MigratedImages"]=place_images
+        place_json["InstagramLocation"]=plcedetail['InstagramLocation']
+        # print(place_json)
+        update=aa.update_places(plcedetail["PlaceId"],place_json)
