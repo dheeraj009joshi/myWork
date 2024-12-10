@@ -131,15 +131,27 @@ class ScouterPlaces:
                     return array
                 except (IndexError, TypeError):
                     return None
+            
+            
+            
+            def convert_time(time_str):
+                if "am" in time_str.lower():
+                    return time_str.lower().replace("am", "")
+                elif "pm" in time_str.lower():
+                    hours, minutes = map(int, time_str.lower().replace("pm", "").split(":") if ":" in time_str else (time_str.lower().replace("pm", ""), "0"))
+                    return f"{hours + 12 if hours != 12 else 12}:{minutes:02d}" if ":" in time_str else str(hours + 12 if hours != 12 else 12)
+                return time_str  # In case the string is already in 24-hour format
+
             def extract_openingtiming(i,start_index,end_index):
                 d=str(i[1][0]).replace("\u202f","").split("–")
                 print(d)
-                try:
-                    start=d[0].replace("am","").replace("AM","") if "am"  in d[0] or "AM" in d[0] else  str(int(str(d[0]).lower().replace("pm",""))+12) 
-                    end=d[1].replace("am","").replace("AM","") if "am"  in d[1] or "AM" in d[1] else  str(int(str(d[1]).lower().replace("pm",""))+12) 
-                except:
+                if len(d) == 1 and d[0] == "Closed":
                     start="0"
                     end="0"
+                else:
+                    start = convert_time(d[0])
+                    end = convert_time(d[1])
+
                 OpeningHour.insert(start_index,start)
                 OpeningHour.insert(end_index,end)
             
@@ -248,6 +260,7 @@ class ScouterPlaces:
                     extract_openingtiming(i,10,11)
                 if i[0]=="Saturday":
                     extract_openingtiming(i,12,13)
+            print(OpeningHour)
             OpeningHour=",".join(OpeningHour)
             zipcode = 0
 
@@ -616,4 +629,5 @@ for plcedetail in places:
         # place_json["InstagramLocation"]=plcedetail['InstagramLocation']
         # print(place_json) ###
         plcedetail["OpeningHours"]=place_json["OpeningHours"]
+        plcedetail.pop("MigratedImages")
         update=aa.update_places(plcedetail)
