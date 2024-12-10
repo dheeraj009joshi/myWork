@@ -597,8 +597,7 @@ class ScouterPlaces:
                 urls.append(data['resources'][0]['thumbnail_url'])
         return ",".join(urls)
                 
-    def update_places(self ,placeId,data):
-        data["PlaceId"]=placeId
+    def update_places(self, data):
         print(data)
         res=requests.post(mobile_urls['BASE_URL']+mobile_urls['PLACE_UPDATE'],json=data,headers=self.headers).json()
         print(res)      
@@ -607,12 +606,14 @@ aa=ScouterPlaces()
 aa.get_proxies_urls()
 print("proxies done")
 places=aa.get_places_data(CITY_DATA['LEEDS']['ID'])
-for plcedetail in places[7:]:
-    print(plcedetail)
+for plcedetail in places:
+    # print(plcedetail)
     place_json=aa.get_place_info_from_google(plcedetail['GooglePlaceName'],plcedetail['CityId'],plcedetail["Country"])
+    # print(place_json)
     if plcedetail['InstagramLocation']!=None:
-        place_images=aa.get_top3_posts_for_place(plcedetail)
-        place_json["MigratedImages"]=place_images
-        place_json["InstagramLocation"]=plcedetail['InstagramLocation']
-        # print(place_json)
-        update=aa.update_places(plcedetail["PlaceId"],place_json)
+        # place_images=aa.get_top3_posts_for_place(plcedetail)
+        # place_json["MigratedImages"]=place_images
+        # place_json["InstagramLocation"]=plcedetail['InstagramLocation']
+        # print(place_json) ###
+        plcedetail["OpeningHours"]=place_json["OpeningHours"]
+        update=aa.update_places(plcedetail)
