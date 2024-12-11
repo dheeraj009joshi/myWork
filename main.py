@@ -150,7 +150,7 @@ class ScouterPlaces:
                     end="0"
                 else:
                     start = convert_time(d[0])
-                    end = convert_time(d[1])
+                    end = convert_time(d[-1])
 
                 OpeningHour.insert(start_index,start)
                 OpeningHour.insert(end_index,end)
@@ -207,7 +207,9 @@ class ScouterPlaces:
 
                 nums = [float(f) for f in re.findall(r'\d*\.\d+|\d+', time_spent.replace(",", "."))]
                 contains_min, contains_hour = "min" in time_spent, "hour" in time_spent or "hr" in time_spent
+
                 time_spent = None
+
                 if contains_min and contains_hour:
                     time_spent = [nums[0], nums[1] * 60]
                 elif contains_hour:
@@ -217,6 +219,32 @@ class ScouterPlaces:
 
                 time_spent = [int(t) for t in time_spent]
                 
+            def extract_opening_hours(data):
+                result = {}
+                for entry in data:
+                    day = entry[0]
+                    time_intervals = entry[-2]  # Directly using time data from entry[-2]
+
+                    if not time_intervals:  # Closed all day
+                        result[day] = []
+                    else:
+                        intervals = []
+                        for interval in time_intervals:
+                            print(interval)
+                            start_time = f"{interval[0]}:{interval[1]}"  # (hour, minute) for start time
+                            end_time = f"{interval[2]}:{interval[3]}"  # (hour, minute) for end time
+                            intervals.append(start_time)
+                            intervals.append(end_time)
+
+                        result[day] = intervals  if intervals!=[] else ["0","0"]
+                result_string = "-".join(
+                    ",".join(result[day]) if result[day] else "0,0"
+                    for day in ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+                )
+                return result_string
+
+
+
             a=open("info_27.txt","w",encoding="utf-8")
             a.write(str(index_get(info)))
             populartimes, timewait = get_popularity_for_day(popular_times)
@@ -227,6 +255,9 @@ class ScouterPlaces:
             priceRange = len(str(index_get(info, 4, 2) or '$'))
             types = index_get(info, 13, 0) or ''
             address = index_get(info, 18) or ""
+            description = index_get(info, 32,1,1) or ""
+            print(description)
+            
             tel = index_get(info, 3, 0) or index_get(info, 178, 0, 0) or ""
             lat = index_get(info, 9, 2) or 0
             lng = index_get(info, 9, 3) or 0
@@ -237,31 +268,19 @@ class ScouterPlaces:
                 print(googleImages)
             except:
                 googleImages=img
+
+            print(index_get(info, 34,1))
+            OpeningHour= extract_opening_hours(index_get(info, 34,1)) or ""
+            print(OpeningHour)
+            review_text_= [i[1] for i in index_get(info, 31,1) ]
+            review_text = ",".join(review_text_)
+            print(review_text)
             facebookLink = index_get(info, 7, 0) or ""
             placeName = index_get(info, 11) or ""
             timeZone = index_get(info, 30) or ""
             neighborhood = index_get(info,14) or ""
             vibe = index_get(info,100)
             avgTimeSpent = index_get(info,117,0) or ""
-            OpeningHour=[]
-            openhours=index_get(info, 34,1) or ""
-            for i in openhours:
-                if i[0]=="Sunday":
-                    extract_openingtiming(i,0,1)
-                if i[0]=="Monday":
-                    extract_openingtiming(i,2,3)
-                if i[0]=="Tuesday":
-                    extract_openingtiming(i,4,5)
-                if i[0]=="Wednesday":
-                    extract_openingtiming(i,6,7)
-                if i[0]=="Thursday":
-                    extract_openingtiming(i,8,9)
-                if i[0]=="Friday":
-                    extract_openingtiming(i,10,11)
-                if i[0]=="Saturday":
-                    extract_openingtiming(i,12,13)
-            print(OpeningHour)
-            OpeningHour=",".join(OpeningHour)
             zipcode = 0
 
             for strs in address.replace(',',"").split(" "):
@@ -278,6 +297,8 @@ class ScouterPlaces:
                 priceRange = '$$'
             else:
                 priceRange = '$'
+
+
                 
             df={
             "CityId": CITY_ID,
@@ -288,6 +309,8 @@ class ScouterPlaces:
             "Latitude": lat,
             "Longitude": lng,
             "PlaceType":types,
+            "Reviews":review_text,
+            "Description":description,
             "BusyHoursSun": populartimes[0].replace(" ",""),
             "BusyHoursMon": populartimes[1].replace(" ",""),
             "BusyHoursTue":populartimes[2].replace(" ",""),
@@ -624,10 +647,12 @@ for plcedetail in places:
     place_json=aa.get_place_info_from_google(plcedetail['GooglePlaceName'],plcedetail['CityId'],plcedetail["Country"])
     # print(place_json)
     if plcedetail['InstagramLocation']!=None:
-        # place_images=aa.get_top3_posts_for_place(plcedetail)
+        place_images=aa.get_top3_posts_for_place(plcedetail)
         # place_json["MigratedImages"]=place_images
         # place_json["InstagramLocation"]=plcedetail['InstagramLocation']
         # print(place_json) ###
         plcedetail["OpeningHours"]=place_json["OpeningHours"]
+        plcedetail["Reviews"]=place_json["Reviews"]
+        plcedetail["Description"]=place_json["Description"]
         plcedetail.pop("MigratedImages")
         update=aa.update_places(plcedetail)

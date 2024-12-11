@@ -244,6 +244,32 @@ def get_data(placename,CITY_ID,COUNTRY, action,address):
 
             time_spent = [int(t) for t in time_spent]
             
+        def extract_opening_hours(data):
+            result = {}
+            for entry in data:
+                day = entry[0]
+                time_intervals = entry[-2]  # Directly using time data from entry[-2]
+
+                if not time_intervals:  # Closed all day
+                    result[day] = []
+                else:
+                    intervals = []
+                    for interval in time_intervals:
+                        print(interval)
+                        start_time = f"{interval[0]}:{interval[1]}"  # (hour, minute) for start time
+                        end_time = f"{interval[2]}:{interval[3]}"  # (hour, minute) for end time
+                        intervals.append(start_time)
+                        intervals.append(end_time)
+
+                    result[day] = intervals  if intervals!=[] else ["0","0"]
+            result_string = "-".join(
+                ",".join(result[day]) if result[day] else "0,0"
+                for day in ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+            )
+            return result_string
+
+
+
         a=open("info_27.txt","w",encoding="utf-8")
         a.write(str(index_get(info)))
         populartimes, timewait = get_popularity_for_day(popular_times)
@@ -254,6 +280,9 @@ def get_data(placename,CITY_ID,COUNTRY, action,address):
         priceRange = len(str(index_get(info, 4, 2) or '$'))
         types = index_get(info, 13, 0) or ''
         address = index_get(info, 18) or ""
+        description = index_get(info, 32,1,1) or ""
+        print(description)
+        
         tel = index_get(info, 3, 0) or index_get(info, 178, 0, 0) or ""
         lat = index_get(info, 9, 2) or 0
         lng = index_get(info, 9, 3) or 0
@@ -264,6 +293,13 @@ def get_data(placename,CITY_ID,COUNTRY, action,address):
             print(googleImages)
         except:
             googleImages=img
+
+        print(index_get(info, 34,1))
+        openhours= extract_opening_hours(index_get(info, 34,1)) or ""
+        print(openhours)
+        review_text_= [i[1] for i in index_get(info, 31,1) ]
+        review_text = ",".join(review_text_)
+        print(review_text)
         facebookLink = index_get(info, 7, 0) or ""
         placeName = index_get(info, 11) or ""
         timeZone = index_get(info, 30) or ""
@@ -298,6 +334,8 @@ def get_data(placename,CITY_ID,COUNTRY, action,address):
         "Latitude": lat,
         "Longitude": lng,
         "PlaceType":types,
+        "Reviews":review_text,
+        "Description":description,
         "BusyHoursSun": populartimes[0].replace(" ",""),
         "BusyHoursMon": populartimes[1].replace(" ",""),
         "BusyHoursTue":populartimes[2].replace(" ",""),
@@ -305,6 +343,7 @@ def get_data(placename,CITY_ID,COUNTRY, action,address):
         "BusyHoursThu": populartimes[4].replace(" ",""),
         "BusyHoursFri":populartimes[5].replace(" ",""),
         "BusyHoursSat": populartimes[6].replace(" ",""),
+        "openhours":openhours,
         "RaceWhite": 20,
         "RaceBlack": 20,
         "RaceAsian": 20,
@@ -331,24 +370,25 @@ def get_data(placename,CITY_ID,COUNTRY, action,address):
         "Neighborhood": neighborhood,
         "AverageTimeSpent":avgTimeSpent,
     }
-        
-        
-        
-        if df["Rating"]== None or df["Rating"]=="null" :
-            df.pop("Rating")
-        if df["Rating_n"]== None or df["Rating_n"]=="null":
-            df.pop("Rating_n")
-        print("")
-        print("")
-        print("")
         print(df)
-        print("")
-        print("")
-        if df['PlaceName']!="":
-            aa=insert_place(df,action)
-            return aa
-        else:
-            return None
+        
+        
+        
+    #     if df["Rating"]== None or df["Rating"]=="null" :
+    #         df.pop("Rating")
+    #     if df["Rating_n"]== None or df["Rating_n"]=="null":
+    #         df.pop("Rating_n")
+    #     print("")
+    #     print("")
+    #     print("")
+    #     print(df)
+    #     print("")
+    #     print("")
+    #     if df['PlaceName']!="":
+    #         aa=insert_place(df,action)
+    #         return aa
+    #     else:
+    #         return None
         
 
     except Exception as e :
@@ -433,5 +473,6 @@ def get_data(placename,CITY_ID,COUNTRY, action,address):
     
 # city_id='c118807b-e7a0-4999-efcf-08dab69f5de6'
 
-# a=get_data("The White Swan, Yeadon High Street, Yeadon, LS19 7TA","723289d5-9983-4a2f-6538-08dcc857d3e1","UK","insert","High Street, Yeadon, LS19 7TA")
+a=get_data("Sweet Saeeda Unit 411, Leeds Kirkgate Market, Row F. Hall 1981, Leeds LS2 7JJ, United Kingdom","723289d5-9983-4a2f-6538-08dcc857d3e1","UK","insert","High Street, Yeadon, LS19 7TA")
+# a=get_data("Little Bangkok 2225 Cheshire Bridge Rd NE, Atlanta, GA 30324, United States","723289d5-9983-4a2f-6538-08dcc857d3e1","UK","insert","High Street, Yeadon, LS19 7TA")
 # print(a)
