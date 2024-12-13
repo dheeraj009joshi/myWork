@@ -1,0 +1,65 @@
+current_popularity =100, name = Flight Club Leeds Sovereign House, 1-2 S Parade, Leeds LS1 5QL, United Kingdom
+current_popularity =92, name = Roxy Ball Room Leeds Boar Lane 58 Boar Ln, Leeds LS1 6HW, United Kingdom
+current_popularity =71, name = 6, Be At One - Millennium Square Leeds Millennium Square, Leeds LS2 3AD, United Kingdom
+current_popularity =100, name = Lost & Found Leeds Club 3 Albion Pl, Leeds LS1 6JL, United Kingdom
+current_popularity =84, name = Lost & Found Leeds 12 Greek St, Leeds LS1 5RN, United Kingdom
+current_popularity =100, name = Archie's Bar & Kitchen Granary Wharf, Arches V & W, The Dark Arches Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =100, name = The Hop Arches X & Y Granary Wharf Dark, Neville St, Leeds LS1 4BR, United Kingdom
+current_popularity =100, name = Roxy Lanes Leeds The Light The Light, 44-48 The Headrow, Leeds LS1 8TL, United Kingdom
+current_popularity =100, name = Wetherspoons North Concourse, City Station, Leeds LS1 4DY, United Kingdom
+current_popularity =99, name = Sainsbury's 22-26 The Headrow, Leeds LS1 8EQ, United Kingdom
+current_popularity =78, name = Laidlaw Library, University of Leeds University of, Leeds LS2 9JT, United Kingdom
+current_popularity =78, name = Unit 38, Poundland Crown Point Retail Park, Leeds LS10 1ET, United Kingdom
+current_popularity =100, name = Electric Shuffle Leeds 123 The Headrow, Leeds LS1 5RD, United Kingdom
+current_popularity =80, name = Green Room 36 Wellington St, Leeds LS1 2DE, United Kingdom
+current_popularity =100, name = Merchant Leeds 20-24 Woodhouse Ln, Leeds LS2 8LX, United Kingdom
+current_popularity =87, name = The Park VR Leeds Falcon House, Walter St, Burley, Leeds LS4 2BB, United Kingdom
+current_popularity =100, name = Sky Lounge Granary Wharf, Leeds LS1 4BR, United Kingdom
+current_popularity =100, name = The Lock Granary Wharf House, 2 Wharf Approach, Leeds LS1 4BR, United Kingdom
+current_popularity =100, name = Level 1, The Alchemist Trinity Trinity, Leeds LS1 6HW, United Kingdom
+current_popularity =100, name = Banyan Bar & Kitchen - Leeds 2 City Square, Leeds LS1 2ES, United Kingdom
+current_popularity =89, name = O'Neill's Leeds 40 Boar Ln, Leeds LS1 5DA, United Kingdom
+current_popularity =100, name = Pieminister 15-17 Duncan St, Leeds LS1 6DQ, United Kingdom
+current_popularity =100, name = The New Conservatory Albion Pl, Leeds LS1 6JL, United Kingdom
+current_popularity =100, name = A Nation Of Shopkeepers 26-27 Cookridge St, Leeds LS2 3AG, United Kingdom
+current_popularity =74, name = The Brew Society 26 Aire St, Leeds LS1 4HT, United Kingdom
+current_popularity =100, name = The Head of Steam Leeds - Park Row 6 Park Row, Leeds LS1 5QL, United Kingdom
+current_popularity =100, name = The Bankers Cat 29 Boar Ln, Leeds LS1 5DA, United Kingdom
+current_popularity =100, name = Pinnacle Sports & Games 1 Bond St, Leeds LS1 5BQ, United Kingdom
+current_popularity =100, name = A Nation Of Shopkeepers 26-27 Cookridge St, Leeds LS2 3AG, United Kingdom
+current_popularity =93, name = The Dalesman Hotel Old Farm Approach, Butcher Hill, Leeds LS16 5EA, United Kingdom
+current_popularity =100, name = Malt Shovel 21 Crab Ln, Armley, Leeds LS12 3AG, United Kingdom
+current_popularity =83, name = Stick or Twist JD Wetherspoon Leeds Arena Quarter 16 Merrion Way, Leeds LS2 8PD, United Kingdom
+current_popularity =100, name = Town Hall Tavern 17 Westgate, Leeds LS1 2RA, United Kingdom
+current_popularity =98, name = Estabulo Rodizio Bar & Grill - Leeds The Light, 22 The Headrow, Leeds LS1 8TL, United Kingdom
+current_popularity =100, name = Blackhouse 31-33 E Parade, Leeds LS1 5PS, United Kingdom
+current_popularity =100, name = Tapped 51 Boar Ln, Leeds LS1 5EL, United Kingdom
+current_popularity =99, name = Tattu Leeds Minerva, 29 E Parade, Leeds LS1 5PS, United Kingdom
+current_popularity =82, name = Unit C, Mowgli Street Food Leeds 32 Boar Ln, Leeds LS1 5DA, United Kingdom
+current_popularity =100, name = Unit H28, Browns Leeds The Light, 70-72 The Headrow, Leeds LS1 8EQ, United Kingdom
+current_popularity =100, name = Gusto Italian 10 Greek St, Leeds LS1 5RU, United Kingdom
+current_popularity =100, name = House of Fu 15-19 The Headrow, Leeds LS1 6PU, United Kingdom
+current_popularity =97, name = Pizza Punks Leeds 37 Bond St, Leeds LS1 5BQ, United Kingdom
+current_popularity =100, name = Pitta Fan Leeds 641 Roundhay Rd, Roundhay, Oakwood, Leeds LS8 4BA, United Kingdom
+current_popularity =90, name = Phranakhon 11 York Pl, Leeds LS1 2DS, United Kingdom
+current_popularity =97, name = La Cafetiere Leeds 6 The Crescent, Woodhouse, Leeds LS6 2NW, United Kingdom
+current_popularity =85, name = 20A, Chaophraya Blayds Court, Swinegate, Leeds LS1 4AG, United Kingdom
+current_popularity =100, name = Pho 37 Headingley 15 North Ln, Headingley, Leeds LS6 3HG, United Kingdom
+current_popularity =97, name = 419, YO! Leeds Trinity Trinity, Albion St, Leeds LS1 5AY, United Kingdom
+current_popularity =100, name = San Carlo - Leeds 6-7 S Parade, Leeds LS1 5QX, United Kingdom
+current_popularity =74, name = Ambiente Tapas Leeds 36-38 The Calls, Leeds LS2 7EW, United Kingdom
+current_popularity =76, name = The Cuthbert Brodrick 99 Portland Cres, Leeds LS2 3AD, United Kingdom
+current_popularity =100, name = Miller & Carter Leeds Light 56-58 The Headrow, Leeds LS1 8TL, United Kingdom
+current_popularity =87, name = Trinity Kitchen 27 Albion St, Leeds LS1 5ER, United Kingdom
+current_popularity =100, name = MC Noodle King New Market St, Leeds LS1 6BY, United Kingdom
+current_popularity =100, name = Pinche Pinche Mexican Restaurant 116a Harrogate Rd, Chapel Allerton, Leeds LS7 4NY, United Kingdom
+current_popularity =73, name = The Grand Valley Bar & Kitchen 210-212 Armley Rd, Armley, Leeds LS12 2LS, United Kingdom
+current_popularity =100, name = Soul Restaurant 16 High St, Yeadon, Leeds LS19 7PP, United Kingdom
+current_popularity =73, name = Prism Club & Kitchen Old Mumbai Hwy, Financial District, Gowlidoddy, Hyderabad, Telangana 500075, India
+current_popularity =72, name = Amnesia Lounge Bar Jaya Chambers, 1102, Road No. 36, CBI Colony, Jubilee Hills, Hyderabad, Telangana 500033, India
+current_popularity =100, name = Carpe Diem 724/A, Rd Number 37, CBI Colony, Jubilee Hills, Hyderabad, Telangana 500033
+current_popularity =100, name = Carpe Diem 724/A, Rd Number 37, CBI Colony, Jubilee Hills, Hyderabad, Telangana 500033, India
+current_popularity =82, name = Air Live Jubilee Hills Road No. 36, Above Jaguar Showroom, Jubilee Hills, Hyderabad, Telangana 500034, India
+current_popularity =81, name = Mustang Terrace Lounge Gachibowli Level 5 Satyanarayana Arcade Rooftop, Gachibowli Rd, Vinayakanagar, Hyderabad, Telangana 500032, India
+current_popularity =100, name = 5th Floor, Stone Waters - Kitchen & Lounge Aruna Arcade, 1299B, Road No. 1, opposite KBR Park, Jubilee Hills, Hyderabad, Telangana 500033, India
+current_popularity =82, name = 5TH FLOOR, LoKo Rooftop Bistro and Bar 642, Road No. 36, above Tonique, Aditya Enclave, CBI Colony, Jubilee Hills, Hyderabad, Telangana 500033, India
