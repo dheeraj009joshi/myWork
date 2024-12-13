@@ -27,6 +27,7 @@ import urllib.request
 class ScouterPlaces:
     
     def __init__(self):
+        self.cl=Client("zkixRmPS48UJQYoGMFnFNi1pFS9tH3cx")
         self.proxies=[]
         self.headers= {
         "Content-Type": "application/json",
@@ -351,18 +352,26 @@ class ScouterPlaces:
         # except:
         #     print("exception occer")
         #     return None
-             
+            
     def insert_place(self,placename,address,CITY_ID,CITY,COUNTRY):
         data=self.get_place_info_from_google(placename,CITY_ID,COUNTRY)
         if data!=None:
-            if placename!="":
+            if data["PlaceName"]!="":
+                print("getting images and all")
+                aa=self.cl.fbsearch_places_v1(placename,data['Latitude'],data["Longitude"])[0]["pk"]
+                data["InstagramLocation"]=aa
+                data["MigratedImages"]=self.get_top3_posts_for_place(aa)
                 print(data)
                 res=requests.post(mobile_urls['BASE_URL']+mobile_urls['PLACE_INSERT'],json=data,headers=self.headers).json()
                 print(res)
                 # return res['result']
-            elif placename=="":
+            elif data["PlaceName"]!="":
                 data=self.get_place_info_from_google(placename.replace(address,"")+" "+CITY+" "+COUNTRY,CITY_ID,COUNTRY)
-                if placename!="":
+                if data["PlaceName"]!="":
+                    print("getting images and all")
+                    aa=self.cl.fbsearch_places_v1(placename,data['Latitude'],data["Longitude"])[0]["pk"]
+                    data["InstagramLocation"]=aa
+                    data["MigratedImages"]=self.get_top3_posts_for_place(aa)
                     print(data)
                     res=requests.post(mobile_urls['BASE_URL']+mobile_urls['PLACE_INSERT'],json=data,headers=self.headers).json()
                     print(res)
@@ -431,6 +440,7 @@ class ScouterPlaces:
     ########
     
         # read search from arguments
+        self.get_proxies_urls()
         parser = argparse.ArgumentParser()
         parser.add_argument("-s", "--search", type=str)
         parser.add_argument("-t", "--total", type=int)
@@ -443,7 +453,7 @@ class ScouterPlaces:
             total = args.total
         else:
             # if no total is passed, we set the value to random big number
-            total = 1000000 # change according to you 
+            total = 10 # change according to you 
 
         if not args.search:
             search_list = []
@@ -616,11 +626,11 @@ class ScouterPlaces:
         print(main)
         return main['data']
     
-    def get_top3_posts_for_place(self,placeData):
-        print(placeData["InstagramLocation"])
+    def get_top3_posts_for_place(self,placePk):
+      
         urls=[]
-        cl=Client("zkixRmPS48UJQYoGMFnFNi1pFS9tH3cx")
-        posts=cl.location_medias_top_v1(placeData["InstagramLocation"],5)
+        
+        posts=self.cl.location_medias_top_v1(placePk,5)
         for data in posts:
             print(data)
             print(type(data))
@@ -638,21 +648,21 @@ class ScouterPlaces:
         res=requests.post(mobile_urls['BASE_URL']+mobile_urls['PLACE_UPDATE'],json=data,headers=self.headers).json()
         print(res)      
         
-aa=ScouterPlaces()
-aa.get_proxies_urls()
-print("proxies done")
-places=aa.get_places_data(CITY_DATA['LEEDS']['ID'])
-for plcedetail in places:
-    # print(plcedetail)
-    place_json=aa.get_place_info_from_google(plcedetail['GooglePlaceName'],plcedetail['CityId'],plcedetail["Country"])
-    # print(place_json)
-    if plcedetail['InstagramLocation']!=None:
-        place_images=aa.get_top3_posts_for_place(plcedetail)
-        # place_json["MigratedImages"]=place_images
-        # place_json["InstagramLocation"]=plcedetail['InstagramLocation']
-        # print(place_json) ###
-        plcedetail["OpeningHours"]=place_json["OpeningHours"]
-        plcedetail["Reviews"]=place_json["Reviews"]
-        plcedetail["Description"]=place_json["Description"]
-        plcedetail.pop("MigratedImages")
-        update=aa.update_places(plcedetail)
+# aa=ScouterPlaces()
+# aa.get_proxies_urls()
+# print("proxies done")
+# places=aa.get_places_data(CITY_DATA['LEEDS']['ID'])
+# for plcedetail in places:
+#     # print(plcedetail)
+#     place_json=aa.get_place_info_from_google(plcedetail['GooglePlaceName'],plcedetail['CityId'],plcedetail["Country"])
+#     # print(place_json)
+#     if plcedetail['InstagramLocation']!=None:
+#         place_images=aa.get_top3_posts_for_place(plcedetail)
+#         # place_json["MigratedImages"]=place_images
+#         # place_json["InstagramLocation"]=plcedetail['InstagramLocation']
+#         # print(place_json) ###
+#         plcedetail["OpeningHours"]=place_json["OpeningHours"]
+#         plcedetail["Reviews"]=place_json["Reviews"]
+#         plcedetail["Description"]=place_json["Description"]
+#         plcedetail.pop("MigratedImages")
+#         update=aa.update_places(plcedetail)
