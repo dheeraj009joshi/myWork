@@ -1,9 +1,6 @@
-name,address,img,website,phone_number,reviews_count,reviews_average,latitude,longitude
-Revolution Leeds - Call Lane,"48 Call Ln, Leeds LS1 6DT, United Kingdom",,revolution-bars.co.uk,+44 113 243 2778,,4.1,53.7984506,-1.5515839
-Popworld - Leeds,"48 Call Ln, Leeds LS1 6DT, United Kingdom",,revolution-bars.co.uk,+44 113 243 2778,,4.1,53.7984506,-1.5515839
-Fibre Leeds,"168 Lower Briggate, Leeds LS1 6LY, United Kingdom",,fibreleeds.com,+44 113 344 9550,,4.2,53.7984506,-1.5515839
-Howl Bar Leeds,"168 Lower Briggate, Leeds LS1 6LY, United Kingdom",,fibreleeds.com,+44 113 344 9550,,4.2,53.7984506,-1.5515839
-Pixel Bar,"25 Great George St, Leeds LS1 3AL, United Kingdom",,pixel-bar.co.uk,+44 7832 609853,,4.8,53.8007084,-1.5573187
-The Domino Club,"25 Great George St, Leeds LS1 3AL, United Kingdom",,pixel-bar.co.uk,+44 7832 609853,,4.8,53.8007084,-1.5573187
-Boom Battle Bar Leeds,"S43 Ground Floor Level and First Floor Level Victoria Gate LS2 7AR, United Kingdom",,boombattlebar.com,+44 113 245 8000,,4.8,53.7978382,-1.5482609
-Flight Club Leeds,"S43 Ground Floor Level and First Floor Level Victoria Gate LS2 7AR, United Kingdom",,boombattlebar.com,+44 113 245 8000,,4.8,53.7978382,-1.5482609
+name,address,img,website,phone_number,reviews_count,reviews_average,reviews_text,latitude,longitude,keyword
+Open Lifestyle Store,"17 Thornton's Arcade, Leeds LS1 6LQ, United Kingdom",,,,,5.0,,53.7986971,-38.4568122,
+The Drop Leeds,,,,+44 7799 327498,,,,53.7986971,-38.4568122,
+Dad Mode,,,,,,,,53.7986971,-38.4568122,
+Fresh Start Living Interior Design Leeds,"24 Gledhow Wood Grove, Roundhay, Leeds LS8 1NZ, United Kingdom",,freshstartliving.co.uk,+44 7483 864633,,4.9,"""Beth & Jon were absolutely wonderful to work with to plan our new kitchen."",""I would have no hesitation in recommending this company!"",""Overall as great service and would highly recommend Fresh Start Living.""",53.7986971,-38.4568122,
+lifestylevariety,"2 Alexandra Rd, Burley, Leeds LS6 1QX, United Kingdom",,,+44 113 274 4569,,,,53.7986971,-38.4568122,

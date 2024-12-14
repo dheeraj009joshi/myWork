@@ -370,29 +370,20 @@ def get_data(placename,CITY_ID,COUNTRY, action,address):
         "Neighborhood": neighborhood,
         "AverageTimeSpent":avgTimeSpent,
     }
+        
+        
         print(df)
-        
-        
-        
-    #     if df["Rating"]== None or df["Rating"]=="null" :
-    #         df.pop("Rating")
-    #     if df["Rating_n"]== None or df["Rating_n"]=="null":
-    #         df.pop("Rating_n")
-    #     print("")
-    #     print("")
-    #     print("")
-    #     print(df)
-    #     print("")
-    #     print("")
-    #     if df['PlaceName']!="":
-    #         aa=insert_place(df,action)
-    #         return aa
-    #     else:
-    #         return None
+
+        if df['PlaceName']!="":
+            
+            return df
+        else:
+            return None
         
 
     except Exception as e :
         print(f"got error {e}")
+        return None
         
 
 
@@ -473,6 +464,6 @@ def get_data(placename,CITY_ID,COUNTRY, action,address):
     
 # city_id='c118807b-e7a0-4999-efcf-08dab69f5de6'
 
-a=get_data("Sweet Saeeda Unit 411, Leeds Kirkgate Market, Row F. Hall 1981, Leeds LS2 7JJ, United Kingdom","723289d5-9983-4a2f-6538-08dcc857d3e1","UK","insert","High Street, Yeadon, LS19 7TA")
+# a=get_data("Sweet Saeeda Unit 411, Leeds Kirkgate Market, Row F. Hall 1981, Leeds LS2 7JJ, United Kingdom","723289d5-9983-4a2f-6538-08dcc857d3e1","UK","insert","High Street, Yeadon, LS19 7TA")
 # a=get_data("Little Bangkok 2225 Cheshire Bridge Rd NE, Atlanta, GA 30324, United States","723289d5-9983-4a2f-6538-08dcc857d3e1","UK","insert","High Street, Yeadon, LS19 7TA")
 # print(a)

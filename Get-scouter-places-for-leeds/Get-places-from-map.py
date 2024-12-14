@@ -25,7 +25,7 @@ class Business:
     reviews_text :str =None
     latitude: float = None
     longitude: float = None
-
+    keyword: str = None
 
 @dataclass
 class BusinessList:
@@ -83,7 +83,7 @@ def main():
         total = args.total
     else:
         # if no total is passed, we set the value to random big number
-        total = 10 # change according to you 
+        total = 5 # change according to you 
 
     if not args.search:
         search_list = []
@@ -112,11 +112,11 @@ def main():
         page.goto("https://www.google.com/maps", timeout=60000)
         # wait is added for dev phase. can remove it in production
         page.wait_for_timeout(5000)
-        
+        all_data=[]
         for search_for_index, search_for in enumerate(search_list):
             print(f"-----\n{search_for_index} - {search_for}".strip())
 
-            page.locator('//input[@id="searchboxinput"]').fill(search_for)
+            page.locator('//input[@id="searchboxinput"]').fill(search_for +"leeds Uk ")
             page.wait_for_timeout(3000)
 
             page.keyboard.press("Enter")
@@ -235,8 +235,10 @@ def main():
                             .strip())
                     else:
                         business.reviews_average = ""
-                    
-                    
+                    data=get_data(business.name,CITY_ID,COUNTRY,"",business.address)
+                    if data!=None:
+                        data["keyword"]=search_for
+                        all_data.append(data)
                     business.latitude, business.longitude = extract_coordinates_from_url(page.url)
                     search_string=search_for.split("in")[-1]
                     # get_data(f"{business.name} {business.address}",CITY_ID,COUNTRY,"insert")
@@ -251,7 +253,9 @@ def main():
             #########
             # business_list.save_to_excel(f"google_maps_data_{search_for}".replace(' ', '_'))
             business_list.save_to_csv("places_leeds.csv")
-
+            print(all_data)
+            df=pd.DataFrame(all_data)
+            df.to_csv("Josh_requested_data.csv")
         browser.close()
 
 
