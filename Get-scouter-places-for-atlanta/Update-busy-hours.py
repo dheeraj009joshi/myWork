@@ -73,7 +73,7 @@ def job():
     }
     headers = {
         'Content-Type': 'application/json',
-        'Authorization': f'Bearer {get_token()}'
+        # 'Authorization': f'Bearer {get_token()}'
     }
     main=re.post(f"{BASE_URL}/api/v1/cube/Scouter Galactic Pvt Ltd/night life/scoutermap/Place/list",json=data,headers=headers).json()
     googlePlaceName=[]
