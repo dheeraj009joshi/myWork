@@ -51,3 +51,32 @@ CITY_DATA={
         "COUNTRY":"INDIA"
     },
 }
+
+
+
+
+ALLOWED_CATEGORIES = [
+    "Adult entertainment club",
+    "Bar",
+    "Bar & grill",
+    "Beer garden",
+    "Bistro",
+    "Cabaret club",
+    "Cocktail bar",
+    "Comedy club",
+    "Dance club",
+    "Disco club",
+    "Gay bar",
+    "Gay night club",
+    "Hookah bar",
+    "Jazz club",
+    "Karaoke",
+    "Karaoke bar",
+    "Lounge",
+    "Night club",
+    "Piano bar",
+    "Pub",
+    "Sports bar",
+    "Tapas bar",
+    "Wine bar"
+]

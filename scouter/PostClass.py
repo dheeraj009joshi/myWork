@@ -3,7 +3,7 @@ import json
 import random
 import requests 
 import re
-from .config import mobile_urls,PROD_URLS
+from .config import mobile_urls,PROD_URLS, ALLOWED_CATEGORIES
 from hikerapi import Client
 url = 'https://scouterlive.azurewebsites.net/api/v1/Videos/Insert'
 commenturl = 'https://scouterlive.azurewebsites.net/api/v1/Comment/Insert'
@@ -246,41 +246,43 @@ class GetPosts():
     def test_location_posts(self,scrapeDetails,CityId,batchName):
         for scrapeDetail in scrapeDetails: 
             # try:
-                placeId=self.get_place_id(scrapeDetail)
-                placename=str(scrapeDetail["GooglePlaceName"])
-                address=str(scrapeDetail["Address"])
-                lat=str(scrapeDetail["Latitude"])
-                long=str(scrapeDetail["Longitude"])
-                
-                if scrapeDetail['InstagramLocation']==None:
-        
-                    aa=self.cl.fbsearch_places_v1(placename,lat,long)[0]
-                    print(aa)
-                    insta_place_id=aa["pk"]
-                    scrapeDetail['InstagramLocation']=insta_place_id
+            
+                if scrapeDetail["PlaceType"] in ALLOWED_CATEGORIES:
+                    placeId=self.get_place_id(scrapeDetail)
+                    placename=str(scrapeDetail["GooglePlaceName"])
+                    address=str(scrapeDetail["Address"])
+                    lat=str(scrapeDetail["Latitude"])
+                    long=str(scrapeDetail["Longitude"])
                     
-                    self.update_places_data(placeId,scrapeDetail)
-                    medias=self.cl.location_medias_recent_v1(aa["pk"],15)
-                else:
-                    print("location id found ")
-                    insta_place_id=scrapeDetail['InstagramLocation']
-                    medias=self.cl.location_medias_recent_v1(insta_place_id,15)
-                    # medias=cl.location_medias_recent_v1(103257511035949)
-                print("done")
-                for data in medias:
-                    uniqueuserid ="C7AB5D9C-4D89-4C3E-964C-91A190F736AF"
-                    # uniqueuserid = self.insertUser(userInfo)
-                    # user_id.append(
-                    #     {'id': userData["pk"], 'userId': uniqueuserid})
-                    if data["media_type"] == 1:
-                        self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName)
-                    elif data["media_type"] == 2 and  data['product_type'] == "clips":
-                        print("this is video")
-                        self.lookpost(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName)
-                    elif data["media_type"] == 8 and  data['product_type'] == "carousel_container":
-                        urls=[i['thumbnail_url'] for i in data['resources']]
-                        print(urls)
-                        self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName,urls)
+                    if scrapeDetail['InstagramLocation']==None:
+            
+                        aa=self.cl.fbsearch_places_v1(placename,lat,long)[0]
+                        print(aa)
+                        insta_place_id=aa["pk"]
+                        scrapeDetail['InstagramLocation']=insta_place_id
+                        
+                        self.update_places_data(placeId,scrapeDetail)
+                        medias=self.cl.location_medias_recent_v1(aa["pk"],15)
+                    else:
+                        print("location id found ")
+                        insta_place_id=scrapeDetail['InstagramLocation']
+                        medias=self.cl.location_medias_recent_v1(insta_place_id,15)
+                        # medias=cl.location_medias_recent_v1(103257511035949)
+                    print("done")
+                    for data in medias:
+                        uniqueuserid ="C7AB5D9C-4D89-4C3E-964C-91A190F736AF"
+                        # uniqueuserid = self.insertUser(userInfo)
+                        # user_id.append(
+                        #     {'id': userData["pk"], 'userId': uniqueuserid})
+                        if data["media_type"] == 1:
+                            self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName)
+                        elif data["media_type"] == 2 and  data['product_type'] == "clips":
+                            print("this is video")
+                            self.lookpost(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName)
+                        elif data["media_type"] == 8 and  data['product_type'] == "carousel_container":
+                            urls=[i['thumbnail_url'] for i in data['resources']]
+                            print(urls)
+                            self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName,urls)
                     
             # except:
             #     pass
