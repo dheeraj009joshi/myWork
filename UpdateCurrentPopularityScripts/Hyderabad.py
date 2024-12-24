@@ -10,9 +10,9 @@ from scouter.config import CITY_DATA
 scouter=ScouterPlaces("old") #using "new" to use the new db urls use "old" for the old db 
 
 while True:
-    # try :
+    try :
         scouter.Update_current_popilarity_24_7(CITY_DATA["HYDERABAD"]["ID"]) # run this function in a infinite loop 
         
-    # except:
-    #     print("hiiiiii")
-    #     pass
+    except:
+        print("hiiiiii")
+        pass

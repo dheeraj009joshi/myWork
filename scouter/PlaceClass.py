@@ -32,7 +32,7 @@ class ScouterPlaces:
             self.BASE_URLS=mobile_urls
         else:
             self.BASE_URLS=PROD_URLS
-        self.cl=Client("zkixRmPS48UJQYoGMFnFNi1pFS9tH3cx")
+        self.cl=Client("0daja8wqtv3o16jpszpj582tbyduul3t")
         self.proxies=[]
         
         self.headers= {
@@ -382,6 +382,59 @@ class ScouterPlaces:
                     res=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_INSERT'],json=data,headers=self.headers).json()
                     print(res)
                     # return res['result']
+      
+      
+    def get_city_id(cityName,country,region,loc_data):
+    
+        filter_data={"filterInfo": [
+                {
+                "filterTerm":cityName,
+                "filterType": "EQUALS",
+                "filterBy": "CityName"
+                },
+                {
+                "filterTerm":country,
+                "filterType": "EQUALS",
+                "filterBy": "Country"
+                }
+                ]
+            }
+        headers=headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJVc2VySWQiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJEZXZpY2VJZCI6IjFCREVEODlCLUI1OTAtNEYwQy1BRTc0LUMyODY0OTRFMDNEOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjExLzE5LzIwMjQgMTI6MTU6MDUiLCJuYmYiOjE3MzIwMTg1MDUsImV4cCI6MTc2MzU1NDUwNSwiaWF0IjoxNzMyMDE4NTA1fQ.C3hycswaAgRvhEFesttElyq2CYI0uvqa9Y1nimar3hk"
+        }
+        main=requests.post(f"{BASE_URL}/api/v1/City/list",json=filter_data,headers=headers).json()
+        
+        if main["total"]>0:
+            print(" city  found ")
+            city_id=main["data"][0]['CityId']
+            print(city_id)
+        else:
+            print(" city  not found inserting city ")
+            data={     
+            "CityName": cityName,
+            "Country": country,
+            "CityState":region,
+            "Latitude": loc_data['Lat'],
+            "Longitude":loc_data['Long'],
+            "TimeZone":loc_data['TimeZone'],
+            "Abbreviation":loc_data['Abbreviation'],
+            "IsScouter": False
+            }
+            print(data)
+            headers=headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJVc2VySWQiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJEZXZpY2VJZCI6IjFCREVEODlCLUI1OTAtNEYwQy1BRTc0LUMyODY0OTRFMDNEOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjExLzE5LzIwMjQgMTI6MTU6MDUiLCJuYmYiOjE3MzIwMTg1MDUsImV4cCI6MTc2MzU1NDUwNSwiaWF0IjoxNzMyMDE4NTA1fQ.C3hycswaAgRvhEFesttElyq2CYI0uvqa9Y1nimar3hk"
+            }
+            main=requests.post(f"{BASE_URL}/api/v1/City/insert",json=data,headers=headers).json()
+            print(main)  
+            city_id=main['result']
+            
+
+        return city_id
+
+
+      
                 
     def extract_coordinates_from_url(self,url: str) -> tuple[float,float]:
         """helper function to extract coordinates from url"""

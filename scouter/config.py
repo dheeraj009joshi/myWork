@@ -50,6 +50,18 @@ CITY_DATA={
         "ID":"7e8bb7f3-e64b-480d-07d4-08dd1b82607a",
         "COUNTRY":"INDIA"
     },
+    "ATHENS":{
+        "ID":"7c6e7a1f-1c36-4b86-9573-08dd23e0250e",
+        "COUNTRY":"US"
+    },
+    "MIAMI":{
+        "ID":"3db38269-5556-4822-9572-08dd23e0250e",
+        "COUNTRY":"US"
+    },
+    "FORT_LAUDERDALE":{
+        "ID":"4d88fd55-6098-4f6e-9571-08dd23e0250e",
+        "COUNTRY":"US"
+    },
 }
 
 

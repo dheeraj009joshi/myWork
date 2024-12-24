@@ -15,7 +15,7 @@ class GetPosts():
             self.BASE_URLS=mobile_urls
         else:
             self.BASE_URLS=PROD_URLS
-        self.cl=Client("zkixRmPS48UJQYoGMFnFNi1pFS9tH3cx")
+        self.cl=Client("0daja8wqtv3o16jpszpj582tbyduul3t")
         self.headers= {
         "Content-Type": "application/json",
         "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJVc2VySWQiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJEZXZpY2VJZCI6IjFCREVEODlCLUI1OTAtNEYwQy1BRTc0LUMyODY0OTRFMDNEOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjExLzE0LzIwMjQgMDQ6MDI6NTAiLCJuYmYiOjE3MzE1NTY5NzAsImV4cCI6MTc2MzA5Mjk3MCwiaWF0IjoxNzMxNTU2OTcwfQ.MkSV__2iuV2IOSpissPc3HlSD_YEzlj7CPCJZkHfxvE"
@@ -91,6 +91,13 @@ class GetPosts():
             
 
         return place_id
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
     def insert_activity(self,post, HASHTAG, ActivityType,AttachmentType, CityID, PlaceId):
         jsn = {"Hashtag1": '', "Hashtag2": '',
@@ -244,10 +251,12 @@ class GetPosts():
         print( main)
 
     def test_location_posts(self,scrapeDetails,CityId,batchName):
+        aiai=1
         for scrapeDetail in scrapeDetails: 
-            # try:
+            try:
             
                 if scrapeDetail["PlaceType"] in ALLOWED_CATEGORIES:
+
                     placeId=self.get_place_id(scrapeDetail)
                     placename=str(scrapeDetail["GooglePlaceName"])
                     address=str(scrapeDetail["Address"])
@@ -255,7 +264,7 @@ class GetPosts():
                     long=str(scrapeDetail["Longitude"])
                     
                     if scrapeDetail['InstagramLocation']==None:
-            
+                        
                         aa=self.cl.fbsearch_places_v1(placename,lat,long)[0]
                         print(aa)
                         insta_place_id=aa["pk"]
@@ -274,6 +283,7 @@ class GetPosts():
                         # uniqueuserid = self.insertUser(userInfo)
                         # user_id.append(
                         #     {'id': userData["pk"], 'userId': uniqueuserid})
+                        print(data)
                         if data["media_type"] == 1:
                             self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName)
                         elif data["media_type"] == 2 and  data['product_type'] == "clips":
@@ -283,9 +293,11 @@ class GetPosts():
                             urls=[i['thumbnail_url'] for i in data['resources']]
                             print(urls)
                             self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName,urls)
-                    
-            # except:
-            #     pass
+                else :
+                    print("place type not allowed :- ",aiai,scrapeDetail["PlaceType"])
+                    aiai+=1
+            except:
+                pass
 
 # aa=GetPosts()
 # # aa.select_ig_accounts() ##Get sessions for all the accounts which are in the accounts.csv
