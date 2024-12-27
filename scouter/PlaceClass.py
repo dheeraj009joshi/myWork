@@ -28,6 +28,7 @@ import urllib.request
 class ScouterPlaces:
     
     def __init__(self,DB):
+        self.db=DB
         if DB=="old":
             self.BASE_URLS=mobile_urls
         else:
@@ -384,7 +385,7 @@ class ScouterPlaces:
                     # return res['result']
       
       
-    def get_city_id(cityName,country,region,loc_data):
+    def get_city_id(self,cityName,country,region,loc_data):
     
         filter_data={"filterInfo": [
                 {
@@ -403,7 +404,7 @@ class ScouterPlaces:
             "Content-Type": "application/json",
             "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJVc2VySWQiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJEZXZpY2VJZCI6IjFCREVEODlCLUI1OTAtNEYwQy1BRTc0LUMyODY0OTRFMDNEOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjExLzE5LzIwMjQgMTI6MTU6MDUiLCJuYmYiOjE3MzIwMTg1MDUsImV4cCI6MTc2MzU1NDUwNSwiaWF0IjoxNzMyMDE4NTA1fQ.C3hycswaAgRvhEFesttElyq2CYI0uvqa9Y1nimar3hk"
         }
-        main=requests.post(f"{BASE_URL}/api/v1/City/list",json=filter_data,headers=headers).json()
+        main=requests.post(f"{self.BASE_URLS}/api/v1/City/list",json=filter_data,headers=headers).json()
         
         if main["total"]>0:
             print(" city  found ")
@@ -426,7 +427,7 @@ class ScouterPlaces:
             "Content-Type": "application/json",
             "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJVc2VySWQiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJEZXZpY2VJZCI6IjFCREVEODlCLUI1OTAtNEYwQy1BRTc0LUMyODY0OTRFMDNEOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjExLzE5LzIwMjQgMTI6MTU6MDUiLCJuYmYiOjE3MzIwMTg1MDUsImV4cCI6MTc2MzU1NDUwNSwiaWF0IjoxNzMyMDE4NTA1fQ.C3hycswaAgRvhEFesttElyq2CYI0uvqa9Y1nimar3hk"
             }
-            main=requests.post(f"{BASE_URL}/api/v1/City/insert",json=data,headers=headers).json()
+            main=requests.post(f"{self.BASE_URLS}/api/v1/City/insert",json=data,headers=headers).json()
             print(main)  
             city_id=main['result']
             
@@ -721,12 +722,12 @@ class ScouterPlaces:
         "pageSize": 100000 
         }
        
-        print(data)
+        # print(data)
         main=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_LIST'],json=data,headers=self.headers).json()
         googlePlaceName=[]
         a=0
        
-        print(main)
+        # print(main)
         for i in main["data"]:
             a+=1
             place_name=i["GooglePlaceName"]
@@ -818,9 +819,11 @@ class ScouterPlaces:
                     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.1.2222.33 Safari/537.36",
                     "Accept-Encoding": "*",
                     "Connection": "keep-alive", "Accept": "*/*"}
-            
-            response = requests.post(f"{self.BASE_URLS['BASE_URL']}/api/v1/Place/UpdateCurrentPopularity",json=updateRecords[n * insertnumber :start], headers=headers, timeout=20 *60)
-
+            print(updateRecords[n * insertnumber :start])
+            if self.db=="old":
+                response = requests.post(f"{self.BASE_URLS['BASE_URL']}/api/v1/Place/UpdateCurrentPopularity",json=updateRecords[n * insertnumber :start], headers=headers, timeout=20 *60)
+            else:
+                response = requests.post(f"{self.BASE_URLS['BASE_URL']}/Place/UpdateCurrentPopularity",json=updateRecords[n * insertnumber :start], headers=headers, timeout=20 *60)
             print(response.content)
             end_update_100=time.time()
             print("Took {} seconds to push websites.".format(end_update_100 - start_updating))
