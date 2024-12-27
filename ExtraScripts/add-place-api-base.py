@@ -549,16 +549,5 @@ class ScouterPlaces:
         return ",".join(urls)
                 
 
-
-pname="Howl Bar Leeds"
-ass="112 Vicar Ln, Leeds LS2 7NL, United Kingdoms"
-
 aaa=ScouterPlaces()
-aaa.get_proxies_urls()
-city_data=aaa.get_place_info_from_google(f"{pname},{ass}")
-print(city_data)
-lock_data=aaa.get_lat_long(city_data['CityName'])
-city_id=aaa.get_city_id(city_data['CityName'],lock_data['country'],lock_data)
-
-aaa.insert_place(f"{pname},{ass}",ass,city_id,city_data['CityName'],city_data['CityName'])
-
+# aaa.insert_place(placename,address,city_id,city,country)
