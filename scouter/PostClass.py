@@ -11,6 +11,7 @@ userUrl = 'https://scouterlive.azurewebsites.net/api/v1/Users/InstagramUser'
 
 class GetPosts():
     def __init__(self,DB) :
+        self.db=DB
         if DB=="old":
             self.BASE_URLS=mobile_urls
         else:
@@ -18,7 +19,7 @@ class GetPosts():
         self.cl=Client("0daja8wqtv3o16jpszpj582tbyduul3t")
         self.headers= {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJVc2VySWQiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJEZXZpY2VJZCI6IjFCREVEODlCLUI1OTAtNEYwQy1BRTc0LUMyODY0OTRFMDNEOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjExLzE0LzIwMjQgMDQ6MDI6NTAiLCJuYmYiOjE3MzE1NTY5NzAsImV4cCI6MTc2MzA5Mjk3MCwiaWF0IjoxNzMxNTU2OTcwfQ.MkSV__2iuV2IOSpissPc3HlSD_YEzlj7CPCJZkHfxvE"
+        "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NzNhZWViYS00Y2FlLTRjODktYjhlZS05OWYzNDFiYTM2NmMiLCJVc2VySWQiOiI3NzNhZWViYS00Y2FlLTRjODktYjhlZS05OWYzNDFiYTM2NmMiLCJEZXZpY2VJZCI6IjUzNzM4ODBGLTkwN0UtNDc4NS04MjZELUUyRUZDREVCNzc0RCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjEyLzI4LzIwMjQgMTg6Mzc6MzciLCJuYmYiOjE3MzU0MTEwNTcsImV4cCI6MTc2Njk0NzA1NywiaWF0IjoxNzM1NDExMDU3fQ.1HQWE1HYZy08MTT7YOCuLDTQtz_8ZxM6MzCZpBWhs9I"
     }
         
     def extract_emoji(self,text):
@@ -99,10 +100,14 @@ class GetPosts():
  
  
  
-    def insert_activity(self,post, HASHTAG, ActivityType,AttachmentType, CityID, PlaceId):
+    def insert_activity(self,post, HASHTAG, ActivityType,AttachmentType, CityID, PlaceId, BatchName,Images=""):
         jsn = {"Hashtag1": '', "Hashtag2": '',
             "Hashtag3": '', "Hashtag4": '', "Hashtag5": ''}
         caption = re.sub("([#@])\\w+", "", post["caption_text"] or "")
+        Emoji=self.extract_emoji(caption)
+        if Emoji=="":
+            Emoji="1F4F7"
+            
         reqjsn = {
         "ActivityType": ActivityType, #["Image", "Video", "Event"]s
         "AttachmentType": AttachmentType, #["Image", "Video"],
@@ -111,19 +116,20 @@ class GetPosts():
         "InLocation":  post["location"] != None,
         "TagLocation": None,
         "LikeCount": post['like_count'],
-        "AttachmentUrl": post['video_url'],
-        "ThumbnailUrl": post["thumbnail_url"],
-        "Emoji": "",
+        "Emoji": Emoji,
         "Hashtag1": HASHTAG,
-        "BatchName":"inputs['BatchName']",
-        "MigratedUrl": post["thumbnail_url"],
+        "BatchName":BatchName,
         "MigratedDate": post["taken_at"],
         "Latitude": post["location"] and post["location"]["lat"],
         "Longitude":post["location"] and post["location"]["lng"],
         "PlaceId":PlaceId,
         "CityId":CityID
     }
-
+        if ActivityType=="Video":
+            reqjsn["MigratedUrl"]=post['video_url']
+            reqjsn["MigratedThumbnailUrl"]=post["thumbnail_url"]
+        else:
+            reqjsn["MigratedUrl"]= ",".join(Images) if Images!="" else post["thumbnail_url"]
         print(reqjsn)
         
 
@@ -283,19 +289,34 @@ class GetPosts():
                         # uniqueuserid = self.insertUser(userInfo)
                         # user_id.append(
                         #     {'id': userData["pk"], 'userId': uniqueuserid})
-                        print(data)
-                        if data["media_type"] == 1:
-                            self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName)
-                        elif data["media_type"] == 2 and  data['product_type'] == "clips":
-                            print("this is video")
-                            self.lookpost(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName)
-                        elif data["media_type"] == 8 and  data['product_type'] == "carousel_container":
-                            urls=[i['thumbnail_url'] for i in data['resources']]
-                            print(urls)
-                            self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName,urls)
+                        if self.db=="old":
+                            print(data)
+                            if data["media_type"] == 1:
+                                self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName)
+                            elif data["media_type"] == 2 and  data['product_type'] == "clips":
+                                print("this is video")
+                                self.lookpost(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName)
+                            elif data["media_type"] == 8 and  data['product_type'] == "carousel_container":
+                                urls=[i['thumbnail_url'] for i in data['resources']]
+                                print(urls)
+                                self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName,urls)
+                        else:
+                            print(data)
+                            if data["media_type"] == 1:
+                                self.insert_activity(data, placename.replace(address,""),"Image","Image",CityId,placeId,batchName)
+                            elif data["media_type"] == 2 and  data['product_type'] == "clips":
+                                print("this is video")
+                                self.insert_activity(data, placename.replace(address,""),"Video","Video",CityId,placeId,batchName)
+                            elif data["media_type"] == 8 and  data['product_type'] == "carousel_container":
+                                urls=[i['thumbnail_url'] for i in data['resources']]
+                                print(urls)
+                                self.insert_activity(data, placename.replace(address,""),"Image","Image",CityId,placeId,batchName,urls)
+                
                 else :
                     print("place type not allowed :- ",aiai,scrapeDetail["PlaceType"])
                     aiai+=1
+                    
+                break
             except:
                 pass
 
