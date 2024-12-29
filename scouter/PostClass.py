@@ -123,7 +123,8 @@ class GetPosts():
         "Latitude": post["location"] and post["location"]["lat"],
         "Longitude":post["location"] and post["location"]["lng"],
         "PlaceId":PlaceId,
-        "CityId":CityID
+        "CityId":CityID,
+         "InstagramPk":post["pk"],
     }
         if ActivityType=="Video":
             reqjsn["MigratedUrl"]=post['video_url']
@@ -316,7 +317,7 @@ class GetPosts():
                     print("place type not allowed :- ",aiai,scrapeDetail["PlaceType"])
                     aiai+=1
                     
-                break
+               
             except:
                 pass
 
