@@ -276,10 +276,12 @@ class ScouterPlaces:
                 print(googleImages)
             except:
                 googleImages=img
-
-            print(index_get(info, 34,1))
-            OpeningHour= extract_opening_hours(index_get(info, 34,1)) or ""
-            print(OpeningHour)
+            try:
+                print(index_get(info, 34,1))
+                OpeningHour= extract_opening_hours(index_get(info, 34,1)) or ""
+                print(OpeningHour)
+            except:
+                OpeningHour=None
             review_text_= [i[1] for i in index_get(info, 31,1) ]
             review_text = ",".join(review_text_)
             print(review_text)
@@ -674,12 +676,8 @@ class ScouterPlaces:
             ],
         "pageSize": 100000 
         }
-        headers = {
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJVc2VySWQiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJEZXZpY2VJZCI6IjFCREVEODlCLUI1OTAtNEYwQy1BRTc0LUMyODY0OTRFMDNEOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjExLzE5LzIwMjQgMTI6MTU6MDUiLCJuYmYiOjE3MzIwMTg1MDUsImV4cCI6MTc2MzU1NDUwNSwiaWF0IjoxNzMyMDE4NTA1fQ.C3hycswaAgRvhEFesttElyq2CYI0uvqa9Y1nimar3hk"
-    }
-
-        main=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_LIST'],json=data,headers=headers).json()
+       
+        main=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_LIST'],json=data,headers=self.headers).json()
         print(main)
         return main['data']
     
@@ -700,10 +698,26 @@ class ScouterPlaces:
                 urls.append(data['resources'][0]['thumbnail_url'])
         return ",".join(urls)
                 
-    def update_places(self, data):
-        print(data)
-        res=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_UPDATE'],json=data,headers=self.headers).json()
-        print(res)      
+    def update_places(self, places):
+        # print(data)
+        for plcedetail in places:
+            print(plcedetail)
+            place_json=self.get_place_info_from_google(plcedetail['GooglePlaceName'],plcedetail['CityId'],plcedetail["Country"])
+            # print(place_json)
+            if plcedetail['InstagramLocation']!=None:
+                place_images=self.get_top3_posts_for_place(plcedetail['InstagramLocation'])
+                place_json["MigratedImages"]=place_images
+                place_json["InstagramLocation"]=plcedetail['InstagramLocation']
+                place_json["PlaceId"]=plcedetail['PlaceId']
+                # # print(place_json) ###
+                # plcedetail["OpeningHours"]=place_json["OpeningHours"]
+                # plcedetail["Reviews"]=place_json["Reviews"]
+                # plcedetail["Description"]=place_json["Description"]
+                # place_json.pop("MigratedImages")
+                print(place_json)
+                res=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_UPDATE'],json=place_json,headers=self.headers).json()
+                print(res)   
+                time.sleep(10)   
         
         
     def Update_current_popilarity_24_7(self,CITY_ID):
