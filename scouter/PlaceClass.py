@@ -2,16 +2,16 @@
 import time
 import requests
 from .utils import zipcodes,user_agent_list
-import io
 import json
 import logging
 import random
 import re
 import ssl
 from urllib.parse import quote
-from .config import CITY_DATA, PROXIES_SEARCH_URL1,PROXIES_SEARCH_URL2,PROXIES_SEARCH_URL3,PROD_URLS,mobile_urls
+from .config import PROXIES_SEARCH_URL1,PROXIES_SEARCH_URL2,PROXIES_SEARCH_URL3,PROD_URLS,mobile_urls
 from hikerapi import Client
-
+import requests
+from bs4 import BeautifulSoup
 from concurrent.futures import ThreadPoolExecutor as PoolExecutor
 from playwright.sync_api import sync_playwright
 from dataclasses import dataclass, asdict, field
@@ -19,9 +19,6 @@ import pandas as pd
 import argparse
 import os
 import sys
-
-
-
 import urllib.request
 
 
@@ -847,8 +844,26 @@ class ScouterPlaces:
             start_updating=time.time()
         print("Data  inserted to  db ")
     
-            
+    def extract_social_urls(self, query):
+
+        query_url = f"https://www.google.com/search?q={requests.utils.quote(query)}"
+        headers = {
+            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+            "accept-language": "en-US,en;q=0.9",
         
+            "sec-fetch-user": "?1",
+            "upgrade-insecure-requests": "1",
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+        }
+
+        response = requests.get(query_url, headers=headers)
+        if response.status_code == 200:
+            soup = BeautifulSoup(response.content, "html.parser")
+            js=json.loads(soup.find_all("script")[-4].text)
+            return  js["prefetch"][0]['urls']
+        else:
+            return None
+
         
         
         
