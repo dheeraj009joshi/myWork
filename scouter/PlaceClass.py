@@ -72,13 +72,13 @@ class ScouterPlaces:
                 pop_json = [[0 for _ in range(24)] for _ in range(7)]
                 wait_json = [[0 for _ in range(24)] for _ in range(7)]
                 if not popularity:
-                    return ["0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                            "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                            "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                            "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                            "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                            "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                            "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"],['null','null','null','null','null','null','null']
+                    return ["",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            ""],['null','null','null','null','null','null','null']
 
                 for day in popularity:
 
@@ -701,23 +701,26 @@ class ScouterPlaces:
     def update_places(self, places):
         # print(data)
         for plcedetail in places:
-            print(plcedetail)
-            place_json=self.get_place_info_from_google(plcedetail['GooglePlaceName'],plcedetail['CityId'],plcedetail["Country"])
-            # print(place_json)
-            if plcedetail['InstagramLocation']!=None:
-                place_images=self.get_top3_posts_for_place(plcedetail['InstagramLocation'])
-                place_json["MigratedImages"]=place_images
-                place_json["InstagramLocation"]=plcedetail['InstagramLocation']
-                place_json["PlaceId"]=plcedetail['PlaceId']
-                # # print(place_json) ###
-                # plcedetail["OpeningHours"]=place_json["OpeningHours"]
-                # plcedetail["Reviews"]=place_json["Reviews"]
-                # plcedetail["Description"]=place_json["Description"]
-                # place_json.pop("MigratedImages")
-                print(place_json)
-                res=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_UPDATE'],json=place_json,headers=self.headers).json()
-                print(res)   
-                time.sleep(10)   
+            try:
+                print(plcedetail)
+                place_json=self.get_place_info_from_google(plcedetail['GooglePlaceName'],plcedetail['CityId'],plcedetail["Country"])
+                # print(place_json)
+                if plcedetail['InstagramLocation']!=None:
+                    place_images=self.get_top3_posts_for_place(plcedetail['InstagramLocation'])
+                    place_json["MigratedImages"]=place_images
+                    place_json["InstagramLocation"]=plcedetail['InstagramLocation']
+                    place_json["PlaceId"]=plcedetail['PlaceId']
+                    # # print(place_json) ###
+                    # plcedetail["OpeningHours"]=place_json["OpeningHours"]
+                    # plcedetail["Reviews"]=place_json["Reviews"]
+                    # plcedetail["Description"]=place_json["Description"]
+                    # place_json.pop("MigratedImages")
+                    print(place_json)
+                    res=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_UPDATE'],json=place_json,headers=self.headers).json()
+                    print(res)   
+                    # time.sleep(10)  
+            except:
+                pass 
         
         
     def Update_current_popilarity_24_7(self,CITY_ID):
