@@ -38,7 +38,7 @@ class ScouterPlaces:
         
         self.headers= {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJVc2VySWQiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJEZXZpY2VJZCI6IjFCREVEODlCLUI1OTAtNEYwQy1BRTc0LUMyODY0OTRFMDNEOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjExLzE0LzIwMjQgMDQ6MDI6NTAiLCJuYmYiOjE3MzE1NTY5NzAsImV4cCI6MTc2MzA5Mjk3MCwiaWF0IjoxNzMxNTU2OTcwfQ.MkSV__2iuV2IOSpissPc3HlSD_YEzlj7CPCJZkHfxvE"
+        "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NzNhZWViYS00Y2FlLTRjODktYjhlZS05OWYzNDFiYTM2NmMiLCJVc2VySWQiOiI3NzNhZWViYS00Y2FlLTRjODktYjhlZS05OWYzNDFiYTM2NmMiLCJEZXZpY2VJZCI6IjUzNzM4ODBGLTkwN0UtNDc4NS04MjZELUUyRUZDREVCNzc0RCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjEyLzI4LzIwMjQgMTg6Mzc6MzciLCJuYmYiOjE3MzU0MTEwNTcsImV4cCI6MTc2Njk0NzA1NywiaWF0IjoxNzM1NDExMDU3fQ.1HQWE1HYZy08MTT7YOCuLDTQtz_8ZxM6MzCZpBWhs9I"
     }
         
     def get_proxies_urls(self):
@@ -815,15 +815,15 @@ class ScouterPlaces:
         for n in range(int(len(updateRecords)/insertnumber)+1):
             start = (n + 1) * insertnumber
             print(len(updateRecords[n * insertnumber :start]))
-            headers = {'Content-Type': 'application/json',
-                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.1.2222.33 Safari/537.36",
-                    "Accept-Encoding": "*",
-                    "Connection": "keep-alive", "Accept": "*/*"}
-            print(updateRecords[n * insertnumber :start])
+            # headers = {'Content-Type': 'application/json',
+            #         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.1.2222.33 Safari/537.36",
+            #         "Accept-Encoding": "*",
+            #         "Connection": "keep-alive", "Accept": "*/*"
+            # print(updateRecords[n * insertnumber :start])
             if self.db=="old":
-                response = requests.post(f"{self.BASE_URLS['BASE_URL']}/api/v1/Place/UpdateCurrentPopularity",json=updateRecords[n * insertnumber :start], headers=headers, timeout=20 *60)
+                response = requests.post(f"{self.BASE_URLS['BASE_URL']}/api/v1/Place/UpdateCurrentPopularity",json=updateRecords[n * insertnumber :start], headers=self.headers, timeout=20 *60)
             else:
-                response = requests.post(f"{self.BASE_URLS['BASE_URL']}/Place/UpdateCurrentPopularity",json=updateRecords[n * insertnumber :start], headers=headers, timeout=20 *60)
+                response = requests.post(f"{self.BASE_URLS['BASE_URL']}/Place/UpdateCurrentPopularity",json=updateRecords[n * insertnumber :start], headers=self.headers, timeout=20 *60)
             print(response.content)
             end_update_100=time.time()
             print("Took {} seconds to push websites.".format(end_update_100 - start_updating))

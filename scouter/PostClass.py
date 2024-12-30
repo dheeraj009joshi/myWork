@@ -291,7 +291,7 @@ class GetPosts():
                         # user_id.append(
                         #     {'id': userData["pk"], 'userId': uniqueuserid})
                         if self.db=="old":
-                            print(data)
+                            # print(data)
                             if data["media_type"] == 1:
                                 self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName)
                             elif data["media_type"] == 2 and  data['product_type'] == "clips":
@@ -302,7 +302,7 @@ class GetPosts():
                                 print(urls)
                                 self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName,urls)
                         else:
-                            print(data)
+                            # print(data)
                             if data["media_type"] == 1:
                                 self.insert_activity(data, placename.replace(address,""),"Image","Image",CityId,placeId,batchName)
                             elif data["media_type"] == 2 and  data['product_type'] == "clips":
