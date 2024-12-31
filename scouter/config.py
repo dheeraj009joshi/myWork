@@ -4,6 +4,17 @@ PROXIES_SEARCH_URL1='http://list.didsoft.com/get?email=tikuntechnologies@gmail.c
 PROXIES_SEARCH_URL2='http://list.didsoft.com/get?email=tikuntechnologies@gmail.com&pass=bwnh68&pid=http1000&showcountry=no&leve2=1&country=US'
 PROXIES_SEARCH_URL3='http://list.didsoft.com/get?email=tikuntechnologies@gmail.com&pass=bwnh68&pid=http1000&showcountry=no&leve3=1&country=US'
 
+
+scouterActivity_mondodb_url = "mongodb+srv://dlovej009:Dheeraj2006@cluster0.dnu8vna.mongodb.net/?retryWrites=true&w=majority"  # Replace with your MongoDB URI
+scouterActivity_db_name = "scouterActivity"  # Replace with your database name
+scouterActivity_collection_name = "instagram_pks"  # Replace with your collection name
+
+
+
+
+
+
+
 mobile_urls={
     
     "BASE_URL":"https://scouterlive.azurewebsites.net",
@@ -22,7 +33,7 @@ PROD_URLS={
     "PLACE_LIST":"/Place/list",
     "PLACE_INSERT":"/Place/insert",
     "PLACE_UPDATE":"/Place/update",
-    "PLACE_DELETS":"/Place/delete",
+    "PLACE_DELETE":"/Place/delete",
     "ACTIVITY_LIST":"/Activity/list",
     "ACTIVITY_INSERT":"/Activity/insert",
     "ACTIVITY_UPDATE":"/Activity/update",

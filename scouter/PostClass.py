@@ -1,9 +1,10 @@
 import csv
 import json
 import random
+from pymongo import MongoClient
 import requests 
 import re
-from .config import mobile_urls,PROD_URLS, ALLOWED_CATEGORIES
+from .config import mobile_urls,PROD_URLS, ALLOWED_CATEGORIES,scouterActivity_db_name, scouterActivity_collection_name,scouterActivity_mondodb_url
 from hikerapi import Client
 url = 'https://scouterlive.azurewebsites.net/api/v1/Videos/Insert'
 commenturl = 'https://scouterlive.azurewebsites.net/api/v1/Comment/Insert'
@@ -252,6 +253,30 @@ class GetPosts():
 
         main=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS["PLACE_LIST"],json=data,headers=self.headers).json()
         return main['data']
+    
+    
+    
+    def check_for_post(self,insta_pk):
+        """Add InstagramPk values to MongoDB if not already present."""
+        client = MongoClient(scouterActivity_mondodb_url)
+        db = client[scouterActivity_db_name]
+        collection = db[scouterActivity_collection_name]
+        if not collection.find_one({"InstagramPk": insta_pk}):
+            collection.insert_one({"InstagramPk": insta_pk})
+            print(f"Added InstagramPk: {insta_pk}")
+            client.close()
+            return True
+        else:
+            print(f"InstagramPk {insta_pk} already exists. Skipping.")
+            client.close()
+            return False
+
+        
+    
+    
+    
+    
+    
     def update_places_data(self,placeId,scrapeDetail):
 
         main=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS["PLACE_UPDATE"],json=scrapeDetail,headers=self.headers).json()
@@ -286,32 +311,33 @@ class GetPosts():
                         # medias=cl.location_medias_recent_v1(103257511035949)
                     print("done")
                     for data in medias:
-                        uniqueuserid ="C7AB5D9C-4D89-4C3E-964C-91A190F736AF"
-                        # uniqueuserid = self.insertUser(userInfo)
-                        # user_id.append(
-                        #     {'id': userData["pk"], 'userId': uniqueuserid})
-                        if self.db=="old":
-                            # print(data)
-                            if data["media_type"] == 1:
-                                self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName)
-                            elif data["media_type"] == 2 and  data['product_type'] == "clips":
-                                print("this is video")
-                                self.lookpost(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName)
-                            elif data["media_type"] == 8 and  data['product_type'] == "carousel_container":
-                                urls=[i['thumbnail_url'] for i in data['resources']]
-                                print(urls)
-                                self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName,urls)
-                        else:
-                            # print(data)
-                            if data["media_type"] == 1:
-                                self.insert_activity(data, placename.replace(address,""),"Image","Image",CityId,placeId,batchName)
-                            elif data["media_type"] == 2 and  data['product_type'] == "clips":
-                                print("this is video")
-                                self.insert_activity(data, placename.replace(address,""),"Video","Video",CityId,placeId,batchName)
-                            elif data["media_type"] == 8 and  data['product_type'] == "carousel_container":
-                                urls=[i['thumbnail_url'] for i in data['resources']]
-                                print(urls)
-                                self.insert_activity(data, placename.replace(address,""),"Image","Image",CityId,placeId,batchName,urls)
+                        if self.check_for_post(data["pk"]):
+                            uniqueuserid ="C7AB5D9C-4D89-4C3E-964C-91A190F736AF"
+                            # uniqueuserid = self.insertUser(userInfo)
+                            # user_id.append(
+                            #     {'id': userData["pk"], 'userId': uniqueuserid})
+                            if self.db=="old":
+                                # print(data)
+                                if data["media_type"] == 1:
+                                    self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName)
+                                elif data["media_type"] == 2 and  data['product_type'] == "clips":
+                                    print("this is video")
+                                    self.lookpost(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName)
+                                elif data["media_type"] == 8 and  data['product_type'] == "carousel_container":
+                                    urls=[i['thumbnail_url'] for i in data['resources']]
+                                    print(urls)
+                                    self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName,urls)
+                            else:
+                                # print(data)
+                                if data["media_type"] == 1:
+                                    self.insert_activity(data, placename.replace(address,""),"Image","Image",CityId,placeId,batchName)
+                                elif data["media_type"] == 2 and  data['product_type'] == "clips":
+                                    print("this is video")
+                                    self.insert_activity(data, placename.replace(address,""),"Video","Video",CityId,placeId,batchName)
+                                elif data["media_type"] == 8 and  data['product_type'] == "carousel_container":
+                                    urls=[i['thumbnail_url'] for i in data['resources']]
+                                    print(urls)
+                                    self.insert_activity(data, placename.replace(address,""),"Image","Image",CityId,placeId,batchName,urls)
                 
                 else :
                     print("place type not allowed :- ",aiai,scrapeDetail["PlaceType"])
@@ -321,6 +347,16 @@ class GetPosts():
             except:
                 pass
 
+
+    def delets_unwanted_places(self,places):
+        for scrapeDetail in places: 
+           
+            
+                if scrapeDetail["PlaceType"] not in ALLOWED_CATEGORIES:
+                    main=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS["PLACE_DELETE"],json=scrapeDetail,headers=self.headers).json()
+                    print( main)
+        
+       
 # aa=GetPosts()
 # # aa.select_ig_accounts() ##Get sessions for all the accounts which are in the accounts.csv
 # places=aa.get_places_data(city_id) # Get all the places for atlanta 
