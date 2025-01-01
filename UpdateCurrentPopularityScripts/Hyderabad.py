@@ -6,7 +6,7 @@ print("hii")
 from scouter.PlaceClass import ScouterPlaces
 from scouter.config import CITY_DATA
 
-# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+#
 scouter=ScouterPlaces("new") #using "new" to use the new db urls use "old" for the old db 
 
 
