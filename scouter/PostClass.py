@@ -316,28 +316,28 @@ class GetPosts():
                             # uniqueuserid = self.insertUser(userInfo)
                             # user_id.append(
                             #     {'id': userData["pk"], 'userId': uniqueuserid})
-                            if self.db=="old":
+                            # if self.db=="old":
                                 # print(data)
-                                if data["media_type"] == 1:
-                                    self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName)
-                                elif data["media_type"] == 2 and  data['product_type'] == "clips":
-                                    print("this is video")
-                                    self.lookpost(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName)
-                                elif data["media_type"] == 8 and  data['product_type'] == "carousel_container":
-                                    urls=[i['thumbnail_url'] for i in data['resources']]
-                                    print(urls)
-                                    self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName,urls)
-                            else:
-                                # print(data)
-                                if data["media_type"] == 1:
-                                    self.insert_activity(data, placename.replace(address,""),"Image","Image",CityId,placeId,batchName)
-                                elif data["media_type"] == 2 and  data['product_type'] == "clips":
-                                    print("this is video")
-                                    self.insert_activity(data, placename.replace(address,""),"Video","Video",CityId,placeId,batchName)
-                                elif data["media_type"] == 8 and  data['product_type'] == "carousel_container":
-                                    urls=[i['thumbnail_url'] for i in data['resources']]
-                                    print(urls)
-                                    self.insert_activity(data, placename.replace(address,""),"Image","Image",CityId,placeId,batchName,urls)
+                            if data["media_type"] == 1:
+                                self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName)
+                            elif data["media_type"] == 2 and  data['product_type'] == "clips":
+                                print("this is video")
+                                self.lookpost(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName)
+                            elif data["media_type"] == 8 and  data['product_type'] == "carousel_container":
+                                urls=[i['thumbnail_url'] for i in data['resources']]
+                                print(urls)
+                                self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName,urls)
+                        # else:
+                            # print(data)
+                            if data["media_type"] == 1:
+                                self.insert_activity(data, placename.replace(address,""),"Image","Image",CityId,placeId,batchName)
+                            elif data["media_type"] == 2 and  data['product_type'] == "clips":
+                                print("this is video")
+                                self.insert_activity(data, placename.replace(address,""),"Video","Video",CityId,placeId,batchName)
+                            elif data["media_type"] == 8 and  data['product_type'] == "carousel_container":
+                                urls=[i['thumbnail_url'] for i in data['resources']]
+                                print(urls)
+                                self.insert_activity(data, placename.replace(address,""),"Image","Image",CityId,placeId,batchName,urls)
                 
                 else :
                     print("place type not allowed :- ",aiai,scrapeDetail["PlaceType"])
