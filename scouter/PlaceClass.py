@@ -1,7 +1,7 @@
 
 import time
 import requests
-from .utils import zipcodes,user_agent_list
+from .utils import zipcodes,user_agent_list,user_agents_for_reviews
 import json
 import logging
 import random
@@ -305,6 +305,9 @@ class ScouterPlaces:
             else:
                 priceRange = '$'
 
+            
+            reviews_list_id=index_get(info,10) or ""
+            # print(reviews_list_id)
 
                 
             df={
@@ -343,6 +346,7 @@ class ScouterPlaces:
             "GooglePlaceImage":googleImages,
             "Rating": rating,
             "Rating_n": rating_n,
+            "ReviewsID":reviews_list_id,
             "CurrentPopularity": current_popularity,
             "CurrentPopularityStatus": current_popularity_status,
             "TimeSpent": time_spent,
@@ -432,9 +436,6 @@ class ScouterPlaces:
             
 
         return city_id
-
-
-      
                 
     def extract_coordinates_from_url(self,url: str) -> tuple[float,float]:
         """helper function to extract coordinates from url"""
@@ -442,8 +443,6 @@ class ScouterPlaces:
         coordinates = url.split('/@')[-1].split('/')[0]
         # return latitude, longitude
         return float(coordinates.split(',')[0]), float(coordinates.split(',')[1])
-      
-      
       
     @dataclass
     class Business:
@@ -995,11 +994,7 @@ class ScouterPlaces:
         #     start_updating=time.time()
         print("Data  inserted to  db ")
    
-   
-   
-   
-   
-   
+
     
     def extract_social_urls(self, query):
 
@@ -1022,7 +1017,20 @@ class ScouterPlaces:
             return None
 
         
+    def extract_reviews(self,feature_id,proxi_urls,nect_page_token=""):
+        url = 'https://www.google.com/async/reviewSort'
+        params = {
+            'async': f'feature_id:{feature_id},review_source:All%20reviews,sort_by:qualityScore,is_owner:false,filter_text:,associated_topic:,next_page_token:{nect_page_token},_pms:s,_fmt:pc,_basejs:%2Fxjs%2F_%2Fjs%2Fk%3Dxjs.s.en_GB.pIkW1CnNxCw.2018.O%2Fam%3DAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAEAACgIQAAAAAACgAAgAAAAAAAAAAABIAAAAAAAAJCAABEICAAAEAAAAAMACAAAILAABAgAEAAAAAAAEAAAAIEAEYL__OAAAAAAAAAAAAAQCABEAAAAAAHABABAE0d4AAQAAAAgAAAAMAAAAQAAAAQAAAAUAAAAAAAAAAAQAAAAAAAAABAAAAAABAPoBAAAAAAAAAAAAAAACAAAAAABogAIAAvgBAAAAAACAAwAAAAABAQAAOAYGIAAAAAAAAAD3AcDjAeGQwgIAAAAAAAAAAAAAAAABSBDMgfQXBCAAAAAAAAAAAAAAAAAAAJAiaOJyA4AC%2Fdg%3D0%2Fbr%3D1%2Frs%3DACT90oG5XBoPUUq3Sl9BTYQzX6svSLEIOQ%3Fcb%3Dconstant,_basecss:%2Fxjs%2F_%2Fss%2Fk%3Dxjs.s.cv79PgLUhzo.L.B1.O%2Fam%3DAJA6BAgBAAAgAACAGABUABAAAAwAAAAAAAAAAAAAAAAAAAAAAEACAAAABAAAACQAACAAAAAgAgIQMwEAAAQvAAhgFwBAAAAA-AAIpKMC0AAAJCAABEACABAEAAgAAsAGAQAACABAAEBtAABAAAAHAAACACgEAAAAMTAAAAYAAAABAAICCBJAAAYBoAEBkOCXabwAyA9AgQAABAAMABIARUA4wTAAQQUABjwAAgAAAAAAAAAAAAAIABACAAADUAAABBAAoAeAAPABAEgCEQAgCABAgEIAEAAAAAQAAAAAIAACAQAAQgQAOAYGIADAAAAAAACQAAAAAMCQAgIAAAAAAAAAAAAAAAAAQAAMAQAUBAAAAAAAAAAAAAAAAAAAAJACaII%2Fbr%3D1%2Frs%3DACT90oEvYdgd-ZyqZOfp3TnlxplNTzaUHg,_basecomb:%2Fxjs%2F_%2Fjs%2Fk%3Dxjs.s.en_GB.pIkW1CnNxCw.2018.O%2Fck%3Dxjs.s.cv79PgLUhzo.L.B1.O%2Fam%3DAJA6BAgBAAAgAACAGABUABAAAAwAAAAAAAAAAAAAAAAAAAAAAEACAAAABAAAACQAACAAAEAgCgIQMwEAAASvAAhgFwBAAAAA-ABIpKMC0AAAJCAABEICABAEAAgAAsAGAQAILABBAkBtAABAAAAHAAACIGgEYL__OTAAAAYAAAABAAYCCBNAAAYBoHEBkPCX-f4AyQ9AgQgABAAMABIARUA4wTAAQQUABjwAAgAAAAQAAAAAAAAIBBACAAADUPoBBBAAoAeAAPABAEgCEQAgCABogEIAEvgBAAQAAACAIwACAQABQwQAOAYGIADAAAAAAAD3AcDjAeGQwgIAAAAAAAAAAAAAAAABSBDMgfQXBCAAAAAAAAAAAAAAAAAAAJAiaOJyA4AC%2Fd%3D1%2Fed%3D1%2Fdg%3D0%2Fbr%3D1%2Fujg%3D1%2Frs%3DACT90oE_5h45QsQ6GwCal56_gJnalp7XeQ%3Fcb%3Dconstant',
+        }
         
+
+        user_agent = random.choice(user_agents_for_reviews)
+        headers = {'user-agent': user_agent}
+        # headers = {
+        # "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36",
+        # }
+        response = requests.get(url, headers=headers, params=params,proxies={'http': random.choice(self.proxies)})
+        return response.content
         
         
         

@@ -94,13 +94,7 @@ class GetPosts():
 
         return place_id
  
- 
- 
- 
- 
- 
- 
- 
+
     def insert_activity(self,post, HASHTAG, ActivityType,AttachmentType, CityID, PlaceId, BatchName,Images=""):
         jsn = {"Hashtag1": '', "Hashtag2": '',
             "Hashtag3": '', "Hashtag4": '', "Hashtag5": ''}
@@ -229,15 +223,7 @@ class GetPosts():
         print('time', 'message',  'inserted video :- ' + res.text)
         print()
        
-    
-    
-    
-    
-    
-    
-   
-    
-    
+
     def get_places_data(self,CityID):
         data={
         "filterInfo": [
@@ -254,8 +240,6 @@ class GetPosts():
         main=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS["PLACE_LIST"],json=data,headers=self.headers).json()
         return main['data']
     
-    
-    
     def check_for_post(self,insta_pk):
         """Add InstagramPk values to MongoDB if not already present."""
         client = MongoClient(scouterActivity_mondodb_url)
@@ -271,11 +255,6 @@ class GetPosts():
             client.close()
             return False
 
-        
-    
-    
-    
-    
     
     def update_places_data(self,placeId,scrapeDetail):
 
