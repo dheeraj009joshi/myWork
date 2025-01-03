@@ -1,4 +1,5 @@
 
+from datetime import datetime, timedelta
 import time
 import requests
 from .utils import zipcodes,user_agent_list,user_agents_for_reviews
@@ -854,12 +855,9 @@ class ScouterPlaces:
         }
 
         base_url="https://portal.maiden-ai.com/api/v1/cube/Scouter Galactic Pvt Ltd/night life/Analytics/PlacePopulationHistory/insert"
-        headers= {
-                "Content-Type": "application/json",
-                "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NzNhZWViYS00Y2FlLTRjODktYjhlZS05OWYzNDFiYTM2NmMiLCJVc2VySWQiOiI3NzNhZWViYS00Y2FlLTRjODktYjhlZS05OWYzNDFiYTM2NmMiLCJEZXZpY2VJZCI6IjUzNzM4ODBGLTkwN0UtNDc4NS04MjZELUUyRUZDREVCNzc0RCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjEyLzI4LzIwMjQgMTg6Mzc6MzciLCJuYmYiOjE3MzU0MTEwNTcsImV4cCI6MTc2Njk0NzA1NywiaWF0IjoxNzM1NDExMDU3fQ.1HQWE1HYZy08MTT7YOCuLDTQtz_8ZxM6MzCZpBWhs9I"
-            }
+       
 
-        res=requests.post(base_url,json=data,headers=headers).json()
+        res=requests.post(base_url,json=data,headers=self.headers).json()
         print(res)
        
    
@@ -1031,24 +1029,139 @@ class ScouterPlaces:
         # }
         response = requests.get(url, headers=headers, params=params,proxies={'http': random.choice(self.proxies)})
         return response.content
+       
+    def parse_relative_date(self,input_string: str):
+        """
+        Parses a relative date string like 'a year ago' and returns the exact datetime.
+        :param input_string: The relative date string (e.g., 'a year ago').
+        :return: A datetime object representing the parsed date.
+        """
+        if input_string=="":
+            return ""
+        now = datetime.now()
+        input_string = input_string.lower()
         
-        
-        
-# aa=ScouterPlaces()
-# aa.get_proxies_urls()
-# print("proxies done")
-# places=aa.get_places_data(CITY_DATA['LEEDS']['ID'])
-# for plcedetail in places:
-#     # print(plcedetail)
-#     place_json=aa.get_place_info_from_google(plcedetail['GooglePlaceName'],plcedetail['CityId'],plcedetail["Country"])
-#     # print(place_json)
-#     if plcedetail['InstagramLocation']!=None:
-#         place_images=aa.get_top3_posts_for_place(plcedetail)
-#         # place_json["MigratedImages"]=place_images
-#         # place_json["InstagramLocation"]=plcedetail['InstagramLocation']
-#         # print(place_json) ###
-#         plcedetail["OpeningHours"]=place_json["OpeningHours"]
-#         plcedetail["Reviews"]=place_json["Reviews"]
-#         plcedetail["Description"]=place_json["Description"]
-#         plcedetail.pop("MigratedImages")
-#         update=aa.update_places(plcedetail)
+        # Define common relative time patterns
+        time_multipliers = {
+            'year': 365,  # Approximate number of days in a year
+            'month': 30,  # Approximate number of days in a month
+            'week': 7,
+            'day': 1,
+            'hour': 1 / 24,
+            'minute': 1 / (24 * 60),
+            'second': 1 / (24 * 60 * 60),
+        }
+
+        # Regex pattern to extract relative time value and units
+        match = re.match(r'(?:(a|an|one|\d+)\s+)?(year|month|week|day|hour|minute|second)s?\s+ago', input_string)
+        if match:
+            quantity = match.group(1) or '1'
+            unit = match.group(2)
+            
+            # Convert quantity to number
+            if quantity in ['a', 'an', 'one']:
+                quantity = 1
+            else:
+                quantity = int(quantity)
+            
+            # Calculate the delta in days
+            days_delta = time_multipliers[unit] * quantity
+            
+            # Return the calculated date
+            return (now - timedelta(days=days_delta)).strftime('%Y-%m-%d %H:%M:%S')
+        else:
+            raise ""
+
+ 
+       
+    def insert_reviews_for_place(self,feature_id,no_of_reviews,placeid,cityid):
+        nect_page_token=''
+        for it in range(int(no_of_reviews/10)+1):
+            print("i am in the while loop")
+            time.sleep(2)
+            soup=BeautifulSoup(self.extract_reviews(feature_id,self.proxies,nect_page_token),"lxml")
+            f=open("index.html","w", encoding="utf-8")
+            f.write(soup.prettify())
+            all__review_data=soup.find_all("div",class_="WMbnJf vY6njf gws-localreviews__google-review")
+            for i in all__review_data:
+                    print("innnn")
+                # try:
+                    user_name=i.find("div",class_="TSUbDb").text
+                    user_profile=i.find("img",class_="lDY1rd")["src"]
+                    try:
+                        user_review_text=i.find("span",tabindex="-1").text
+                    except:
+                        user_review_text=""
+                    user_given_star=i.find("span",class_="lTi8oc z3HNkc")['aria-label'].split("out")[0].replace("Rated ","")
+                    user_revied_posted_ago=i.find("span",class_="dehysf lTi8oc").text
+                    # print(user_given_star)
+                    # print(user_revied_posted_ago)
+                    try:
+                        user_response_from_owner=i.find("div",class_="d6SCIc").text
+                        user_response_from_owner_ago=i.find("span",class_="pi8uOe").text
+                        # print(user_response_from_owner)
+                        # print(user_response_from_owner_ago)
+                    except:
+                        user_response_from_owner=""
+                        user_response_from_owner_ago=""
+                    # print(user_response_from_owner)
+                    try:
+                        images=[ item['style'].split("(")[1].split(")")[0] for item in i.find("g-scrolling-carousel").find_all("div",class_="JrO5Xe")]
+                        print(images)
+                    except:
+                        images=[]
+                        # f=open(f"rest{it}.html","w",encoding="utf-8")
+                        # f.write(soup.prettify())
+                        # break
+                    print({
+                        "user_name":user_name,
+                        "user_profile":user_profile,
+                        "user_review_text":user_review_text,
+                        "user_given_star":user_given_star,
+                        "user_revied_posted_ago":user_revied_posted_ago,
+                        "user_response_from_owner":user_response_from_owner,
+                        "user_response_from_owner_ago":user_response_from_owner_ago,
+                        "images":images
+                    })
+                    
+                    data={
+                        "PlaceId":placeid,
+                        "CityId":cityid,
+                        "Username": user_name, 
+                        "UserProfileImage": user_profile, 
+                        "Text": user_review_text, 
+                        "Rating": user_given_star,
+                        "ReviewDate":user_revied_posted_ago,  
+                        "OwnerResponse": user_response_from_owner, 
+                        "OwnerResponseDate": user_response_from_owner_ago, 
+                        "Images":",".join(images)
+                    }
+                    print(data)
+
+                    base_url=f"{self.BASE_URLS["BASE_URL"]}/Review/insert"
+                   
+
+                    res=requests.post(base_url,json=data,headers=self.headers).json()
+                    print(res)
+       
+                    
+                # except Exception as e:
+                #     # f=open(f"rest{it}.html","w",encoding="utf-8")
+                #     # f.write(soup.prettify())
+                #     print(e)
+                    
+            nect_page_token=soup.find("div",class_="gws-localreviews__general-reviews-block")['data-next-page-token'].replace("==","")
+            
+            
+            
+    def insert_reviews_for_all_place(self,places):
+        for i in places:
+            print("    ")
+            print("    ")
+            print("    ")
+            # print(i)
+            if i["ReviewsID"] != None:
+                self.insert_reviews_for_place(i["ReviewsID"],i["Rating_N"] or i["Rating_n"],i["PlaceId"],i["CityId"])
+                print(":doneeee")
+               
+    
