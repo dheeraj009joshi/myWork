@@ -1084,8 +1084,8 @@ class ScouterPlaces:
             f.write(soup.prettify())
             all__review_data=soup.find_all("div",class_="WMbnJf vY6njf gws-localreviews__google-review")
             for i in all__review_data:
-                    print("innnn")
-                # try:
+                    # print("innnn")
+                try:
                     user_name=i.find("div",class_="TSUbDb").text
                     user_profile=i.find("img",class_="lDY1rd")["src"]
                     try:
@@ -1145,10 +1145,10 @@ class ScouterPlaces:
                     print(res)
        
                     
-                # except Exception as e:
-                #     # f=open(f"rest{it}.html","w",encoding="utf-8")
-                #     # f.write(soup.prettify())
-                #     print(e)
+                except Exception as e:
+                    # f=open(f"rest{it}.html","w",encoding="utf-8")
+                    # f.write(soup.prettify())
+                    print(e)
                     
             nect_page_token=soup.find("div",class_="gws-localreviews__general-reviews-block")['data-next-page-token'].replace("==","")
             
