@@ -1077,81 +1077,83 @@ class ScouterPlaces:
     def insert_reviews_for_place(self,feature_id,no_of_reviews,placeid,cityid):
         nect_page_token=''
         for it in range(int(no_of_reviews/10)+1):
-            print("i am in the while loop")
-            time.sleep(2)
-            soup=BeautifulSoup(self.extract_reviews(feature_id,self.proxies,nect_page_token),"lxml")
-            f=open("index.html","w", encoding="utf-8")
-            f.write(soup.prettify())
-            all__review_data=soup.find_all("div",class_="WMbnJf vY6njf gws-localreviews__google-review")
-            for i in all__review_data:
-                    # print("innnn")
-                try:
-                    user_name=i.find("div",class_="TSUbDb").text
-                    user_profile=i.find("img",class_="lDY1rd")["src"]
+            try:
+                print("i am in the while loop")
+                time.sleep(2)
+                soup=BeautifulSoup(self.extract_reviews(feature_id,self.proxies,nect_page_token),"lxml")
+                f=open("index.html","w", encoding="utf-8")
+                f.write(soup.prettify())
+                all__review_data=soup.find_all("div",class_="WMbnJf vY6njf gws-localreviews__google-review")
+                for i in all__review_data:
+                        # print("innnn")
                     try:
-                        user_review_text=i.find("span",tabindex="-1").text
-                    except:
-                        user_review_text=""
-                    user_given_star=i.find("span",class_="lTi8oc z3HNkc")['aria-label'].split("out")[0].replace("Rated ","")
-                    user_revied_posted_ago=i.find("span",class_="dehysf lTi8oc").text
-                    # print(user_given_star)
-                    # print(user_revied_posted_ago)
-                    try:
-                        user_response_from_owner=i.find("div",class_="d6SCIc").text
-                        user_response_from_owner_ago=i.find("span",class_="pi8uOe").text
+                        user_name=i.find("div",class_="TSUbDb").text
+                        user_profile=i.find("img",class_="lDY1rd")["src"]
+                        try:
+                            user_review_text=i.find("span",tabindex="-1").text
+                        except:
+                            user_review_text=""
+                        user_given_star=i.find("span",class_="lTi8oc z3HNkc")['aria-label'].split("out")[0].replace("Rated ","")
+                        user_revied_posted_ago=i.find("span",class_="dehysf lTi8oc").text
+                        # print(user_given_star)
+                        # print(user_revied_posted_ago)
+                        try:
+                            user_response_from_owner=i.find("div",class_="d6SCIc").text
+                            user_response_from_owner_ago=i.find("span",class_="pi8uOe").text
+                            # print(user_response_from_owner)
+                            # print(user_response_from_owner_ago)
+                        except:
+                            user_response_from_owner=""
+                            user_response_from_owner_ago=""
                         # print(user_response_from_owner)
-                        # print(user_response_from_owner_ago)
-                    except:
-                        user_response_from_owner=""
-                        user_response_from_owner_ago=""
-                    # print(user_response_from_owner)
-                    try:
-                        images=[ item['style'].split("(")[1].split(")")[0] for item in i.find("g-scrolling-carousel").find_all("div",class_="JrO5Xe")]
-                        print(images)
-                    except:
-                        images=[]
+                        try:
+                            images=[ item['style'].split("(")[1].split(")")[0] for item in i.find("g-scrolling-carousel").find_all("div",class_="JrO5Xe")]
+                            print(images)
+                        except:
+                            images=[]
+                            # f=open(f"rest{it}.html","w",encoding="utf-8")
+                            # f.write(soup.prettify())
+                            # break
+                        print({
+                            "user_name":user_name,
+                            "user_profile":user_profile,
+                            "user_review_text":user_review_text,
+                            "user_given_star":user_given_star,
+                            "user_revied_posted_ago":user_revied_posted_ago,
+                            "user_response_from_owner":user_response_from_owner,
+                            "user_response_from_owner_ago":user_response_from_owner_ago,
+                            "images":images
+                        })
+                        
+                        data={
+                            "PlaceId":placeid,
+                            "CityId":cityid,
+                            "Username": user_name, 
+                            "UserProfileImage": user_profile, 
+                            "Text": user_review_text, 
+                            "Rating": user_given_star,
+                            "ReviewDate":user_revied_posted_ago,  
+                            "OwnerResponse": user_response_from_owner, 
+                            "OwnerResponseDate": user_response_from_owner_ago, 
+                            "Images":",".join(images)
+                        }
+                        print(data)
+
+                        base_url=f"{self.BASE_URLS["BASE_URL"]}/Review/insert"
+                    
+
+                        res=requests.post(base_url,json=data,headers=self.headers).json()
+                        print(res)
+        
+                        
+                    except Exception as e:
                         # f=open(f"rest{it}.html","w",encoding="utf-8")
                         # f.write(soup.prettify())
-                        # break
-                    print({
-                        "user_name":user_name,
-                        "user_profile":user_profile,
-                        "user_review_text":user_review_text,
-                        "user_given_star":user_given_star,
-                        "user_revied_posted_ago":user_revied_posted_ago,
-                        "user_response_from_owner":user_response_from_owner,
-                        "user_response_from_owner_ago":user_response_from_owner_ago,
-                        "images":images
-                    })
-                    
-                    data={
-                        "PlaceId":placeid,
-                        "CityId":cityid,
-                        "Username": user_name, 
-                        "UserProfileImage": user_profile, 
-                        "Text": user_review_text, 
-                        "Rating": user_given_star,
-                        "ReviewDate":user_revied_posted_ago,  
-                        "OwnerResponse": user_response_from_owner, 
-                        "OwnerResponseDate": user_response_from_owner_ago, 
-                        "Images":",".join(images)
-                    }
-                    print(data)
-
-                    base_url=f"{self.BASE_URLS["BASE_URL"]}/Review/insert"
-                   
-
-                    res=requests.post(base_url,json=data,headers=self.headers).json()
-                    print(res)
-       
-                    
-                except Exception as e:
-                    # f=open(f"rest{it}.html","w",encoding="utf-8")
-                    # f.write(soup.prettify())
-                    print(e)
-                    
-            nect_page_token=soup.find("div",class_="gws-localreviews__general-reviews-block")['data-next-page-token'].replace("==","")
-            
+                        print(e)
+                        
+                nect_page_token=soup.find("div",class_="gws-localreviews__general-reviews-block")['data-next-page-token'].replace("==","")
+            except:
+                pass    
             
             
     def insert_reviews_for_all_place(self,places):
