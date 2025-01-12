@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            box-sizing: border-box;
+        }
+        h2 {
+            text-align: center;
+            color: #444;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .form-toggle {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+        .form-toggle a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .form-toggle a:hover {
+            text-decoration: underline;
+        }
+        .input-container {
+            margin-bottom: 20px;
+        }
+        .welcome-message {
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .logout-btn {
+            background-color: #f44336;
+        }
+        .logout-btn:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="authContainer">
+        <!-- Login Form -->
+        <div id="loginForm">
+            <h2>Login</h2>
+            <div class="input-container">
+                <input type="text" id="loginUsername" placeholder="Username" />
+            </div>
+            <div class="input-container">
+                <input type="password" id="loginPassword" placeholder="Password" />
+            </div>
+            <button onclick="login()">Login</button>
+            <div class="form-toggle">Don't have an account? <a href="javascript:void(0);" onclick="toggleForms()">Sign Up</a></div>
+        </div>
+
+        <!-- Signup Form -->
+        <div id="signupForm" style="display: none;">
+            <h2>Sign Up</h2>
+            <div class="input-container">
+                <input type="text" id="signupUsername" placeholder="Username" />
+            </div>
+            <div class="input-container">
+                <input type="email" id="signupEmail" placeholder="Email" />
+            </div>
+            <div class="input-container">
+                <input type="password" id="signupPassword" placeholder="Password" />
+            </div>
+            <button onclick="signup()">Sign Up</button>
+            <div class="form-toggle">Already have an account? <a href="javascript:void(0);" onclick="toggleForms()">Login</a></div>
+        </div>
+
+        <!-- User Dashboard (shown after login) -->
+        <div id="dashboard" style="display: none;">
+            <div class="welcome-message" id="welcomeMessage"></div>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to toggle between Login and Signup Forms
+        function toggleForms() {
+            const loginForm = document.getElementById("loginForm");
+            const signupForm = document.getElementById("signupForm");
+            if (loginForm.style.display === "none") {
+                loginForm.style.display = "block";
+                signupForm.style.display = "none";
+            } else {
+                loginForm.style.display = "none";
+                signupForm.style.display = "block";
+            }
+        }
+
+        // Function for user signup
+        function signup() {
+            const username = document.getElementById("signupUsername").value;
+            const email = document.getElementById("signupEmail").value;
+            const password = document.getElementById("signupPassword").value;
+
+            if (username && email && password) {
+                let users = JSON.parse(localStorage.getItem("users")) || [];
+                const userExists = users.some(user => user.username === username);
+                if (userExists) {
+                    alert("Username already taken, try another one.");
+                } else {
+                    const newUser = { username, email, password };
+                    users.push(newUser);
+                    localStorage.setItem("users", JSON.stringify(users));
+                    alert("Sign Up successful!");
+                    toggleForms(); // Switch to Login form after successful signup
+                }
+            } else {
+                alert("Please fill in all fields.");
+            }
+        }
+
+        // Function for user login
+        function login() {
+            const username = document.getElementById("loginUsername").value;
+            const password = document.getElementById("loginPassword").value;
+
+            if (username && password) {
+                let users = JSON.parse(localStorage.getItem("users")) || [];
+                const user = users.find(user => user.username === username && user.password === password);
+                if (user) {
+                    alert("Login successful!");
+                    console.log("User credentials:", { username, password });
+                    showDashboard(user);
+                } else {
+                    alert("Invalid credentials, please try again.");
+                }
+            } else {
+                alert("Please fill in both fields.");
+            }
+        }
+
+        // Function to show user dashboard after successful login
+        function showDashboard(user) {
+            document.getElementById("loginForm").style.display = "none";
+            document.getElementById("signupForm").style.display = "none";
+            document.getElementById("dashboard").style.display = "block";
+
+            // Display welcome message and username
+            document.getElementById("welcomeMessage").innerText = `Welcome, ${user.username}!`;
+
+            // Log credentials to console
+            console.log("User credentials after login:", { username: user.username });
+        }
+
+        // Function to log out and return to login form
+        function logout() {
+            document.getElementById("loginForm").style.display = "block";
+            document.getElementById("dashboard").style.display = "none";
+            alert("User logged out successfully!");
+        }
+    </script>
+</body>
+</html>
