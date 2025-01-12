@@ -10,7 +10,7 @@ from scouter.config import CITY_DATA
 # Initialize ScouterPlaces
 scouter = ScouterPlaces("old")  # Use "new" for new DB URLs, "old" for old DB
 scouter.get_proxies_urls()
-places = re.get("http://localhost:3000/api/places").json()["data"]
+places = re.get("http://20.106.56.49:9090//api/places").json()["data"]
 
 def met(place_data):
     """Update the current popularity of a place."""
@@ -19,7 +19,7 @@ def met(place_data):
     up = scouter.get_place_info_from_google(place_data["GooglePlaceName"], "leeds", "")
 
     # Prepare URL and payload
-    url = f"http://localhost:3000/api/places/{place_data['_id']}"  # Adjust base URL
+    url = f"http://20.106.56.49:9090//api/places/{place_data['_id']}"  # Adjust base URL
     headers = {"Content-Type": "application/json"}
     payload = {"currentPopularity": up["CurrentPopularity"]}
     print(payload)
