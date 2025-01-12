@@ -22,7 +22,11 @@ client.connect()
 // Route to fetch all places
 router.get('/places', async (req, res) => {
     try {
-        const places = await placeCollection.find({}).toArray();
+        // Fetch only the specified fields using projection
+        const places = await placeCollection
+            .find({}, { projection: { currentPopularity: 1, Longitude: 1, Latitude: 1, PlaceName: 1, placeID: 1, GooglePlaceName: 1 } })
+            .toArray();
+
         res.status(200).json({
             success: true,
             data: places,
@@ -35,7 +39,6 @@ router.get('/places', async (req, res) => {
         });
     }
 });
-
 // Route to create a new place
 router.post('/places', async (req, res) => {
     try {
