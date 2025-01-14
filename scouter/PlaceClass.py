@@ -707,6 +707,10 @@ class ScouterPlaces:
                     place_json["MigratedImages"]=place_images
                     place_json["InstagramLocation"]=plcedetail['InstagramLocation']
                     place_json["PlaceId"]=plcedetail['PlaceId']
+                    place_json.pop("ModifiedBy")
+                    place_json.pop("CreatedBy")
+                    place_json.pop("ModifiedDate")
+                    place_json.pop("CreatedDate")
                     # # print(place_json) ###
                     # plcedetail["OpeningHours"]=place_json["OpeningHours"]
                     # plcedetail["Reviews"]=place_json["Reviews"]
