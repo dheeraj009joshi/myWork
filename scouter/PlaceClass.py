@@ -372,6 +372,7 @@ class ScouterPlaces:
                 aa=self.cl.fbsearch_places_v1(placename,data['Latitude'],data["Longitude"])[0]["pk"]
                 data["InstagramLocation"]=aa
                 data["MigratedImages"]=self.get_top3_posts_for_place(aa)
+                data["InstagramHandle"]=self.extract_insta_url(data['GooglePlaceName']+" insta")["href"]
                 print(data)
                 res=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_INSERT'],json=data,headers=self.headers).json()
                 print(res)
@@ -383,6 +384,7 @@ class ScouterPlaces:
                     aa=self.cl.fbsearch_places_v1(placename,data['Latitude'],data["Longitude"])[0]["pk"]
                     data["InstagramLocation"]=aa
                     data["MigratedImages"]=self.get_top3_posts_for_place(aa)
+                    data["InstagramHandle"]=self.extract_insta_url(data['GooglePlaceName']+" insta")["href"]
                     print(data)
                     res=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_INSERT'],json=data,headers=self.headers).json()
                     print(res)
@@ -998,27 +1000,35 @@ class ScouterPlaces:
    
 
     
-    def extract_social_urls(self, query):
+    def extract_insta_url(self,q):
+    
 
-        query_url = f"https://www.google.com/search?q={requests.utils.quote(query)}"
+        url = "https://www.google.com/search"
         headers = {
-            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-            "accept-language": "en-US,en;q=0.9",
+            "User-Agent": random.choice(user_agent_list)}
+        params = {
+            "q": q,
         
-            "sec-fetch-user": "?1",
-            "upgrade-insecure-requests": "1",
-            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
         }
-
-        response = requests.get(query_url, headers=headers)
+        print(params)
+        response = requests.get(url=url,params=params, headers=headers,proxies={'http': random.choice(self.proxies)})
         if response.status_code == 200:
             soup = BeautifulSoup(response.content, "html.parser")
-            js=json.loads(soup.find_all("script")[-4].text)
-            return  js["prefetch"][0]['urls']
+            # print(soup)
+            instagram_links=[]
+            for link in soup.find_all('a'): 
+                print(link)
+                if "instagram.com" in link.get("href"):
+                    instagram_links.append({
+                        'href': link.get('href').split("https://www.instagram.com/")[-1].split("/")[0],
+                        'text': link.get_text(strip=True)
+                    })
+
+            return instagram_links[0]
+            # return  js["prefetch"][0]['urls']
+        
         else:
             return None
-
-        
     def extract_reviews(self,feature_id,proxi_urls,nect_page_token=""):
         url = 'https://www.google.com/async/reviewSort'
         params = {
@@ -1171,3 +1181,4 @@ class ScouterPlaces:
                 print(":doneeee")
                
     
+   
