@@ -385,7 +385,7 @@ class ScouterPlaces:
                     aa=self.cl.fbsearch_places_v1(placename,data['Latitude'],data["Longitude"])[0]["pk"]
                     data["InstagramLocation"]=aa
                     data["MigratedImages"]=self.get_top3_posts_for_place(aa)
-                    data["InstagramHandle"]=self.extract_insta_url(data['GooglePlaceName']+" insta")["href"]
+                    data["InstagramHandle"]=self.extract_insta_url(data['PlaceName']+""+ CITY+" insta")["href"]
                     print(data)
                     res=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_INSERT'],json=data,headers=self.headers).json()
                     print(res)
