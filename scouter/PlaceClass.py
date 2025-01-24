@@ -367,6 +367,7 @@ class ScouterPlaces:
     def insert_place(self,placename,address,CITY_ID,CITY,COUNTRY):
         data=self.get_place_info_from_google(placename,CITY_ID,COUNTRY)
         if data!=None:
+            
             if data["PlaceName"]!="" and data['PlaceType'] in ALLOWED_CATEGORIES:
                 print("getting images and all")
                 aa=self.cl.fbsearch_places_v1(placename,data['Latitude'],data["Longitude"])[0]["pk"]
@@ -1001,32 +1002,20 @@ class ScouterPlaces:
 
     
     def extract_insta_url(self,q):
-    
 
-        url = "https://www.google.com/search"
+        url = "https://in.search.yahoo.com/search"
         headers = {
-            "User-Agent": random.choice(user_agent_list)}
-        params = {
-            "q": q,
-        
+            "user-agent": random.choice(user_agent_list),
         }
-        print(params)
-        response = requests.get(url=url,params=params, headers=headers,proxies={'http': random.choice(self.proxies)})
+        params = {
+            "p": f"{q}  insta",  
+        }
+        response = requests.get(url, headers=headers, params=params, proxies={'http': random.choice(self.proxies)})
         if response.status_code == 200:
             soup = BeautifulSoup(response.content, "html.parser")
-            # print(soup)
-            instagram_links=[]
-            for link in soup.find_all('a'): 
-                print(link)
-                if "instagram.com" in link.get("href"):
-                    instagram_links.append({
-                        'href': link.get('href').split("https://www.instagram.com/")[-1].split("/")[0],
-                        'text': link.get_text(strip=True)
-                    })
-
-            return instagram_links[0]
-            # return  js["prefetch"][0]['urls']
-        
+            instagram_link = soup.find_all('a', href=lambda href: href and "instagram.com" in href)[0].get("href").split("instagram.com")[-1].split("/")[0].replace("%2f","")
+            return instagram_link
+                
         else:
             return None
     def extract_reviews(self,feature_id,proxi_urls,nect_page_token=""):
