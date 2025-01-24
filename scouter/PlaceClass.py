@@ -9,7 +9,7 @@ import random
 import re
 import ssl
 from urllib.parse import quote
-from .config import PROXIES_SEARCH_URL1,PROXIES_SEARCH_URL2,PROXIES_SEARCH_URL3,PROD_URLS,mobile_urls
+from .config import ALLOWED_CATEGORIES, PROXIES_SEARCH_URL1,PROXIES_SEARCH_URL2,PROXIES_SEARCH_URL3,PROD_URLS,mobile_urls
 from hikerapi import Client
 import requests
 from bs4 import BeautifulSoup
@@ -367,7 +367,7 @@ class ScouterPlaces:
     def insert_place(self,placename,address,CITY_ID,CITY,COUNTRY):
         data=self.get_place_info_from_google(placename,CITY_ID,COUNTRY)
         if data!=None:
-            if data["PlaceName"]!="":
+            if data["PlaceName"]!="" and data['PlaceType'] in ALLOWED_CATEGORIES:
                 print("getting images and all")
                 aa=self.cl.fbsearch_places_v1(placename,data['Latitude'],data["Longitude"])[0]["pk"]
                 data["InstagramLocation"]=aa
@@ -379,7 +379,7 @@ class ScouterPlaces:
                 # return res['result']
             elif data["PlaceName"]!="":
                 data=self.get_place_info_from_google(placename.replace(address,"")+" "+CITY+" "+COUNTRY,CITY_ID,COUNTRY)
-                if data["PlaceName"]!="":
+                if data["PlaceName"]!="" and data['PlaceType'] in ALLOWED_CATEGORIES:
                     print("getting images and all")
                     aa=self.cl.fbsearch_places_v1(placename,data['Latitude'],data["Longitude"])[0]["pk"]
                     data["InstagramLocation"]=aa
@@ -491,7 +491,7 @@ class ScouterPlaces:
                 os.makedirs(self.save_at)
             self.dataframe().to_csv(f"output/{filename}.csv", index=False)      
             
-    def main(self,CITY_ID,CITY,COUNTRY):
+    def insert_all_places_for_city(self,CITY_ID,CITY,COUNTRY):
     
     ########
     # input 
@@ -514,21 +514,21 @@ class ScouterPlaces:
             total = 10 # change according to you 
 
         if not args.search:
-            search_list = []
+            search_list = ALLOWED_CATEGORIES
             # read search from input.txt file
-            input_file_name = 'input.txt'
-            # Get the absolute path of the file in the current working directory
-            input_file_path = os.path.join(os.getcwd(), input_file_name)
-            # Check if the file exists
-            if os.path.exists(input_file_path):
-            # Open the file in read mode
-                with open(input_file_path, 'r') as file:
-                # Read all lines into a list
-                    search_list = file.readlines()
+            # input_file_name = 'input.txt'
+            # # Get the absolute path of the file in the current working directory
+            # input_file_path = os.path.join(os.getcwd(), input_file_name)
+            # # Check if the file exists
+            # if os.path.exists(input_file_path):
+            # # Open the file in read mode
+            #     with open(input_file_path, 'r') as file:
+            #     # Read all lines into a list
+            #         search_list = file.readlines()
                     
-            if len(search_list) == 0:
-                print('Error occured: You must either pass the -s search argument, or add searches to input.txt')
-                sys.exit()
+            # if len(search_list) == 0:
+            #     print('Error occured: You must either pass the -s search argument, or add searches to input.txt')
+            #     sys.exit()
             
         ###########
         # scraping
