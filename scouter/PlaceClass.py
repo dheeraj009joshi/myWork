@@ -373,7 +373,7 @@ class ScouterPlaces:
                 aa=self.cl.fbsearch_places_v1(placename,data['Latitude'],data["Longitude"])[0]["pk"]
                 data["InstagramLocation"]=aa
                 data["MigratedImages"]=self.get_top3_posts_for_place(aa)
-                data["InstagramHandle"]=self.extract_insta_url(data['GooglePlaceName']+" insta")["href"]
+                data["InstagramHandle"]=self.extract_insta_url(data['GooglePlaceName']+" insta")
                 print(data)
                 res=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_INSERT'],json=data,headers=self.headers).json()
                 print(res)
@@ -385,7 +385,7 @@ class ScouterPlaces:
                     aa=self.cl.fbsearch_places_v1(placename,data['Latitude'],data["Longitude"])[0]["pk"]
                     data["InstagramLocation"]=aa
                     data["MigratedImages"]=self.get_top3_posts_for_place(aa)
-                    data["InstagramHandle"]=self.extract_insta_url(data['PlaceName']+""+ CITY+" insta")["href"]
+                    data["InstagramHandle"]=self.extract_insta_url(data['PlaceName']+""+ CITY+" insta")
                     print(data)
                     res=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_INSERT'],json=data,headers=self.headers).json()
                     print(res)
@@ -687,7 +687,7 @@ class ScouterPlaces:
         
         posts=self.cl.location_medias_top_v1(placePk,5)
         for data in posts:
-            print(data)
+            # print(data)
             print(type(data))
             if data["media_type"] == 1:
                 urls.append(data["thumbnail_url"])
@@ -698,7 +698,7 @@ class ScouterPlaces:
                 urls.append(data['resources'][0]['thumbnail_url'])
         return ",".join(urls)
                 
-    def update_places(self, places):
+    def update_places(self, places, city ):
         # print(data)
         for plcedetail in places:
             try:
@@ -708,12 +708,17 @@ class ScouterPlaces:
                 if plcedetail['InstagramLocation']!=None:
                     place_images=self.get_top3_posts_for_place(plcedetail['InstagramLocation'])
                     place_json["MigratedImages"]=place_images
-                    place_json["InstagramLocation"]=plcedetail['InstagramLocation']
+                    if plcedetail['InstagramHandle'] ==None or plcedetail['InstagramHandle']== "":
+                        print("kjfnbfdjf;o  in if condition")
+                        place_json["InstagramHandle"]=self.extract_insta_url(plcedetail['PlaceName']+" "+ city+" insta")
+                    else:
+                        place_json["InstagramHandle"]=plcedetail['InstagramHandle']
+                    
                     place_json["PlaceId"]=plcedetail['PlaceId']
-                    place_json.pop("ModifiedBy")
-                    place_json.pop("CreatedBy")
-                    place_json.pop("ModifiedDate")
-                    place_json.pop("CreatedDate")
+                    # place_json.pop("ModifiedBy")
+                    # place_json.pop("CreatedBy")
+                    # place_json.pop("ModifiedDate")
+                    # place_json.pop("CreatedDate")
                     # # print(place_json) ###
                     # plcedetail["OpeningHours"]=place_json["OpeningHours"]
                     # plcedetail["Reviews"]=place_json["Reviews"]
@@ -723,7 +728,8 @@ class ScouterPlaces:
                     res=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_UPDATE'],json=place_json,headers=self.headers).json()
                     print(res)   
                     # time.sleep(10)  
-            except:
+            except Exception as e :
+                print(e)
                 pass 
         
         
@@ -1008,10 +1014,13 @@ class ScouterPlaces:
             "user-agent": random.choice(user_agent_list),
         }
         params = {
-            "p": f"{q}  insta",  
+            "p": f"{q} ",  
         }
+        print(q)
         response = requests.get(url, headers=headers, params=params, proxies={'http': random.choice(self.proxies)})
+        print(response.status_code)
         if response.status_code == 200:
+            print("i am in success status code ")
             soup = BeautifulSoup(response.content, "html.parser")
             instagram_link = soup.find_all('a', href=lambda href: href and "instagram.com" in href)[0].get("href").split("instagram.com")[-1].split("/")[0].replace("%2f","")
             return instagram_link

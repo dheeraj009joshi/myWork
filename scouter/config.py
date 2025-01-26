@@ -73,6 +73,10 @@ CITY_DATA={
         "ID":"4d88fd55-6098-4f6e-9571-08dd23e0250e",
         "COUNTRY":"US"
     },
+    "LONDON":{
+        "ID":"93654cc7-7d91-4738-a71d-44b71f61273a",
+        "COUNTRY":"US"
+    },
 }
 
 
