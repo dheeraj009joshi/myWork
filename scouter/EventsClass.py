@@ -168,7 +168,7 @@ class ScouterEvents:
                         "Latitude": d["primary_venue"]['address']["latitude"],
                         "Longitude": d["primary_venue"]['address']["longitude"],
                         "Address": d["primary_venue"]['address']["localized_address_display"],
-                        "CityId": "723289d5-9983-4a2f-6538-08dcc857d3e1",
+                        "CityId": CITY_ID,
                         "PlaceId":placeid,
                         "Url":d["url"],
                         "Emoji":"1F4C5",
