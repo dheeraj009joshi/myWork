@@ -377,7 +377,7 @@ class ScouterPlaces:
                 print(data)
                 res=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_INSERT'],json=data,headers=self.headers).json()
                 print(res)
-                # return res['result']
+                return res
             elif data["PlaceName"]!="":
                 data=self.get_place_info_from_google(placename.replace(address,"")+" "+CITY+" "+COUNTRY,CITY_ID,COUNTRY)
                 if data["PlaceName"]!="" and data['PlaceType'] in ALLOWED_CATEGORIES:
@@ -389,7 +389,7 @@ class ScouterPlaces:
                     print(data)
                     res=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_INSERT'],json=data,headers=self.headers).json()
                     print(res)
-                    # return res['result']
+                    return res
       
       
     def get_city_id(self,cityName,country,region,loc_data):
@@ -1020,10 +1020,13 @@ class ScouterPlaces:
         response = requests.get(url, headers=headers, params=params, proxies={'http': random.choice(self.proxies)})
         print(response.status_code)
         if response.status_code == 200:
-            print("i am in success status code ")
-            soup = BeautifulSoup(response.content, "html.parser")
-            instagram_link = soup.find_all('a', href=lambda href: href and "instagram.com" in href)[0].get("href").split("instagram.com")[-1].split("/")[0].replace("%2f","")
-            return instagram_link
+            try:
+                print("i am in success status code ")
+                soup = BeautifulSoup(response.content, "html.parser")
+                instagram_link = soup.find_all('a', href=lambda href: href and "instagram.com" in href)[0].get("href").split("instagram.com")[-1].split("/")[0].replace("%2f","")
+                return instagram_link
+            except:
+                pass
                 
         else:
             return None

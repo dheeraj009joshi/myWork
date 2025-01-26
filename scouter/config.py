@@ -43,7 +43,8 @@ PROD_URLS={
 CITY_DATA={
     "LEEDS":{
         "ID":"723289d5-9983-4a2f-6538-08dcc857d3e1",
-        "COUNTRY":"UK"
+        "COUNTRY":"UK",
+        "EVENT_ID":["101750579"]
     },
     "ATLANTA":{
         "ID":"85ab5e34-3d98-406f-a8c1-77df8ed68c2c",
@@ -75,7 +76,8 @@ CITY_DATA={
     },
     "LONDON":{
         "ID":"93654cc7-7d91-4738-a71d-44b71f61273a",
-        "COUNTRY":"US"
+        "COUNTRY":"UK",
+        "EVENT_ID":["101750367"]
     },
 }
 
