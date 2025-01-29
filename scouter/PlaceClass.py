@@ -816,7 +816,7 @@ class ScouterPlaces:
                 # f2=open("mum.txt","a") 
                 if current_popularity == None:
                     current_popularity = 0
-                if current_popularity>0>=5:
+                if 0<current_popularity >=5:
                     current_popularity=5
                 print({ 'googlePlaceName': place_data["GooglePlaceName"], 'currentpopularity': current_popularity, "place_id":place_data["PlaceId"]}, time.time())
                 # if current_popularity>70:
