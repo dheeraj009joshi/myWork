@@ -140,9 +140,8 @@ class ScouterEvents:
                         end_time = f"{d['end_date']}T{d['end_time']}:00"
                     except:
                         start_time = f"{d['start_date']}T{d['start_time']}:00"
-                        end_time = (
-                            f"{d['start_date']}T{d['end_time']}:00"  # when end's on same day
-                        )
+                        end_time = f"{d['start_date']}T{d['end_time']}:00"  # when end's on same day
+                        
                     
                         
                     # handel getting place scraping it and in not added will add it 
@@ -162,7 +161,7 @@ class ScouterEvents:
                         "Hashtag3": hashtag3,
                         "Hashtag3": hashtag4,
                         "Hashtag3": hashtag5,
-                        "BatchName": "Batch_11-23-2024",
+                        # "BatchName": "Batch_11-23-2024",
                         "StartTime": start_time,
                         "EndTIme": end_time,
                         "Latitude": d["primary_venue"]['address']["latitude"],
