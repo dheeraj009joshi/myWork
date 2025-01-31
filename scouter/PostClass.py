@@ -107,7 +107,7 @@ class GetPosts():
         "ActivityType": ActivityType, #["Image", "Video", "Event"]s
         "AttachmentType": AttachmentType, #["Image", "Video"],
         "Title": post['title'],
-        "Description": caption.replace("\n", " ").replace("\t", " "),
+        "Description": caption.replace("\n", " ").replace("\t", " ")+"\n"+f"https://www.instagram.com/p/{post["code"]}",
         "InLocation":  post["location"] != None,
         "TagLocation": None,
         "LikeCount": post['like_count'],
@@ -297,15 +297,15 @@ class GetPosts():
                             #     {'id': userData["pk"], 'userId': uniqueuserid})
                             # if self.db=="old":
                                 # print(data)
-                            if data["media_type"] == 1:
-                                self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName)
-                            elif data["media_type"] == 2 and  data['product_type'] == "clips":
-                                print("this is video")
-                                self.lookpost(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName)
-                            elif data["media_type"] == 8 and  data['product_type'] == "carousel_container":
-                                urls=[i['thumbnail_url'] for i in data['resources']]
-                                print(urls)
-                                self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName,urls)
+                            # if data["media_type"] == 1:
+                            #     self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName)
+                            # elif data["media_type"] == 2 and  data['product_type'] == "clips":
+                            #     print("this is video")
+                            #     self.lookpost(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName)
+                            # elif data["media_type"] == 8 and  data['product_type'] == "carousel_container":
+                            #     urls=[i['thumbnail_url'] for i in data['resources']]
+                            #     print(urls)
+                            #     self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName,urls)
                         # else:
                             # print(data)
                             if data["media_type"] == 1:
