@@ -268,7 +268,9 @@ class GetPosts():
 
     def test_location_posts(self,scrapeDetails,CityId,batchName): 
         
-        aiai=1
+        total_places_not_allowed=1
+        total_image_posts_added=0
+        total_video_posts_added=0
         for scrapeDetail in scrapeDetails: 
             try:
             
@@ -316,32 +318,27 @@ class GetPosts():
                             # print(data)
                             if data["media_type"] == 1:
                                 self.insert_activity(data, placename.replace(address,""),"Image","Image",CityId,placeId,batchName)
+                                total_image_posts_added+=1
                             elif data["media_type"] == 2 and  data['product_type'] == "clips":
                                 print("this is video")
                                 self.insert_activity(data, placename.replace(address,""),"Video","Video",CityId,placeId,batchName)
+                                total_video_posts_added+=1
                             elif data["media_type"] == 8 and  data['product_type'] == "carousel_container":
                                 urls=[i['thumbnail_url'] for i in data['resources']]
                                 print(urls)
                                 self.insert_activity(data, placename.replace(address,""),"Image","Image",CityId,placeId,batchName,urls)
+                                total_image_posts_added+=1
                 
                 else :
-                    print("place type not allowed :- ",aiai,scrapeDetail["PlaceType"])
-                    aiai+=1
+                    print("place type not allowed :- ",total_places_not_allowed,scrapeDetail["PlaceType"])
+                    total_places_not_allowed+=1
                     
                
             except:
                 pass
+        self.notify_actions_to_admin(f''' Update :-  Posts Extraction with the batch :- {batchName} and Place Id :- {placeId} Successfull \nTotal n0. of posts added to db :- {total_image_posts_added+total_places_not_allowed}.\nTotal Image posts :- {total_image_posts_added}. \nTotal Video posts :- {total_video_posts_added}. \nTotal Allowed places :- {len(scrapeDetails)-total_places_not_allowed}''')
 
 
-    def delets_unwanted_places(self,places):
-        for scrapeDetail in places: 
-           
-            
-                if scrapeDetail["PlaceType"] not in ALLOWED_CATEGORIES:
-                    main=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS["PLACE_DELETE"],json=scrapeDetail,headers=self.headers).json()
-                    print( main)
-        
-       
        
     def notify_actions_to_admin(self,message):
 
@@ -350,11 +347,11 @@ class GetPosts():
         SMTP_PORT = 465  # Use 587 for TLS, 465 for SSL
         EMAIL_ADDRESS = "info@tikuntech.com"
         EMAIL_PASSWORD = "Dheeraj@2006"
-        receiver_email=["dlovej009@gmail.com"]
+        receiver_email=["dlovej009@gmail.com","brown@tikuntech.com","j.b.fitterman@gmail.com"]
         def send_email(to_emails, body):
             try:
                 # Email content
-                subject = "Notification from Hostinger SMTP"
+                subject = "Notification from Scouter DataSystem"
 
                 # Create email message
                 msg = MIMEMultipart()
