@@ -1,6 +1,7 @@
-import csv
-import json
-import random
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+import smtplib
 from pymongo import MongoClient
 import requests 
 import re
@@ -66,7 +67,6 @@ class GetPosts():
     
     
     def get_place_id(self,data):
-        
         place_id=""
         
         filter_data={"filterInfo": [
@@ -96,41 +96,44 @@ class GetPosts():
  
 
     def insert_activity(self,post, HASHTAG, ActivityType,AttachmentType, CityID, PlaceId, BatchName,Images=""):
-        jsn = {"Hashtag1": '', "Hashtag2": '',
-            "Hashtag3": '', "Hashtag4": '', "Hashtag5": ''}
-        caption = re.sub("([#@])\\w+", "", post["caption_text"] or "")
-        Emoji=self.extract_emoji(caption)
-        if Emoji=="":
-            Emoji="1F4F7"
+        try:
+            jsn = {"Hashtag1": '', "Hashtag2": '',
+                "Hashtag3": '', "Hashtag4": '', "Hashtag5": ''}
+            caption = re.sub("([#@])\\w+", "", post["caption_text"] or "")
+            Emoji=self.extract_emoji(caption)
+            if Emoji=="":
+                Emoji="1F4F7"
+                
+            reqjsn = {
+            "ActivityType": ActivityType, #["Image", "Video", "Event"]s
+            "AttachmentType": AttachmentType, #["Image", "Video"],
+            "Title": post['title'],
+            "Description": caption.replace("\n", " ").replace("\t", " ")+"\n"+f"https://www.instagram.com/p/{post["code"]}",
+            "InLocation":  post["location"] != None,
+            "TagLocation": None,
+            "LikeCount": post['like_count'],
+            "Emoji": Emoji,
+            "Hashtag1": HASHTAG,
+            "BatchName":BatchName,
+            "MigratedDate": post["taken_at"],
+            "Latitude": post["location"] and post["location"]["lat"],
+            "Longitude":post["location"] and post["location"]["lng"],
+            "PlaceId":PlaceId,
+            "CityId":CityID,
+            "InstagramPk":post["pk"],
+        }
+            if ActivityType=="Video":
+                reqjsn["MigratedUrl"]=post['video_url']
+                reqjsn["MigratedThumbnailUrl"]=post["thumbnail_url"]
+            else:
+                reqjsn["MigratedUrl"]= ",".join(Images) if Images!="" else post["thumbnail_url"]
+            print(reqjsn)
             
-        reqjsn = {
-        "ActivityType": ActivityType, #["Image", "Video", "Event"]s
-        "AttachmentType": AttachmentType, #["Image", "Video"],
-        "Title": post['title'],
-        "Description": caption.replace("\n", " ").replace("\t", " ")+"\n"+f"https://www.instagram.com/p/{post["code"]}",
-        "InLocation":  post["location"] != None,
-        "TagLocation": None,
-        "LikeCount": post['like_count'],
-        "Emoji": Emoji,
-        "Hashtag1": HASHTAG,
-        "BatchName":BatchName,
-        "MigratedDate": post["taken_at"],
-        "Latitude": post["location"] and post["location"]["lat"],
-        "Longitude":post["location"] and post["location"]["lng"],
-        "PlaceId":PlaceId,
-        "CityId":CityID,
-         "InstagramPk":post["pk"],
-    }
-        if ActivityType=="Video":
-            reqjsn["MigratedUrl"]=post['video_url']
-            reqjsn["MigratedThumbnailUrl"]=post["thumbnail_url"]
-        else:
-            reqjsn["MigratedUrl"]= ",".join(Images) if Images!="" else post["thumbnail_url"]
-        print(reqjsn)
-        
 
-        res=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS["ACTIVITY_INSERT"],json=reqjsn,headers=self.headers).json()
-        print(res)
+            res=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS["ACTIVITY_INSERT"],json=reqjsn,headers=self.headers).json()
+            print(res)
+        except:
+            self.notify_actions_to_admin(f'''Error :- Post Extraction  with Batch :- {BatchName}  got error while inserting post :- \n{reqjsn} :)''')
     
     def postComment(self,post, HASHTAG,  CityID, PlaceId,userId,insta_place_id,BatchName="",images=""):
         jsn = {"Hashtag1": '', "Hashtag2": '',
@@ -225,6 +228,7 @@ class GetPosts():
        
 
     def get_places_data(self,CityID):
+
         data={
         "filterInfo": [
             {
@@ -239,6 +243,7 @@ class GetPosts():
 
         main=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS["PLACE_LIST"],json=data,headers=self.headers).json()
         return main['data']
+        
     
     def check_for_post(self,insta_pk):
         """Add InstagramPk values to MongoDB if not already present."""
@@ -261,7 +266,8 @@ class GetPosts():
         main=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS["PLACE_UPDATE"],json=scrapeDetail,headers=self.headers).json()
         print( main)
 
-    def test_location_posts(self,scrapeDetails,CityId,batchName):
+    def test_location_posts(self,scrapeDetails,CityId,batchName): 
+        
         aiai=1
         for scrapeDetail in scrapeDetails: 
             try:
@@ -291,7 +297,7 @@ class GetPosts():
                     print("done")
                     for data in medias:
                         if self.check_for_post(data["pk"]):
-                            uniqueuserid ="C7AB5D9C-4D89-4C3E-964C-91A190F736AF"
+                            # uniqueuserid ="C7AB5D9C-4D89-4C3E-964C-91A190F736AF"
                             # uniqueuserid = self.insertUser(userInfo)
                             # user_id.append(
                             #     {'id': userData["pk"], 'userId': uniqueuserid})
@@ -336,6 +342,41 @@ class GetPosts():
                     print( main)
         
        
+       
+    def notify_actions_to_admin(self,message):
+
+        # Static SMTP Server Configuration
+        SMTP_SERVER = "smtp.hostinger.com"
+        SMTP_PORT = 465  # Use 587 for TLS, 465 for SSL
+        EMAIL_ADDRESS = "info@tikuntech.com"
+        EMAIL_PASSWORD = "Dheeraj@2006"
+        receiver_email=["dlovej009@gmail.com"]
+        def send_email(to_emails, body):
+            try:
+                # Email content
+                subject = "Notification from Hostinger SMTP"
+
+                # Create email message
+                msg = MIMEMultipart()
+                msg["From"] = EMAIL_ADDRESS
+                msg["To"] = ", ".join(to_emails)
+                msg["Subject"] = subject
+                msg.attach(MIMEText(body, "plain"))
+
+                # Connect to SMTP server and send email
+                with smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT) as server:
+                    server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+                    server.sendmail(EMAIL_ADDRESS, to_emails, msg.as_string())
+
+                print("Email sent successfully!")
+                return True
+            except Exception as e:
+                print(f"Failed to send email: {e}")
+                return False
+
+
+        send_email(receiver_email, message)
+
 # aa=GetPosts()
 # # aa.select_ig_accounts() ##Get sessions for all the accounts which are in the accounts.csv
 # places=aa.get_places_data(city_id) # Get all the places for atlanta 
