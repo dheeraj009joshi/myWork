@@ -336,7 +336,7 @@ class GetPosts():
                
             except:
                 pass
-        self.notify_actions_to_admin(f''' Update :-  Posts Extraction with the batch :- {batchName} and Place Id :- {placeId} Successfull \nTotal n0. of posts added to db :- {total_image_posts_added+total_places_not_allowed}.\nTotal Image posts :- {total_image_posts_added}. \nTotal Video posts :- {total_video_posts_added}. \nTotal Allowed places :- {len(scrapeDetails)-total_places_not_allowed}''')
+        self.notify_actions_to_admin(f''' Update :-  Posts Extraction with the batch :- {batchName} and city Id :- {CityId} Successfull \nTotal n0. of posts added to db :- {total_image_posts_added+total_places_not_allowed}.\nTotal Image posts :- {total_image_posts_added}. \nTotal Video posts :- {total_video_posts_added}. \nTotal Allowed places :- {len(scrapeDetails)-total_places_not_allowed}''')
 
 
        
