@@ -538,133 +538,137 @@ class ScouterPlaces:
         # scraping
         ###########
         with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
-            page = browser.new_page()
-
-            page.goto("https://www.google.com/maps", timeout=60000)
-            # wait is added for dev phase. can remove it in production
-            page.wait_for_timeout(5000)
+            
             
             for search_for_index, search_for in enumerate(search_list):
-                print(f"-----\n{search_for_index} - {search_for}".strip())
+                try:
+                    browser = p.chromium.launch(headless=True)
+                    page = browser.new_page()
 
-                page.locator('//input[@id="searchboxinput"]').fill(search_for+" "+CITY+" "+COUNTRY)
-                page.wait_for_timeout(3000)
+                    page.goto("https://www.google.com/maps", timeout=60000)
+                    # wait is added for dev phase. can remove it in production
+                    page.wait_for_timeout(5000)
+                    print(f"-----\n{search_for_index} - {search_for}".strip())
 
-                page.keyboard.press("Enter")
-                page.wait_for_timeout(5000)
-
-                # scrolling
-                page.hover('//a[contains(@href, "https://www.google.com/maps/place")]')
-
-                # this variable is used to detect if the bot
-                # scraped the same number of listings in the previous iteration
-                previously_counted = 0
-                while True:
-                    page.mouse.wheel(0, 200000)
+                    page.locator('//input[@id="searchboxinput"]').fill(search_for+" "+CITY+" "+COUNTRY)
                     page.wait_for_timeout(3000)
 
-                    if (
-                        page.locator(
-                            '//a[contains(@href, "https://www.google.com/maps/place")]'
-                        ).count()
-                        >= total
-                    ):
-                        listings = page.locator(
-                            '//a[contains(@href, "https://www.google.com/maps/place")]'
-                        ).all()[:total]
-                        # print(listings)
-                        # listings = [listing.locator("xpath=..") for listing in listings]
-                        # print(listings[0].get_attribute("aria-label"))
-                        print(f"Total Scraped: {len(listings)}")
-                        break
-                    else:
-                        # logic to break from loop to not run infinitely
-                        # in case arrived at all available listings
+                    page.keyboard.press("Enter")
+                    page.wait_for_timeout(5000)
+
+                    # scrolling
+                    page.hover('//a[contains(@href, "https://www.google.com/maps/place")]')
+
+                    # this variable is used to detect if the bot
+                    # scraped the same number of listings in the previous iteration
+                    previously_counted = 0
+                    while True:
+                        page.mouse.wheel(0, 200000)
+                        page.wait_for_timeout(3000)
+
                         if (
                             page.locator(
                                 '//a[contains(@href, "https://www.google.com/maps/place")]'
                             ).count()
-                            == previously_counted
+                            >= total
                         ):
                             listings = page.locator(
                                 '//a[contains(@href, "https://www.google.com/maps/place")]'
-                            ).all()
-                            print(f"Arrived at all available\nTotal Scraped: {len(listings)}")
+                            ).all()[:total]
+                            # print(listings)
+                            # listings = [listing.locator("xpath=..") for listing in listings]
+                            # print(listings[0].get_attribute("aria-label"))
+                            print(f"Total Scraped: {len(listings)}")
                             break
                         else:
-                            previously_counted = page.locator(
-                                '//a[contains(@href, "https://www.google.com/maps/place")]'
-                            ).count()
-                            print(
-                                f"Currently Scraped: ",
+                            # logic to break from loop to not run infinitely
+                            # in case arrived at all available listings
+                            if (
                                 page.locator(
                                     '//a[contains(@href, "https://www.google.com/maps/place")]'
-                                ).count(),
-                            )
+                                ).count()
+                                == previously_counted
+                            ):
+                                listings = page.locator(
+                                    '//a[contains(@href, "https://www.google.com/maps/place")]'
+                                ).all()
+                                print(f"Arrived at all available\nTotal Scraped: {len(listings)}")
+                                break
+                            else:
+                                previously_counted = page.locator(
+                                    '//a[contains(@href, "https://www.google.com/maps/place")]'
+                                ).count()
+                                print(
+                                    f"Currently Scraped: ",
+                                    page.locator(
+                                        '//a[contains(@href, "https://www.google.com/maps/place")]'
+                                    ).count(),
+                                )
 
-                business_list = ScouterPlaces.BusinessList()
+                    business_list = ScouterPlaces.BusinessList()
 
-                # scraping
-                for listing in listings:
-                    try:
-                        listing.click()
-                        page.wait_for_timeout(2000)
+                    # scraping
+                    for listing in listings:
+                        try:
+                            listing.click()
+                            page.wait_for_timeout(2000)
 
-                        name_attibute = 'aria-label'
-                        address_xpath = '//button[@data-item-id="address"]//div[contains(@class, "fontBodyMedium")]'
-                        website_xpath = '//a[@data-item-id="authority"]//div[contains(@class, "fontBodyMedium")]'
-                        phone_number_xpath = '//button[contains(@data-item-id, "phone:tel:")]//div[contains(@class, "fontBodyMedium")]'
-                        review_count_xpath = '//button[@jsaction="pane.reviewChart.moreReviews"]//span'
-                        reviews_average_xpath = '//div[@jsaction="pane.reviewChart.moreReviews"]//div[@role="img"]'
-                        
-                        
-                        business = ScouterPlaces.Business()
-                    
-                        if len(listing.get_attribute(name_attibute)) >= 1:
-            
-                            business.name = listing.get_attribute(name_attibute).replace("· Visited link","")
-                        else:
-                            business.name = ""
-                        if page.locator(address_xpath).count() > 0:
-                            business.address = page.locator(address_xpath).all()[0].inner_text()
-                        else:
-                            business.address = ""
-                        if page.locator(website_xpath).count() > 0:
-                            business.website = page.locator(website_xpath).all()[0].inner_text()
-                        else:
-                            business.website = ""
-                        if page.locator(phone_number_xpath).count() > 0:
-                            business.phone_number = page.locator(phone_number_xpath).all()[0].inner_text()
-                        else:
-                            business.phone_number = ""
-                        if page.locator(review_count_xpath).count() > 0:
-                            business.reviews_count = int(
-                                page.locator(review_count_xpath).inner_text()
-                                .split()[0]
-                                .replace(',','')
-                                .strip()
-                            )
-                        else:
-                            business.reviews_count = ""
+                            name_attibute = 'aria-label'
+                            address_xpath = '//button[@data-item-id="address"]//div[contains(@class, "fontBodyMedium")]'
+                            website_xpath = '//a[@data-item-id="authority"]//div[contains(@class, "fontBodyMedium")]'
+                            phone_number_xpath = '//button[contains(@data-item-id, "phone:tel:")]//div[contains(@class, "fontBodyMedium")]'
+                            review_count_xpath = '//button[@jsaction="pane.reviewChart.moreReviews"]//span'
+                            reviews_average_xpath = '//div[@jsaction="pane.reviewChart.moreReviews"]//div[@role="img"]'
                             
-                        if page.locator(reviews_average_xpath).count() > 0:
-                            business.reviews_average = float(
-                                page.locator(reviews_average_xpath).get_attribute(name_attibute)
-                                .split()[0]
-                                .replace(',','.')
-                                .strip())
-                        else:
-                            business.reviews_average = ""
+                            
+                            business = ScouterPlaces.Business()
                         
-                        
-                        business.latitude, business.longitude = self.extract_coordinates_from_url(page.url)
-                        self.insert_place(f"{business.name} {business.address}",business.address,CITY_ID,CITY,COUNTRY)
-                        # print(business)
-                        print(business)
-                        business_list.business_list.append(business)
-                    except Exception as e:
-                        print(f'Error occurred: {e}')
+                            if len(listing.get_attribute(name_attibute)) >= 1:
+                
+                                business.name = listing.get_attribute(name_attibute).replace("· Visited link","")
+                            else:
+                                business.name = ""
+                            if page.locator(address_xpath).count() > 0:
+                                business.address = page.locator(address_xpath).all()[0].inner_text()
+                            else:
+                                business.address = ""
+                            if page.locator(website_xpath).count() > 0:
+                                business.website = page.locator(website_xpath).all()[0].inner_text()
+                            else:
+                                business.website = ""
+                            if page.locator(phone_number_xpath).count() > 0:
+                                business.phone_number = page.locator(phone_number_xpath).all()[0].inner_text()
+                            else:
+                                business.phone_number = ""
+                            if page.locator(review_count_xpath).count() > 0:
+                                business.reviews_count = int(
+                                    page.locator(review_count_xpath).inner_text()
+                                    .split()[0]
+                                    .replace(',','')
+                                    .strip()
+                                )
+                            else:
+                                business.reviews_count = ""
+                                
+                            if page.locator(reviews_average_xpath).count() > 0:
+                                business.reviews_average = float(
+                                    page.locator(reviews_average_xpath).get_attribute(name_attibute)
+                                    .split()[0]
+                                    .replace(',','.')
+                                    .strip())
+                            else:
+                                business.reviews_average = ""
+                            
+                            
+                            business.latitude, business.longitude = self.extract_coordinates_from_url(page.url)
+                            self.insert_place(f"{business.name} {business.address}",business.address,CITY_ID,CITY,COUNTRY)
+                            # print(business)
+                            print(business)
+                            business_list.business_list.append(business)
+                        except Exception as e:
+                            print(f'Error occurred: {e}')
+                except:
+                    pass
             browser.close()
             
             
