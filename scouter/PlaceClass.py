@@ -404,16 +404,16 @@ class ScouterPlaces:
                     return res
       
       
-    def get_city_id(self,cityName,country,region,loc_data):
+    def get_city_id(self,city_data):
     
         filter_data={"filterInfo": [
                 {
-                "filterTerm":cityName,
+                "filterTerm":city_data["CityName"],
                 "filterType": "EQUALS",
                 "filterBy": "CityName"
                 },
                 {
-                "filterTerm":country,
+                "filterTerm":city_data["Country"],
                 "filterType": "EQUALS",
                 "filterBy": "Country"
                 }
@@ -423,30 +423,21 @@ class ScouterPlaces:
             "Content-Type": "application/json",
             "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJVc2VySWQiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJEZXZpY2VJZCI6IjFCREVEODlCLUI1OTAtNEYwQy1BRTc0LUMyODY0OTRFMDNEOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjExLzE5LzIwMjQgMTI6MTU6MDUiLCJuYmYiOjE3MzIwMTg1MDUsImV4cCI6MTc2MzU1NDUwNSwiaWF0IjoxNzMyMDE4NTA1fQ.C3hycswaAgRvhEFesttElyq2CYI0uvqa9Y1nimar3hk"
         }
-        main=requests.post(f"{self.BASE_URLS}/api/v1/City/list",json=filter_data,headers=headers).json()
         
+        main=requests.post(f"https://portal.maiden-ai.com/api/v1/cube/Scouter Galactic Pvt Ltd/night life/scoutermap/City/list",json=filter_data,headers=headers).json()
+        print(main)
         if main["total"]>0:
             print(" city  found ")
             city_id=main["data"][0]['CityId']
             print(city_id)
         else:
             print(" city  not found inserting city ")
-            data={     
-            "CityName": cityName,
-            "Country": country,
-            "CityState":region,
-            "Latitude": loc_data['Lat'],
-            "Longitude":loc_data['Long'],
-            "TimeZone":loc_data['TimeZone'],
-            "Abbreviation":loc_data['Abbreviation'],
-            "IsScouter": False
-            }
-            print(data)
+            
             headers=headers = {
             "Content-Type": "application/json",
             "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJVc2VySWQiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJEZXZpY2VJZCI6IjFCREVEODlCLUI1OTAtNEYwQy1BRTc0LUMyODY0OTRFMDNEOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjExLzE5LzIwMjQgMTI6MTU6MDUiLCJuYmYiOjE3MzIwMTg1MDUsImV4cCI6MTc2MzU1NDUwNSwiaWF0IjoxNzMyMDE4NTA1fQ.C3hycswaAgRvhEFesttElyq2CYI0uvqa9Y1nimar3hk"
             }
-            main=requests.post(f"{self.BASE_URLS}/api/v1/City/insert",json=data,headers=headers).json()
+            main=requests.post(f"https://portal.maiden-ai.com/api/v1/cube/Scouter Galactic Pvt Ltd/night life/scoutermap/City/insert",json=city_data,headers=headers).json()
             print(main)  
             city_id=main['result']
             
@@ -1195,5 +1186,19 @@ class ScouterPlaces:
                 self.insert_reviews_for_place(i["ReviewsID"],i["Rating_N"] or i["Rating_n"],i["PlaceId"],i["CityId"])
                 print(":doneeee")
                
-    
+    def get_cities_by_country(self,country_name):
+        with open("cities.json", "r", encoding="utf-8") as file:
+            cities_data = json.load(file)
+            city_list = [
+                {
+                    "CityName": city["name"],
+                    "Latitude": city["lat"],
+                    "Longitude": city["lng"],
+                    "Country":country_name,
+                    "IsScouter":False
+                }
+                for city in cities_data if city["country"].lower() == country_name.lower()
+            ]
+            
+            return city_list
    

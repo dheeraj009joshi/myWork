@@ -85,6 +85,11 @@ CITY_DATA={
         "COUNTRY":"IS",
         "EVENT_ID":""
     },
+    "KOPAVOGUR":{
+        "ID":"f9225c27-948f-4422-bff1-14c5eba71b2b",
+        "COUNTRY":"IS",
+        "EVENT_ID":""
+    },
 }
 
 

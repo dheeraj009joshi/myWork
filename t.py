@@ -1,21 +1,16 @@
-import streamlink
+import json
 
-url = "https://videolamborghini-meride-tv.akamaized.net/video/folder2/Lambo_40MB_APP_lamborghini/Lambo_40MB_APP_lamborghini.m3u8"
-output_file = "lamborghini_video.mp4"
+# Load the city dataset
 
-# Get available streams
-streams = streamlink.streams(url)
 
-if "best" in streams:
-    stream = streams["best"]
-    with open(output_file, "wb") as f:
-        with stream.open() as stream_fd:
-            while True:
-                data = stream_fd.read(1024)  # Read in chunks (1KB)
-                if not data:
-                    break
-                f.write(data)
 
-    print(f"Download complete: {output_file}")
-else:
-    print("No suitable stream found.")
+
+# # Example usage
+# country = input("Enter a country name: ")
+# cities = get_cities_by_country(country)
+
+# if cities:
+#     for city in cities:
+#         print(f"City: {city['city']}, Latitude: {city['latitude']}, Longitude: {city['longitude']}")
+# else:
+#     print("No cities found or incorrect country name.")
