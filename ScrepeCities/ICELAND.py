@@ -20,6 +20,10 @@ def get_single_city_data_with_places(city_data):
     else:
         print(f"Failed to get city ID for {city_data['CityName']}")
 
-if __name__ == "__main__":
-    with concurrent.futures.ProcessPoolExecutor(max_workers=5) as executor:
-        executor.map(get_single_city_data_with_places, cities)
+# if __name__ == "__main__":
+#     with concurrent.futures.ProcessPoolExecutor(max_workers=5) as executor:
+#         executor.map(get_single_city_data_with_places, cities)
+
+
+for city_data in cities:
+    get_single_city_data_with_places(city_data)
