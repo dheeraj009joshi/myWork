@@ -280,9 +280,12 @@ class ScouterPlaces:
                 print(OpeningHour)
             except:
                 OpeningHour=None
-            review_text_= [i[1] for i in index_get(info, 31,1) ]
-            review_text = ",".join(review_text_)
-            print(review_text)
+            try:
+                review_text_= [i[1] for i in index_get(info, 31,1) ]
+                review_text = ",".join(review_text_)
+                print(review_text)
+            except:
+                review_text=""
             facebookLink = index_get(info, 7, 0) or ""
             placeName = index_get(info, 11) or ""
             timeZone = index_get(info, 30) or ""
@@ -370,9 +373,14 @@ class ScouterPlaces:
             
             if data["PlaceName"]!="" and data['PlaceType'] in ALLOWED_CATEGORIES:
                 print("getting images and all")
-                aa=self.cl.fbsearch_places_v1(placename,data['Latitude'],data["Longitude"])[0]["pk"]
-                data["InstagramLocation"]=aa
-                data["MigratedImages"]=self.get_top3_posts_for_place(aa)
+                print(data)
+                try:
+                    aa=self.cl.fbsearch_places_v1(placename,data['Latitude'],data["Longitude"])[0]["pk"]
+                    data["InstagramLocation"]=aa
+                    data["MigratedImages"]=self.get_top3_posts_for_place(aa)
+                except:
+                    data["InstagramLocation"]=""
+                    data["MigratedImages"]=data["GooglePlaceImage"]
                 data["InstagramHandle"]=self.extract_insta_url(data['GooglePlaceName']+" insta")
                 print(data)
                 res=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_INSERT'],json=data,headers=self.headers).json()
@@ -382,9 +390,13 @@ class ScouterPlaces:
                 data=self.get_place_info_from_google(placename.replace(address,"")+" "+CITY+" "+COUNTRY,CITY_ID,COUNTRY)
                 if data["PlaceName"]!="" and data['PlaceType'] in ALLOWED_CATEGORIES:
                     print("getting images and all")
-                    aa=self.cl.fbsearch_places_v1(placename,data['Latitude'],data["Longitude"])[0]["pk"]
-                    data["InstagramLocation"]=aa
-                    data["MigratedImages"]=self.get_top3_posts_for_place(aa)
+                    try:
+                        aa=self.cl.fbsearch_places_v1(placename,data['Latitude'],data["Longitude"])[0]["pk"]
+                        data["InstagramLocation"]=aa
+                        data["MigratedImages"]=self.get_top3_posts_for_place(aa)
+                    except:
+                        data["InstagramLocation"]=""
+                        data["MigratedImages"]=data["GooglePlaceImage"]
                     data["InstagramHandle"]=self.extract_insta_url(data['PlaceName']+""+ CITY+" insta")
                     print(data)
                     res=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_INSERT'],json=data,headers=self.headers).json()
@@ -535,7 +547,7 @@ class ScouterPlaces:
         # scraping
         ###########
         with sync_playwright() as p:
-            browser = p.chromium.launch(headless=False)
+            browser = p.chromium.launch(headless=True)
             page = browser.new_page()
 
             page.goto("https://www.google.com/maps", timeout=60000)
@@ -661,7 +673,7 @@ class ScouterPlaces:
                         print(business)
                         business_list.business_list.append(business)
                     except Exception as e:
-                        print(f'Error occured: {e}')
+                        print(f'Error occurred: {e}')
             browser.close()
             
             

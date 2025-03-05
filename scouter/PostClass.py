@@ -135,6 +135,25 @@ class GetPosts():
         except:
             self.notify_actions_to_admin(f'''Error :- Post Extraction  with Batch :- {BatchName}  got error while inserting post :- \n{reqjsn} :)''')
     
+    
+    def insert_offer_posts(self,post,post_type,placeId,BatchName):
+        
+        print(post)
+        reqjsn={
+            "PlaceId":placeId,
+            "Description":",".join(post["hashtags"]),
+            "PostType":post_type,
+            "BatchName":BatchName
+        }
+        if post_type=="Image":
+            reqjsn["MigratedUrl"]=post["thumbnail_url"]
+        elif post_type=="Video":
+            reqjsn["MigratedUrl"]=post["video_url"]
+        print(reqjsn)
+        res=requests.post("https://portal.maiden-ai.com/api/v1/cube/Scouter Galactic Pvt Ltd/night life//ActivityManagement/OfferPost/insert",json=reqjsn,headers=self.headers).json()
+        print(res)
+    
+    
     def postComment(self,post, HASHTAG,  CityID, PlaceId,userId,insta_place_id,BatchName="",images=""):
         jsn = {"Hashtag1": '', "Hashtag2": '',
             "Hashtag3": '', "Hashtag4": '', "Hashtag5": ''}
@@ -276,7 +295,7 @@ class GetPosts():
             
                 if scrapeDetail["PlaceType"] in ALLOWED_CATEGORIES:
 
-                    placeId=self.get_place_id(scrapeDetail)
+                    placeId=str(scrapeDetail["PlaceId"])
                     placename=str(scrapeDetail["GooglePlaceName"])
                     address=str(scrapeDetail["Address"])
                     lat=str(scrapeDetail["Latitude"])
@@ -336,7 +355,49 @@ class GetPosts():
                
             except:
                 pass
-        self.notify_actions_to_admin(f''' Update :-  Posts Extraction with the batch :- {batchName} and city Id :- {CityId} Successfull \nTotal n0. of posts added to db :- {total_image_posts_added+total_places_not_allowed}.\nTotal Image posts :- {total_image_posts_added}. \nTotal Video posts :- {total_video_posts_added}. \nTotal Allowed places :- {len(scrapeDetails)-total_places_not_allowed}''')
+        self.notify_actions_to_admin(f''' Update :-  Posts Extraction with the batch :- {batchName} and city Id :- {CityId} Successfull \nTotal n0. of posts added to db :- {total_image_posts_added+total_places_not_allowed}.\nTotal n0. of posts added to db :- {total_image_posts_added+total_video_posts_added}.\nTotal Image posts :- {total_image_posts_added}. \nTotal Video posts :- {total_video_posts_added}. \nTotal Allowed places :- {len(scrapeDetails)-total_places_not_allowed}''')
+
+
+
+    def get_offer_posts(self,scrapeDetails,CityId,batchName):
+
+        total_places_not_allowed=1
+        total_image_posts_added=0
+        total_video_posts_added=0
+        for scrapeDetail in scrapeDetails: 
+            try:
+            
+                if scrapeDetail["PlaceType"] in ALLOWED_CATEGORIES:
+
+                    placeId=str(scrapeDetail["PlaceId"])
+                    medias=self.cl.user_stories_by_username_v1(scrapeDetail["InstagramHandle"])
+                    print(medias)
+                    print("done")
+                    for data in medias:
+                        if self.check_for_post(data["pk"]):
+
+                            if data["media_type"] == 1:
+                                self.insert_offer_posts(data,"Image",placeId,batchName)
+                                total_image_posts_added+=1
+                            elif data["media_type"] == 2:
+                                print("this is video")
+                                self.insert_offer_posts(data,"Video",placeId,batchName)
+                                total_video_posts_added+=1
+                
+                else :
+                    print("place type not allowed :- ",total_places_not_allowed,scrapeDetail["PlaceType"])
+                    total_places_not_allowed+=1
+                    
+               
+            except:
+                pass
+        self.notify_actions_to_admin(f''' Update :-  Offer Posts Extraction with the batch :- {batchName} and city Id :- {CityId} Successfull \nTotal n0. of posts added to db :- {total_image_posts_added+total_video_posts_added}.\nTotal Image posts :- {total_image_posts_added}. \nTotal Video posts :- {total_video_posts_added}. \nTotal Allowed places :- {len(scrapeDetails)-total_places_not_allowed}''')
+
+
+
+
+
+
 
 
        

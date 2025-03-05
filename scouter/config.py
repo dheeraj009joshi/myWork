@@ -38,6 +38,7 @@ PROD_URLS={
     "ACTIVITY_INSERT":"/Activity/insert",
     "ACTIVITY_UPDATE":"/Activity/update",
     "ACTIVITY_DELETE":"/Activity/delets",
+    "OFFER_POST_INSERT":"/Activity/delets",
 }
 
 CITY_DATA={
@@ -78,6 +79,11 @@ CITY_DATA={
         "ID":"472b013d-3cc0-4592-a940-b1176e514372",
         "COUNTRY":"UK",
         "EVENT_ID":["101750367"]
+    },
+    "REYKJAVIK":{
+        "ID":"def3a79c-58f0-46f2-b6e1-b6fe83d6870f",
+        "COUNTRY":"IS",
+        "EVENT_ID":""
     },
 }
 

@@ -1,43 +1,21 @@
-import pandas as pd
-import json
+import streamlink
 
-def excel_to_json(file_path):
-    """
-    Reads an Excel file and converts it into a list of JSON objects.
+url = "https://videolamborghini-meride-tv.akamaized.net/video/folder2/Lambo_40MB_APP_lamborghini/Lambo_40MB_APP_lamborghini.m3u8"
+output_file = "lamborghini_video.mp4"
 
-    Parameters:
-        file_path (str): Path to the Excel file.
+# Get available streams
+streams = streamlink.streams(url)
 
-    Returns:
-        list: A list of JSON objects.
-    """
-    try:
-        # Read the Excel file
-        df = pd.read_csv(file_path)
+if "best" in streams:
+    stream = streams["best"]
+    with open(output_file, "wb") as f:
+        with stream.open() as stream_fd:
+            while True:
+                data = stream_fd.read(1024)  # Read in chunks (1KB)
+                if not data:
+                    break
+                f.write(data)
 
-        df["CityId"] = df["CityId"].str.lower()
-
-        # Filter data for Leeds and London
-        leeds_data = df[df["CityId"] == "leeds"].to_dict(orient="records")
-        london_data = df[df["CityId"] == "london"].to_dict(orient="records")
-
-        # Save to JSON files
-        with open("leeds.json", "w", encoding="utf-8") as leeds_file:
-            json.dump(leeds_data, leeds_file, indent=4)
-
-        with open("london.json", "w", encoding="utf-8") as london_file:
-            json.dump(london_data, london_file, indent=4)
-
-        print("JSON files created successfully: leeds.json & london.json")
-        # return json_list
-    except Exception as e:
-        print(f"Error: {e}")
-        return []
-
-# Example usage
-if __name__ == "__main__":
-    file_path = "Place 05.02.25 01.07.csv"  # Replace with your Excel file path
-    json_data = excel_to_json(file_path)
-
-    # Print JSON output
-    print(json.dumps(json_data, indent=4))
+    print(f"Download complete: {output_file}")
+else:
+    print("No suitable stream found.")
