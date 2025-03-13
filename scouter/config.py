@@ -90,6 +90,16 @@ CITY_DATA={
         "COUNTRY":"IS",
         "EVENT_ID":""
     },
+    "MANCHESTER":{
+        "ID":"4b0a257a-5fa5-4e1d-bc87-c26aab25ab60",
+        "COUNTRY":"UK",
+        "EVENT_ID":""
+    },
+    "BRADFORD":{
+        "ID":"4740255f-b754-4c3e-bcf4-b6ada876bf27",
+        "COUNTRY":"UK",
+        "EVENT_ID":""
+    },
 }
 
 
