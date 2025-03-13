@@ -542,11 +542,7 @@ class ScouterPlaces:
             
             for search_for_index, search_for in enumerate(search_list):
                 try:
-<<<<<<< HEAD
-                    browser = p.chromium.launch(headless=False)
-=======
                     browser = p.chromium.launch(headless=True)
->>>>>>> 15e394b2e9c4cf303ae49610e72d6fe489e4effe
                     page = browser.new_page()
 
                     page.goto("https://www.google.com/maps", timeout=60000)
@@ -610,14 +606,8 @@ class ScouterPlaces:
                                 )
 
                     business_list = ScouterPlaces.BusinessList()
-<<<<<<< HEAD
-                
-
-                # scraping
-=======
 
                     # scraping
->>>>>>> 15e394b2e9c4cf303ae49610e72d6fe489e4effe
                     for listing in listings:
                         try:
                             listing.click()
@@ -677,19 +667,11 @@ class ScouterPlaces:
                             business_list.business_list.append(business)
                         except Exception as e:
                             print(f'Error occurred: {e}')
-<<<<<<< HEAD
-                    
-                except:
-                        browser.close()
-                        pass    
-                
-=======
                 except:
                     pass
             browser.close()
             
             
->>>>>>> 15e394b2e9c4cf303ae49610e72d6fe489e4effe
     def get_places_data(self,CityID):
         data={
         "filterInfo": [
