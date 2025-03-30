@@ -1441,7 +1441,7 @@ class ScouterPlaces:
         insertnumber = 100
         for n in range(int(len(updateRecords)/insertnumber)+1):
             start = (n + 1) * insertnumber
-            print(updateRecords[n * insertnumber :start])
+            # print(updateRecords[n * insertnumber :start])
             print(len(updateRecords[n * insertnumber :start]))
             # headers = {'Content-Type': 'application/json',
             #         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.1.2222.33 Safari/537.36",
