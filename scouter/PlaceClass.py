@@ -1344,7 +1344,7 @@ class ScouterPlaces:
         "Content-Type": "application/json",
         "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0MzA5MjU5MywianRpIjoiZmFmZDU5ZmEtY2I1YS00ZmJlLWIzZTYtZTQ4MWE3MmY0NGZlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImRhMzg5MzFhLTY4ZWItNGMzNS1hNmRmLTdkMWE2YTJmYzlkNyIsIm5iZiI6MTc0MzA5MjU5MywiY3NyZiI6ImM2MTA0Yzg5LWNlNDYtNDA5YS1iNzgyLTU4YWExZTk2OTZmYiIsImV4cCI6NDMzNTA5MjU5M30.O_ZS868U7QG9DJheMh7thaLI_A1WbdRB5sI4JSuI8vc"
     }
-        data={"WithInDistance":1000000,"page":1,"AddtionalParams":{"Day":"Thursday"},"userId":"da38931a-68eb-4c35-a6df-7d1a6a2fc9d7","SortWithDistance":True,"IncludeCalculateDistance":True,"filterInfo":[],"Longitude":-1.5470229,"Latitude":53.798642,"pageSize":10}
+        data={"WithInDistance":1000000,"page":1,"AddtionalParams":{"Day":"Thursday"},"userId":"da38931a-68eb-4c35-a6df-7d1a6a2fc9d7","SortWithDistance":True,"IncludeCalculateDistance":True,"filterInfo":[],"Longitude":-1.5470229,"Latitude":53.798642,"pageSize":100000}
        
         # print(data)
         main=requests.post("https://scouterapi.tikuntech.com/api/v1/Place/list",json=data,headers=headers).json()
@@ -1451,7 +1451,8 @@ class ScouterPlaces:
             if self.db=="old":
                 response = requests.post(f"{self.BASE_URLS['BASE_URL']}/api/v1/Place/UpdateCurrentPopularity",json=updateRecords[n * insertnumber :start], headers=self.headers, timeout=20 *60)
             else:
-                response = requests.post(f"https://scouterapi.tikuntech.com/api/v1/Place/update-many",json=updateRecords[n * insertnumber :start], headers=headers, timeout=20 *60)
+                response = requests.post(f"http://localhost:8000/api/v1/Place/update-many",json=updateRecords[n * insertnumber :start], headers=headers, timeout=20 *60)
+                # response = requests.post(f"https://scouterapi.tikuntech.com/api/v1/Place/update-many",json=updateRecords[n * insertnumber :start], headers=headers, timeout=20 *60)
             print(response.content)
             end_update_100=time.time()
             print("Took {} seconds to push websites.".format(end_update_100 - start_updating))
