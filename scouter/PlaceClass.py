@@ -1451,8 +1451,8 @@ class ScouterPlaces:
             if self.db=="old":
                 response = requests.post(f"{self.BASE_URLS['BASE_URL']}/api/v1/Place/UpdateCurrentPopularity",json=updateRecords[n * insertnumber :start], headers=self.headers, timeout=20 *60)
             else:
-                response = requests.post(f"http://localhost:8000/api/v1/Place/update-many",json=updateRecords[n * insertnumber :start], headers=headers, timeout=20 *60)
-                # response = requests.post(f"https://scouterapi.tikuntech.com/api/v1/Place/update-many",json=updateRecords[n * insertnumber :start], headers=headers, timeout=20 *60)
+                # response = requests.post(f"http://localhost:8000/api/v1/Place/update-many",json=updateRecords[n * insertnumber :start], headers=headers, timeout=20 *60)
+                response = requests.post(f"https://scouterapi.tikuntech.com/api/v1/Place/update-many",json=updateRecords[n * insertnumber :start], headers=headers, timeout=20 *60)
             print(response.content)
             end_update_100=time.time()
             print("Took {} seconds to push websites.".format(end_update_100 - start_updating))
