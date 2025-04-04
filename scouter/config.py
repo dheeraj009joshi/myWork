@@ -100,6 +100,11 @@ CITY_DATA={
         "COUNTRY":"UK",
         "EVENT_ID":""
     },
+     "YORK":{
+        "ID":"73914691-c663-4d65-8e78-f3c1fd398376",
+        "COUNTRY":"UK",
+        "EVENT_ID":""
+    },
 }
 
 
