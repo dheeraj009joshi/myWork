@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City & Place Processor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --success: #4cc9f0;
+            --danger: #f72585;
+            --warning: #f8961e;
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .main-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 15px;
+        }
+        
+        .nav-pills {
+            background: white;
+            padding: 0.5rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            display: inline-flex;
+        }
+        
+        .nav-pills .nav-link {
+            color: #495057;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            margin: 0 0.25rem;
+        }
+        
+        .nav-pills .nav-link.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .form-container {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .threads-container {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        .thread-card {
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            background: white;
+        }
+        
+        .thread-card.running { border-left-color: var(--primary); }
+        .thread-card.completed { border-left-color: var(--success); }
+        .thread-card.stopped { border-left-color: var(--warning); }
+        .thread-card.error { border-left-color: var(--danger); }
+        
+        .status-badge {
+            font-size: 0.75rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+        
+        .status-running { background-color: rgba(67, 97, 238, 0.1); color: var(--primary); }
+        .status-completed { background-color: rgba(76, 201, 240, 0.1); color: var(--success); }
+        .status-stopped { background-color: rgba(248, 150, 30, 0.1); color: var(--warning); }
+        .status-error { background-color: rgba(247, 37, 133, 0.1); color: var(--danger); }
+        
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="toast-container"></div>
+    <div class="loader">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    
+    <div class="main-container">
+        <ul class="nav nav-pills mb-4" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-cities-tab" data-bs-toggle="pill" data-bs-target="#pills-cities" type="button" role="tab">
+                    <i class="bi bi-building me-1"></i> Cities
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-places-tab" data-bs-toggle="pill" data-bs-target="#pills-places" type="button" role="tab">
+                    <i class="bi bi-geo-alt me-1"></i> Places
+                </button>
+            </li>
+        </ul>
+        
+        <div class="tab-content" id="pills-tabContent">
+            <!-- Cities Tab -->
+            <div class="tab-pane fade show active" id="pills-cities" role="tabpanel">
+                <div class="form-container">
+                    <h3><i class="bi bi-building me-2"></i>Add New City</h3>
+                    <form id="cityForm" class="mt-3">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="city_id" class="form-label">City ID</label>
+                                <input type="text" class="form-control" id="city_id" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="city_name" class="form-label">City Name</label>
+                                <input type="text" class="form-control" id="city_name" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="country" class="form-label">Country</label>
+                                <input type="text" class="form-control" id="country" value="UK">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-play-fill me-2"></i>Start Processing
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="threads-container">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h3><i class="bi bi-list-task me-2"></i>Active City Processes</h3>
+                        <span class="badge bg-primary">
+                            <i class="bi bi-activity me-1"></i>
+                            <span id="cityThreadCount">0</span> Active
+                        </span>
+                    </div>
+                    
+                    <div id="cityThreadContainer">
+                        <div id="noCityThreadsMessage" class="text-center py-5 text-muted">
+                            <i class="bi bi-inbox" style="font-size: 3rem;"></i>
+                            <h4 class="mt-3">No active city processes</h4>
+                            <p>Add a city to start processing</p>
+                        </div>
+                        <div id="cityThreadCards"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Places Tab -->
+            <div class="tab-pane fade" id="pills-places" role="tabpanel">
+                <div class="form-container">
+                    <h3><i class="bi bi-geo-alt me-2"></i>Add New Place</h3>
+                    <form id="placeForm" class="mt-3">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="place_city_id" class="form-label">City ID</label>
+                                <input type="text" class="form-control" id="place_city_id" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="place_name" class="form-label">Place Name</label>
+                                <input type="text" class="form-control" id="place_name" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="address" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="address" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-play-fill me-2"></i>Start Processing
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="threads-container">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h3><i class="bi bi-list-task me-2"></i>Active Place Processes</h3>
+                        <span class="badge bg-primary">
+                            <i class="bi bi-activity me-1"></i>
+                            <span id="placeThreadCount">0</span> Active
+                        </span>
+                    </div>
+                    
+                    <div id="placeThreadContainer">
+                        <div id="noPlaceThreadsMessage" class="text-center py-5 text-muted">
+                            <i class="bi bi-inbox" style="font-size: 3rem;"></i>
+                            <h4 class="mt-3">No active place processes</h4>
+                            <p>Add a place to start processing</p>
+                        </div>
+                        <div id="placeThreadCards"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab switching
+            const tabElms = document.querySelectorAll('button[data-bs-toggle="pill"]');
+            tabElms.forEach(tabEl => {
+                tabEl.addEventListener('shown.bs.tab', function(event) {
+                    if (event.target.id === 'pills-cities-tab') {
+                        updateCityThreads();
+                    } else if (event.target.id === 'pills-places-tab') {
+                        updatePlaceThreads();
+                    }
+                });
+            });
+
+            // Toast notifications
+            function showToast(message, type = 'success') {
+                const toast = document.createElement('div');
+                toast.className = `toast show align-items-center text-bg-${type} border-0`;
+                toast.setAttribute('role', 'alert');
+                toast.setAttribute('aria-live', 'assertive');
+                toast.setAttribute('aria-atomic', 'true');
+                
+                const toastBody = document.createElement('div');
+                toastBody.className = 'd-flex';
+                
+                const toastContent = document.createElement('div');
+                toastContent.className = 'toast-body';
+                toastContent.textContent = message;
+                
+                const closeBtn = document.createElement('button');
+                closeBtn.type = 'button';
+                closeBtn.className = 'btn-close btn-close-white me-2 m-auto';
+                closeBtn.setAttribute('data-bs-dismiss', 'toast');
+                closeBtn.setAttribute('aria-label', 'Close');
+                
+                toastBody.appendChild(toastContent);
+                toastBody.appendChild(closeBtn);
+                toast.appendChild(toastBody);
+                document.querySelector('.toast-container').appendChild(toast);
+                
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    setTimeout(() => toast.remove(), 500);
+                }, 3000);
+            }
+
+            // Loader control
+            function showLoader(show) {
+                document.querySelector('.loader').style.display = show ? 'flex' : 'none';
+            }
+
+            // City form submission
+            document.getElementById('cityForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                showLoader(true);
+                
+                const cityId = document.getElementById('city_id').value;
+                const cityName = document.getElementById('city_name').value;
+                const country = document.getElementById('country').value;
+                
+                fetch('/start_city_thread', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `city_id=${encodeURIComponent(cityId)}&city_name=${encodeURIComponent(cityName)}&country=${encodeURIComponent(country)}`
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        showToast(data.error, 'danger');
+                    } else {
+                        showToast(data.message, 'success');
+                        this.reset();
+                        updateCityThreads();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    showToast('An error occurred while starting the process', 'danger');
+                })
+                .finally(() => {
+                    showLoader(false);
+                });
+            });
+
+            // Place form submission
+            document.getElementById('placeForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                showLoader(true);
+                
+                const cityId = document.getElementById('place_city_id').value;
+                const placeName = document.getElementById('place_name').value;
+                const address = document.getElementById('address').value;
+                
+                fetch('/start_place_thread', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `city_id=${encodeURIComponent(cityId)}&place_name=${encodeURIComponent(placeName)}&address=${encodeURIComponent(address)}`
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        showToast(data.error, 'danger');
+                    } else {
+                        showToast(data.message, 'success');
+                        this.reset();
+                        updatePlaceThreads();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    showToast('An error occurred while starting the process', 'danger');
+                })
+                .finally(() => {
+                    showLoader(false);
+                });
+            });
+
+            // Update city threads
+            function updateCityThreads() {
+                fetch('/get_threads/cities')
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('cityThreadCount').textContent = data.active_count;
+                        
+                        const container = document.getElementById('cityThreadCards');
+                        const emptyMsg = document.getElementById('noCityThreadsMessage');
+                        
+                        if (Object.keys(data.threads).length === 0) {
+                            emptyMsg.style.display = 'block';
+                            container.innerHTML = '';
+                        } else {
+                            emptyMsg.style.display = 'none';
+                            container.innerHTML = '';
+                            
+                            for (const [threadId, thread] of Object.entries(data.threads)) {
+                                const card = document.createElement('div');
+                                card.className = `thread-card ${thread.status}`;
+                                
+                                card.innerHTML = `
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h5 class="mb-0">${thread.city_name}, ${thread.country}</h5>
+                                        <span class="status-badge status-${thread.status}">${thread.status.toUpperCase()}</span>
+                                    </div>
+                                    <p class="text-muted mb-2"><i class="bi bi-info-circle"></i> ${thread.message}</p>
+                                    <div class="d-flex justify-content-between text-muted small">
+                                        <span><i class="bi bi-fingerprint"></i> ${threadId.slice(0, 8)}...</span>
+                                        <span><i class="bi bi-clock"></i> ${thread.start_time}</span>
+                                    </div>
+                                    ${thread.status === 'running' ? 
+                                        `<button class="btn btn-sm btn-danger mt-2" onclick="stopThread('city', '${threadId}')">
+                                            <i class="bi bi-stop-fill"></i> Stop
+                                        </button>` : ''
+                                    }
+                                `;
+                                
+                                container.appendChild(card);
+                            }
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching city threads:', error);
+                    });
+            }
+
+            // Update place threads
+            function updatePlaceThreads() {
+                fetch('/get_threads/places')
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('placeThreadCount').textContent = data.active_count;
+                        
+                        const container = document.getElementById('placeThreadCards');
+                        const emptyMsg = document.getElementById('noPlaceThreadsMessage');
+                        
+                        if (Object.keys(data.threads).length === 0) {
+                            emptyMsg.style.display = 'block';
+                            container.innerHTML = '';
+                        } else {
+                            emptyMsg.style.display = 'none';
+                            container.innerHTML = '';
+                            
+                            for (const [threadId, thread] of Object.entries(data.threads)) {
+                                const card = document.createElement('div');
+                                card.className = `thread-card ${thread.status}`;
+                                
+                                card.innerHTML = `
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h5 class="mb-0">${thread.place_name}</h5>
+                                        <span class="status-badge status-${thread.status}">${thread.status.toUpperCase()}</span>
+                                    </div>
+                                    <p class="text-muted mb-1"><i class="bi bi-geo-alt"></i> ${thread.address}</p>
+                                    <p class="text-muted mb-2"><i class="bi bi-info-circle"></i> ${thread.message}</p>
+                                    <div class="d-flex justify-content-between text-muted small">
+                                        <span><i class="bi bi-fingerprint"></i> ${threadId.slice(0, 8)}...</span>
+                                        <span><i class="bi bi-clock"></i> ${thread.start_time}</span>
+                                    </div>
+                                    ${thread.status === 'running' ? 
+                                        `<button class="btn btn-sm btn-danger mt-2" onclick="stopThread('place', '${threadId}')">
+                                            <i class="bi bi-stop-fill"></i> Stop
+                                        </button>` : ''
+                                    }
+                                `;
+                                
+                                container.appendChild(card);
+                            }
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching place threads:', error);
+                    });
+            }
+
+            // Stop thread function
+            window.stopThread = function(type, threadId) {
+                showLoader(true);
+                fetch(`/stop_thread/${type}/${threadId}`, {
+                    method: 'POST'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    showToast(data.message, data.success ? 'success' : 'warning');
+                    if (type === 'city') {
+                        updateCityThreads();
+                    } else {
+                        updatePlaceThreads();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error stopping thread:', error);
+                    showToast('Error stopping process', 'danger');
+                })
+                .finally(() => {
+                    showLoader(false);
+                });
+            };
+
+            // Initial load
+            updateCityThreads();
+        });
+    </script>
+</body>
+</html>

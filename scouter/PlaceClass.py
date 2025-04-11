@@ -542,7 +542,7 @@ class ScouterPlaces:
             
             for search_for_index, search_for in enumerate(search_list):
                 try:
-                    browser = p.chromium.launch(headless=True)
+                    browser = p.chromium.launch(headless=False)
                     page = browser.new_page()
 
                     page.goto("https://www.google.com/maps", timeout=60000)
@@ -1340,18 +1340,24 @@ class ScouterPlaces:
     # data={"cityId":"85ab5e34-3d98-406f-a8c1-77df8ed68c2c"}
         print("i am in ")
         self.get_proxies_urls()
-        headers= {
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0MzA5MjU5MywianRpIjoiZmFmZDU5ZmEtY2I1YS00ZmJlLWIzZTYtZTQ4MWE3MmY0NGZlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImRhMzg5MzFhLTY4ZWItNGMzNS1hNmRmLTdkMWE2YTJmYzlkNyIsIm5iZiI6MTc0MzA5MjU5MywiY3NyZiI6ImM2MTA0Yzg5LWNlNDYtNDA5YS1iNzgyLTU4YWExZTk2OTZmYiIsImV4cCI6NDMzNTA5MjU5M30.O_ZS868U7QG9DJheMh7thaLI_A1WbdRB5sI4JSuI8vc"
-    }
-        data={"WithInDistance":1000000,"page":1,"AddtionalParams":{"Day":"Thursday"},"userId":"da38931a-68eb-4c35-a6df-7d1a6a2fc9d7","SortWithDistance":True,"IncludeCalculateDistance":True,"filterInfo":[],"Longitude":-1.5470229,"Latitude":53.798642,"pageSize":100000}
+        
+        data={
+        "filterInfo": [
+           {
+            "filterTerm":"UK",
+            "filterType": "EQUALS",
+            "filterBy": "country"
+            
+            }
+            ],
+        "pageSize": 100000 
+        }
        
         # print(data)
-        main=requests.post("https://scouterapi.tikuntech.com/api/v1/Place/list",json=data,headers=headers).json()
-        print(main)
-        # googlePlaceName=[]
-        # a=0
-       
+        main=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_LIST'],json=data,headers=self.headers).json()
+        
+        main=[i for i in main["data"] if i["CityId"] not in ["73914691-c663-4d65-8e78-f3c1fd398376","4740255f-b754-4c3e-bcf4-b6ada876bf27","4b0a257a-5fa5-4e1d-bc87-c26aab25ab60","472b013d-3cc0-4592-a940-b1176e514372","e8bb7f3-e64b-480d-07d4-08dd1b82607a","dbf6eabb-b3f0-4966-eaa6-08dd14c982f8","723289d5-9983-4a2f-6538-08dcc857d3e1","73914691-c663-4d65-8e78-f3c1fd398376"] ]
+        print(len(main))
         # print(main)
         # for i in main["data"]:
         #     a+=1
@@ -1416,26 +1422,27 @@ class ScouterPlaces:
                     current_popularity = 0
                 if 0<current_popularity <=5:
                     current_popularity=5
-                print({ 'GooglePlaceName': place_data["GooglePlaceName"], 'Currentpopularity': current_popularity, "PlaceId":place_data["PlaceId"]}, time.time())
+                print({ 'googlePlaceName': place_data["GooglePlaceName"], 'currentpopularity': current_popularity, "place_id":place_data["PlaceId"]}, time.time())
                 # if current_popularity>70:
                     # print(" current_popularity= "+current_popularity+" name= "+url)
                     # f2.write(f"current_popularity ={current_popularity }, name = {url}\n" )
                 # f=open("records.txt","a")
                 # f.write(f"Update place set currentpopularity = {current_popularity} where googlePlaceName= '{url}' \n")
-                updateRecords.append({ 'GooglePlaceName': place_data["GooglePlaceName"], 'Currentpopularity': current_popularity, "PlaceId":place_data["PlaceId"]})
+                updateRecords.append({ 'googlePlaceName': place_data["GooglePlaceName"], 'currentpopularity': current_popularity, "place_id":place_data["PlaceId"]})
                 
             except Exception as e:
                 print("Unable to get url {} due to {}.".format(place_data["GooglePlaceName"], e.__class__))
             
 
 
-        print(main["data"])
+
+        # print(main["data"])
         start = time.time()
         with PoolExecutor(max_workers=20) as executor:
-            for _ in executor.map(get_it, main["data"]):
+            for _ in executor.map(get_it, main):
                 pass
         end = time.time()
-        print(len(main["data"]))
+        print(len(main))
         print("Took {} seconds to pull websites.".format(end - start))
         start_updating=time.time()
         insertnumber = 100
@@ -1451,8 +1458,7 @@ class ScouterPlaces:
             if self.db=="old":
                 response = requests.post(f"{self.BASE_URLS['BASE_URL']}/api/v1/Place/UpdateCurrentPopularity",json=updateRecords[n * insertnumber :start], headers=self.headers, timeout=20 *60)
             else:
-                # response = requests.post(f"http://localhost:8000/api/v1/Place/update-many",json=updateRecords[n * insertnumber :start], headers=headers, timeout=20 *60)
-                response = requests.post(f"https://scouterapi.tikuntech.com/api/v1/Place/update-many",json=updateRecords[n * insertnumber :start], headers=headers, timeout=20 *60)
+                response = requests.post(f"{self.BASE_URLS['BASE_URL']}/Place/UpdateCurrentPopularity",json=updateRecords[n * insertnumber :start], headers=self.headers, timeout=20 *60)
             print(response.content)
             end_update_100=time.time()
             print("Took {} seconds to push websites.".format(end_update_100 - start_updating))
