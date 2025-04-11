@@ -378,11 +378,7 @@
                                         <span><i class="bi bi-fingerprint"></i> ${threadId.slice(0, 8)}...</span>
                                         <span><i class="bi bi-clock"></i> ${thread.start_time}</span>
                                     </div>
-                                    ${thread.status === 'running' ? 
-                                        `<button class="btn btn-sm btn-danger mt-2" onclick="stopThread('city', '${threadId}')">
-                                            <i class="bi bi-stop-fill"></i> Stop
-                                        </button>` : ''
-                                    }
+                                   
                                 `;
                                 
                                 container.appendChild(card);
@@ -426,11 +422,7 @@
                                         <span><i class="bi bi-fingerprint"></i> ${threadId.slice(0, 8)}...</span>
                                         <span><i class="bi bi-clock"></i> ${thread.start_time}</span>
                                     </div>
-                                    ${thread.status === 'running' ? 
-                                        `<button class="btn btn-sm btn-danger mt-2" onclick="stopThread('place', '${threadId}')">
-                                            <i class="bi bi-stop-fill"></i> Stop
-                                        </button>` : ''
-                                    }
+                                    
                                 `;
                                 
                                 container.appendChild(card);

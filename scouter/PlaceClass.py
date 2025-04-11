@@ -542,7 +542,14 @@ class ScouterPlaces:
             
             for search_for_index, search_for in enumerate(search_list):
                 try:
-                    browser = p.chromium.launch(headless=False)
+                    browser = p.chromium.launch(
+                        headless=False,  # Run in headful mode
+                        args=[
+                            '--no-sandbox',
+                            '--disable-setuid-sandbox',
+                            '--disable-dev-shm-usage'
+                        ]
+                    )
                     page = browser.new_page()
 
                     page.goto("https://www.google.com/maps", timeout=60000)
@@ -1355,7 +1362,7 @@ class ScouterPlaces:
        
         # print(data)
         main=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_LIST'],json=data,headers=self.headers).json()
-        
+        print(len(main["data"]))
         main=[i for i in main["data"] if i["CityId"] not in ["73914691-c663-4d65-8e78-f3c1fd398376","4740255f-b754-4c3e-bcf4-b6ada876bf27","4b0a257a-5fa5-4e1d-bc87-c26aab25ab60","472b013d-3cc0-4592-a940-b1176e514372","e8bb7f3-e64b-480d-07d4-08dd1b82607a","dbf6eabb-b3f0-4966-eaa6-08dd14c982f8","723289d5-9983-4a2f-6538-08dcc857d3e1","73914691-c663-4d65-8e78-f3c1fd398376"] ]
         print(len(main))
         # print(main)
