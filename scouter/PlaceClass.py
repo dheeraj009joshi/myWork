@@ -543,12 +543,12 @@ class ScouterPlaces:
             for search_for_index, search_for in enumerate(search_list):
                 try:
                     browser = p.chromium.launch(
-                        headless=False,  # Run in headful mode
-                        args=[
-                            '--no-sandbox',
-                            '--disable-setuid-sandbox',
-                            '--disable-dev-shm-usage'
-                        ]
+                        headless=True,  # Run in headful mode
+                        # args=[
+                        #     '--no-sandbox',
+                        #     '--disable-setuid-sandbox',
+                        #     '--disable-dev-shm-usage'
+                        # ]
                     )
                     page = browser.new_page()
 
