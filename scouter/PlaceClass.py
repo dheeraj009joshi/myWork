@@ -1349,14 +1349,7 @@ class ScouterPlaces:
         self.get_proxies_urls()
         
         data={
-        "filterInfo": [
-           {
-            "filterTerm":"UK",
-            "filterType": "EQUALS",
-            "filterBy": "country"
-            
-            }
-            ],
+       
         "pageSize": 100000 
         }
        
