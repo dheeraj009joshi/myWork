@@ -1356,7 +1356,8 @@ class ScouterPlaces:
         # print(data)
         main=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_LIST'],json=data,headers=self.headers).json()
         print(len(main["data"]))
-        main=[i for i in main["data"] if i["CityId"] not in ["73914691-c663-4d65-8e78-f3c1fd398376","4740255f-b754-4c3e-bcf4-b6ada876bf27","4b0a257a-5fa5-4e1d-bc87-c26aab25ab60","472b013d-3cc0-4592-a940-b1176e514372","e8bb7f3-e64b-480d-07d4-08dd1b82607a","dbf6eabb-b3f0-4966-eaa6-08dd14c982f8","723289d5-9983-4a2f-6538-08dcc857d3e1","73914691-c663-4d65-8e78-f3c1fd398376"] ]
+        main=[i for i in main["data"] if i["CityId"] not in ["723289d5-9983-4a2f-6538-08dcc857d3e1","85ab5e34-3d98-406f-a8c1-77df8ed68c2c","dbf6eabb-b3f0-4966-eaa6-08dd14c982f8","7e8bb7f3-e64b-480d-07d4-08dd1b82607a","7c6e7a1f-1c36-4b86-9573-08dd23e0250e","3db38269-5556-4822-9572-08dd23e0250e","4d88fd55-6098-4f6e-9571-08dd23e0250e","472b013d-3cc0-4592-a940-b1176e514372","def3a79c-58f0-46f2-b6e1-b6fe83d6870f","f9225c27-948f-4422-bff1-14c5eba71b2b","4b0a257a-5fa5-4e1d-bc87-c26aab25ab60","4740255f-b754-4c3e-bcf4-b6ada876bf27","73914691-c663-4d65-8e78-f3c1fd398376"
+]]
         print(len(main))
         # print(main)
         # for i in main["data"]:
