@@ -13,7 +13,7 @@ scouter=GetPosts("new")
 try:
     # scouter.notify_actions_to_admin(f'''Update :- Post Extraction started  with Batch :- {current_date} :)''')
     places=scouter.get_places_data(CITY_DATA["LEEDS"]["ID"])
-    # scouter.test_location_posts(places,CITY_DATA["LEEDS"]["ID"],current_date)
-    scouter.get_offer_posts(places,CITY_DATA["LEEDS"]["ID"],current_date)
+    scouter.test_location_posts(places,CITY_DATA["LEEDS"]["ID"],current_date)
+    # scouter.get_offer_posts(places,CITY_DATA["LEEDS"]["ID"],current_date)
 except Exception as error :
     scouter.notify_actions_to_admin(f'''Error :- Post Extraction   with Batch :- {current_date} got error :- {error}:)''')

@@ -263,7 +263,19 @@ class GetPosts():
         main=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS["PLACE_LIST"],json=data,headers=self.headers).json()
         return main['data']
         
+    def get_all_non_selected_city_places(self):
     
+        data={
+       
+        "pageSize": 100000 
+        }
+       
+        # print(data)
+        main=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_LIST'],json=data,headers=self.headers).json()
+        print(len(main["data"]))
+        main=[i for i in main["data"] if i["CityId"] not in ["723289d5-9983-4a2f-6538-08dcc857d3e1","85ab5e34-3d98-406f-a8c1-77df8ed68c2c","dbf6eabb-b3f0-4966-eaa6-08dd14c982f8","7e8bb7f3-e64b-480d-07d4-08dd1b82607a","7c6e7a1f-1c36-4b86-9573-08dd23e0250e","3db38269-5556-4822-9572-08dd23e0250e","4d88fd55-6098-4f6e-9571-08dd23e0250e","472b013d-3cc0-4592-a940-b1176e514372","def3a79c-58f0-46f2-b6e1-b6fe83d6870f","f9225c27-948f-4422-bff1-14c5eba71b2b","4b0a257a-5fa5-4e1d-bc87-c26aab25ab60","4740255f-b754-4c3e-bcf4-b6ada876bf27","73914691-c663-4d65-8e78-f3c1fd398376"
+]]
+        return main
     def check_for_post(self,insta_pk):
         """Add InstagramPk values to MongoDB if not already present."""
         client = MongoClient(scouterActivity_mondodb_url)
@@ -296,6 +308,7 @@ class GetPosts():
                 if scrapeDetail["PlaceType"] in ALLOWED_CATEGORIES:
 
                     placeId=str(scrapeDetail["PlaceId"])
+                    cityId=str(scrapeDetail["CityId"])
                     placename=str(scrapeDetail["GooglePlaceName"])
                     address=str(scrapeDetail["Address"])
                     lat=str(scrapeDetail["Latitude"])
@@ -336,16 +349,16 @@ class GetPosts():
                         # else:
                             # print(data)
                             if data["media_type"] == 1:
-                                self.insert_activity(data, placename.replace(address,""),"Image","Image",CityId,placeId,batchName)
+                                self.insert_activity(data, placename.replace(address,""),"Image","Image",cityId,placeId,batchName)
                                 total_image_posts_added+=1
                             elif data["media_type"] == 2 and  data['product_type'] == "clips":
                                 print("this is video")
-                                self.insert_activity(data, placename.replace(address,""),"Video","Video",CityId,placeId,batchName)
+                                self.insert_activity(data, placename.replace(address,""),"Video","Video",cityId,placeId,batchName)
                                 total_video_posts_added+=1
                             elif data["media_type"] == 8 and  data['product_type'] == "carousel_container":
                                 urls=[i['thumbnail_url'] for i in data['resources']]
                                 print(urls)
-                                self.insert_activity(data, placename.replace(address,""),"Image","Image",CityId,placeId,batchName,urls)
+                                self.insert_activity(data, placename.replace(address,""),"Image","Image",cityId,placeId,batchName,urls)
                                 total_image_posts_added+=1
                 
                 else :
