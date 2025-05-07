@@ -22,7 +22,8 @@ import os
 import sys
 import urllib.request
 
-
+from scouter.PostClass import GetPosts
+postAdd=GetPosts("new")
 class ScouterPlaces:
     
     def __init__(self,DB):
@@ -385,6 +386,11 @@ class ScouterPlaces:
                 print(data)
                 res=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_INSERT'],json=data,headers=self.headers).json()
                 print(res)
+                data["PlaceId"]=res["result"]
+                
+                current_date = datetime.now().strftime("%b %d %Y")
+                postAdd.test_location_posts([data],data["CityId"],current_date)
+                
                 return res
             elif data["PlaceName"]!="":
                 data=self.get_place_info_from_google(placename.replace(address,"")+" "+CITY+" "+COUNTRY,CITY_ID,COUNTRY)
@@ -401,6 +407,11 @@ class ScouterPlaces:
                     print(data)
                     res=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_INSERT'],json=data,headers=self.headers).json()
                     print(res)
+                    data["PlaceId"]=res["result"]
+                    
+                    current_date = datetime.now().strftime("%b %d %Y")
+                    postAdd.test_location_posts([data],data["CityId"],current_date)
+                    
                     return res
       
       
@@ -515,7 +526,7 @@ class ScouterPlaces:
             total = args.total
         else:
             # if no total is passed, we set the value to random big number
-            total = 1000000 # change according to you 
+            total = 10 # change according to you 
 
         if not args.search:
             search_list = ALLOWED_CATEGORIES
@@ -543,7 +554,8 @@ class ScouterPlaces:
             for search_for_index, search_for in enumerate(search_list):
                 try:
                     browser = p.chromium.launch(
-                        headless=True,  # Run in headful mode
+                        # headless=True,  # Run in headful mode
+                        headless=False,  # Run in headful mode
                         # args=[
                         #     '--no-sandbox',
                         #     '--disable-setuid-sandbox',
@@ -674,9 +686,9 @@ class ScouterPlaces:
                             business_list.business_list.append(business)
                         except Exception as e:
                             print(f'Error occurred: {e}')
-                except:
-                    pass
-            browser.close()
+                except Exception as e:
+                    print(e)
+           
             
             
     def get_places_data(self,CityID):

@@ -1,17 +1,20 @@
-from playwright.sync_api import sync_playwright
-with sync_playwright() as p:
-    browser = p.chromium.launch(headless=True)
-    page = browser.new_page()
-    page.goto('https:/youtube.com')
-    print('✅ Title:', page.title())
+import requests
 
+url = "https://api.brightdata.com/datasets/v3/trigger"
+headers = {
+	"Authorization": "Bearer cb17b2d004fe4b86ff630c7f56e8531fc401c51b1baf671478891f450be7fa8c",
+	"Content-Type": "application/json",
+}
+params = {
+	"dataset_id": "gd_lu702nij2f790tmv9h",
+	"include_errors": "true",
+	"type": "discover_new",
+	"discover_by": "keyword",
+    "limit_per_input": "1000",
+}
+data = [
+	{"search_keyword":"#Deodrant","country":""}
+]
 
-# # Example usage
-# country = input("Enter a country name: ")
-# cities = get_cities_by_country(country)
-
-# if cities:
-#     for city in cities:
-#         print(f"City: {city['city']}, Latitude: {city['latitude']}, Longitude: {city['longitude']}")
-# else:
-#     print("No cities found or incorrect country name.")
+response = requests.post(url, headers=headers, params=params, json=data)
+print(response.json())
