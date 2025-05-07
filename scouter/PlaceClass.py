@@ -526,7 +526,7 @@ class ScouterPlaces:
             total = args.total
         else:
             # if no total is passed, we set the value to random big number
-            total = 10 # change according to you 
+            total = 1000000 # change according to you 
 
         if not args.search:
             search_list = ALLOWED_CATEGORIES
@@ -554,8 +554,8 @@ class ScouterPlaces:
             for search_for_index, search_for in enumerate(search_list):
                 try:
                     browser = p.chromium.launch(
-                        # headless=True,  # Run in headful mode
-                        headless=False,  # Run in headful mode
+                        headless=True,  # Run in headful mode
+                        # headless=False,  # Run in headful mode
                         # args=[
                         #     '--no-sandbox',
                         #     '--disable-setuid-sandbox',
