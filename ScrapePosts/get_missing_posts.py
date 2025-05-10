@@ -41,7 +41,7 @@ def check_place_activity(place):
 # try:
     # scouter.notify_actions_to_admin(f"Update :- Post Extraction started with Batch :- {current_date} :)")
     
-places = scouter.get_all_non_selected_city_places()[:10]
+places = scouter.get_all_non_selected_city_places()
 print(len(places))
 new_places = []
 
