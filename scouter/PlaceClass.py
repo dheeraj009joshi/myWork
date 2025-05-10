@@ -526,7 +526,7 @@ class ScouterPlaces:
             total = args.total
         else:
             # if no total is passed, we set the value to random big number
-            total = 1000000 # change according to you 
+            total = 10# change according to you 
 
         if not args.search:
             search_list = ALLOWED_CATEGORIES
@@ -741,15 +741,7 @@ class ScouterPlaces:
                         place_json["InstagramHandle"]=plcedetail['InstagramHandle']
                     
                     place_json["PlaceId"]=plcedetail['PlaceId']
-                    # place_json.pop("ModifiedBy")
-                    # place_json.pop("CreatedBy")
-                    # place_json.pop("ModifiedDate")
-                    # place_json.pop("CreatedDate")
-                    # # print(place_json) ###
-                    # plcedetail["OpeningHours"]=place_json["OpeningHours"]
-                    # plcedetail["Reviews"]=place_json["Reviews"]
-                    # plcedetail["Description"]=place_json["Description"]
-                    # place_json.pop("MigratedImages")
+
                     print(place_json)
                     res=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_UPDATE'],json=place_json,headers=self.headers).json()
                     print(res)   

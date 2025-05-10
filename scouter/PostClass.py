@@ -2,6 +2,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import smtplib
+import time
 from pymongo import MongoClient
 import requests 
 import re
@@ -96,7 +97,8 @@ class GetPosts():
  
 
     def insert_activity(self,post, HASHTAG, ActivityType,AttachmentType, CityID, PlaceId, BatchName,Images=""):
-        try:
+        # try:
+            print(post)
             jsn = {"Hashtag1": '', "Hashtag2": '',
                 "Hashtag3": '', "Hashtag4": '', "Hashtag5": ''}
             caption = re.sub("([#@])\\w+", "", post["caption_text"] or "")
@@ -132,8 +134,8 @@ class GetPosts():
 
             res=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS["ACTIVITY_INSERT"],json=reqjsn,headers=self.headers).json()
             print(res)
-        except:
-            self.notify_actions_to_admin(f'''Error :- Post Extraction  with Batch :- {BatchName}  got error while inserting post :- \n{reqjsn} :)''')
+        # except:
+        #     self.notify_actions_to_admin(f'''Error :- Post Extraction  with Batch :- {BatchName}  got error while inserting post :- \n{reqjsn} :)''')
     
     
     def insert_offer_posts(self,post,post_type,placeId,BatchName):
@@ -299,11 +301,11 @@ class GetPosts():
 
     def test_location_posts(self,scrapeDetails,CityId,batchName): 
         
-        total_places_not_allowed=1
+        total_places_not_allowed=0
         total_image_posts_added=0
         total_video_posts_added=0
         for scrapeDetail in scrapeDetails: 
-            try:
+            # try:
             
                 if scrapeDetail["PlaceType"] in ALLOWED_CATEGORIES:
                     print(scrapeDetail)
@@ -315,8 +317,7 @@ class GetPosts():
                     lat=str(scrapeDetail["Latitude"])
                     long=str(scrapeDetail["Longitude"])
                     
-                    if scrapeDetail['InstagramLocation']==None:
-                        
+                    if scrapeDetail['InstagramLocation']==None: 
                         aa=self.cl.fbsearch_places_v1(placename,lat,long)[0]
                         print(aa)
                         insta_place_id=aa["pk"]
@@ -332,23 +333,7 @@ class GetPosts():
                     print("done")
                     for data in medias:
                         if self.check_for_post(data["pk"]):
-                            # uniqueuserid ="C7AB5D9C-4D89-4C3E-964C-91A190F736AF"
-                            # uniqueuserid = self.insertUser(userInfo)
-                            # user_id.append(
-                            #     {'id': userData["pk"], 'userId': uniqueuserid})
-                            # if self.db=="old":
-                                # print(data)
-                            # if data["media_type"] == 1:
-                            #     self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName)
-                            # elif data["media_type"] == 2 and  data['product_type'] == "clips":
-                            #     print("this is video")
-                            #     self.lookpost(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName)
-                            # elif data["media_type"] == 8 and  data['product_type'] == "carousel_container":
-                            #     urls=[i['thumbnail_url'] for i in data['resources']]
-                            #     print(urls)
-                            #     self.postComment(data, placename.replace(address,""),CityId,placeId,uniqueuserid,insta_place_id,batchName,urls)
-                        # else:
-                            # print(data)
+
                             if data["media_type"] == 1:
                                 self.insert_activity(data, placename.replace(address,""),"Image","Image",cityId,placeId,batchName)
                                 total_image_posts_added+=1
@@ -365,10 +350,10 @@ class GetPosts():
                 else :
                     print("place type not allowed :- ",total_places_not_allowed,scrapeDetail["PlaceType"])
                     total_places_not_allowed+=1
-                    
+                
                
-            except Exception as e:
-                print(e)
+            # except Exception as e:
+            #     print(e)
         self.notify_actions_to_admin(f''' Update :-  Posts Extraction with the batch :- {batchName} and city Id :- {CityId} Successfull \nTotal n0. of posts added to db :- {total_image_posts_added+total_places_not_allowed}.\nTotal n0. of posts added to db :- {total_image_posts_added+total_video_posts_added}.\nTotal Image posts :- {total_image_posts_added}. \nTotal Video posts :- {total_video_posts_added}. \nTotal Allowed places :- {len(scrapeDetails)-total_places_not_allowed}''')
 
 
@@ -449,13 +434,86 @@ class GetPosts():
 
         send_email(receiver_email, message)
 
-# aa=GetPosts()
-# # aa.select_ig_accounts() ##Get sessions for all the accounts which are in the accounts.csv
-# places=aa.get_places_data(city_id) # Get all the places for atlanta 
-# # aa.main_scrapper(places,"85ab5e34-3d98-406f-a8c1-77df8ed68c2c")
 
-# aa.test_location_posts(places["data"],city_id,"Dec 11 2024")
+    def get_the_posts(self,places):
+        for scrapeDetail in places:
+            try:
+                if scrapeDetail["PlaceType"] in ALLOWED_CATEGORIES:
+                    print(scrapeDetail)
+                    print("allowed place type ")
+                    placeId=str(scrapeDetail["PlaceId"])
+                    cityId=str(scrapeDetail["CityId"])
+                    placename=str(scrapeDetail["GooglePlaceName"])
+                    address=str(scrapeDetail["Address"])
+                    lat=str(scrapeDetail["Latitude"])
+                    long=str(scrapeDetail["Longitude"])
+                    new_medias=[]
+                   
+                    # print(scrapeDetail['InstagramHandle'])
+                    if scrapeDetail['InstagramHandle'] !=None:
+                        user_info=self.cl.user_by_username_v1(scrapeDetail['InstagramHandle'])
+                        # print(user_info)
+                        print(user_info["pk"])
+                        medias=self.cl.user_medias_chunk_v1(user_id=user_info["pk"])[0]
+                        # print(medias)
 
+                        try:
+                            if medias["detail"]:
+                                medias=[]
+                            else:
+                                print(medias)
+                                
+                        except:
+                            for i in medias:
+                                    new_medias.append(i )
+                    try:
+                        if scrapeDetail['InstagramLocation']==None or  scrapeDetail['InstagramLocation']=="": 
+                            aa=self.cl.fbsearch_places_v1(placename,lat,long)[0]
+                            # print(aa)
+                            insta_place_id=aa["pk"]
+                            # print(insta_place_id)
+                            scrapeDetail['InstagramLocation']=insta_place_id
+                            self.update_places_data(placeId,scrapeDetail)
+                            medias=self.cl.location_medias_recent_v1(aa["pk"],15)
+                            for i in medias:
+                                new_medias.append(i )
+                        
+                            
+                        else:
+                            print("location id found ")
+                            insta_place_id=scrapeDetail['InstagramLocation']
+                            medias=self.cl.location_medias_recent_v1(insta_place_id,15)
+                            for i in medias:
+                                new_medias.append(i )
+                    except Exception as e :
+                        print(e)
+                       
+                    print("medias done ")
+                    # print(medias)
+                    print(len(new_medias))
+                    for data in new_medias:
+                        print(type(data))
+                        if self.check_for_post(data["pk"]):
+                            print("inside not added posts ")
+                            if data["media_type"] == 1:
+                                self.insert_activity(data, placename.replace(address,""),"Image","Image",cityId,placeId,"")
+                               
+                            elif data["media_type"] == 2 and  data['product_type'] == "clips":
+                                print("this is video")
+                                self.insert_activity(data, placename.replace(address,""),"Video","Video",cityId,placeId,"")
+                                
+                            elif data["media_type"] == 8 and  data['product_type'] == "carousel_container":
+                                urls=[i['thumbnail_url'] for i in data['resources']]
+                                # print(urls)
+                                self.insert_activity(data, placename.replace(address,""),"Image","Image",cityId,placeId,"",urls)
+                               
+                        # time.sleep(5)
+                        
+        
+            except Exception as e:
+                print(e)
+                post_image=scrapeDetail['GooglePlaceImage'].split(",")
+               
 
 
 
