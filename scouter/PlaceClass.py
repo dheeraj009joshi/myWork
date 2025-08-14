@@ -370,6 +370,7 @@ class ScouterPlaces:
             
     def insert_place(self,placename,address,CITY_ID,CITY,COUNTRY):
         data=self.get_place_info_from_google(placename,CITY_ID,COUNTRY)
+
         if data!=None:
             
             if data["PlaceName"]!="" and data['PlaceType'] in ALLOWED_CATEGORIES:
@@ -526,24 +527,10 @@ class ScouterPlaces:
             total = args.total
         else:
             # if no total is passed, we set the value to random big number
-            total = 10000000000# change according to you 
+            total = 10# change according to you 
 
         if not args.search:
             search_list = ALLOWED_CATEGORIES
-            # read search from input.txt file
-            # input_file_name = 'input.txt'
-            # # Get the absolute path of the file in the current working directory
-            # input_file_path = os.path.join(os.getcwd(), input_file_name)
-            # # Check if the file exists
-            # if os.path.exists(input_file_path):
-            # # Open the file in read mode
-            #     with open(input_file_path, 'r') as file:
-            #     # Read all lines into a list
-            #         search_list = file.readlines()
-                    
-            # if len(search_list) == 0:
-            #     print('Error occured: You must either pass the -s search argument, or add searches to input.txt')
-            #     sys.exit()
             
         ###########
         # scraping
@@ -628,6 +615,7 @@ class ScouterPlaces:
 
                     # scraping
                     for listing in listings:
+                            
                         try:
                             listing.click()
                             page.wait_for_timeout(2000)

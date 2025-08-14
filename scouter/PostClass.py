@@ -68,6 +68,7 @@ class GetPosts():
     
     
     def get_place_id(self,data):
+        print("inside  get place is method ")
         place_id=""
         
         filter_data={"filterInfo": [
@@ -317,7 +318,7 @@ class GetPosts():
                     lat=str(scrapeDetail["Latitude"])
                     long=str(scrapeDetail["Longitude"])
                     
-                    if scrapeDetail['InstagramLocation']==None: 
+                    if scrapeDetail['InstagramLocation']==None or scrapeDetail['InstagramLocation']=="": 
                         aa=self.cl.fbsearch_places_v1(placename,lat,long)[0]
                         print(aa)
                         insta_place_id=aa["pk"]
