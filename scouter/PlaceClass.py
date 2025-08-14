@@ -9,7 +9,7 @@ import random
 import re
 import ssl
 from urllib.parse import quote
-from .config import ALLOWED_CATEGORIES, PROXIES_SEARCH_URL1,PROXIES_SEARCH_URL2,PROXIES_SEARCH_URL3,PROD_URLS,mobile_urls
+from .config import ALLOWED_CATEGORIES, PROXIES_SEARCH_URL1,PROXIES_SEARCH_URL2,PROXIES_SEARCH_URL3,PROD_URLS,mobile_urls,raw_proxies
 from hikerapi import Client
 import requests
 from bs4 import BeautifulSoup
@@ -21,7 +21,7 @@ import argparse
 import os
 import sys
 import urllib.request
-from config import raw_proxies
+
 from scouter.PostClass import GetPosts
 postAdd=GetPosts("new")
 class ScouterPlaces:
