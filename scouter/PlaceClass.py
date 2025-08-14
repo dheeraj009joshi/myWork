@@ -21,7 +21,7 @@ import argparse
 import os
 import sys
 import urllib.request
-
+from config import raw_proxies
 from scouter.PostClass import GetPosts
 postAdd=GetPosts("new")
 class ScouterPlaces:
@@ -43,12 +43,6 @@ class ScouterPlaces:
     def get_proxies_urls(self):
         # Raw proxies from provider
         print("Fetching proxy URLs...¯¯ßßß")
-        raw_proxies = [
-            "69.30.227.194:2001:tikuntechnologies.gmail.com:bwnh68",
-            "69.30.227.194:2002:tikuntechnologies.gmail.com:bwnh68",
-            "69.30.227.194:2003:tikuntechnologies.gmail.com:bwnh68",
-            # ... add more
-        ]
         
         # Convert to http://user:pass@ip:port
         proxies = []
