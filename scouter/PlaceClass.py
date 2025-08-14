@@ -41,17 +41,23 @@ class ScouterPlaces:
     }
         
     def get_proxies_urls(self):
-        urls = []
-        for search_url in [PROXIES_SEARCH_URL1,PROXIES_SEARCH_URL2,PROXIES_SEARCH_URL3]:
-            try:
-                resp = urllib.request.urlopen(urllib.request.Request(url=search_url, data=None))
-                data = resp.read().decode('utf-8').split('/*""*/')[0]
-                urls.extend(data.split("\n"))
-            except Exception as e:
-                print(f"Error fetching from {search_url}: {e}")
-        print(len(urls))
-        self.proxies=urls
-        return urls
+        # Raw proxies from provider
+        print("Fetching proxy URLs...¯¯ßßß")
+        raw_proxies = [
+            "69.30.227.194:2001:tikuntechnologies.gmail.com:bwnh68",
+            "69.30.227.194:2002:tikuntechnologies.gmail.com:bwnh68",
+            "69.30.227.194:2003:tikuntechnologies.gmail.com:bwnh68",
+            # ... add more
+        ]
+        
+        # Convert to http://user:pass@ip:port
+        proxies = []
+        for p in raw_proxies:
+            ip, port, user, password = p.split(":")
+            proxies.append(f"http://{user}:{password}@{ip}:{port}")
+
+        self.proxies = proxies
+        return proxies
 
         # return urls
 
