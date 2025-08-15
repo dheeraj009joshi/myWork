@@ -370,12 +370,12 @@ class ScouterPlaces:
             
     def insert_place(self,placename,address,CITY_ID,CITY,COUNTRY):
         data=self.get_place_info_from_google(placename,CITY_ID,COUNTRY)
-
+        # print("data=",data)
         if data!=None:
-            
+            print("inside data not none ")
             if data["PlaceName"]!="" and data['PlaceType'] in ALLOWED_CATEGORIES:
                 print("getting images and all")
-                print(data)
+                # print(data)
                 try:
                     aa=self.cl.fbsearch_places_v1(placename,data['Latitude'],data["Longitude"])[0]["pk"]
                     data["InstagramLocation"]=aa
@@ -394,6 +394,7 @@ class ScouterPlaces:
                 
                 return res
             elif data["PlaceName"]!="":
+                print("in second if ")
                 data=self.get_place_info_from_google(placename.replace(address,"")+" "+CITY+" "+COUNTRY,CITY_ID,COUNTRY)
                 if data["PlaceName"]!="" and data['PlaceType'] in ALLOWED_CATEGORIES:
                     print("getting images and all")
@@ -415,7 +416,30 @@ class ScouterPlaces:
                     
                     return res
       
-      
+    def get_city_data(self,city_Id):
+    
+        filter_data={"filterInfo": [
+                {
+                "filterTerm":city_Id,
+                "filterType": "EQUALS",
+                "filterBy": "CityId"
+                }
+                ]
+            }
+        headers=headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJVc2VySWQiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJEZXZpY2VJZCI6IjFCREVEODlCLUI1OTAtNEYwQy1BRTc0LUMyODY0OTRFMDNEOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjExLzE5LzIwMjQgMTI6MTU6MDUiLCJuYmYiOjE3MzIwMTg1MDUsImV4cCI6MTc2MzU1NDUwNSwiaWF0IjoxNzMyMDE4NTA1fQ.C3hycswaAgRvhEFesttElyq2CYI0uvqa9Y1nimar3hk"
+        }
+        
+        main=requests.post(f"https://portal.maiden-ai.com/api/v1/cube/Scouter Galactic Pvt Ltd/night life/scoutermap/City/list",json=filter_data,headers=headers).json()
+        print(main)
+        if main["total"]>0:
+            print(" city  found ")
+            city_id=main["data"][0]['CityId']
+            return main["data"][0]
+            
+
+        return city_id 
     def get_city_id(self,city_data):
     
         filter_data={"filterInfo": [
