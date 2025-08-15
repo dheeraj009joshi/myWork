@@ -368,12 +368,12 @@ class ScouterPlaces:
         #     print("exception occer")
         #     return None
             
-    def insert_place(self,placename,address,CITY_ID,CITY,COUNTRY):
+    def insert_place(self,placename,address,CITY_ID,CITY,COUNTRY, is_manual=False):
         data=self.get_place_info_from_google(placename,CITY_ID,COUNTRY)
         # print("data=",data)
         if data!=None:
             print("inside data not none ")
-            if data["PlaceName"]!="" and data['PlaceType'] in ALLOWED_CATEGORIES:
+            if data["PlaceName"]!="" and data['PlaceType'] in ALLOWED_CATEGORIES if not is_manual else True:
                 print("getting images and all")
                 # print(data)
                 try:
@@ -396,7 +396,7 @@ class ScouterPlaces:
             elif data["PlaceName"]!="":
                 print("in second if ")
                 data=self.get_place_info_from_google(placename.replace(address,"")+" "+CITY+" "+COUNTRY,CITY_ID,COUNTRY)
-                if data["PlaceName"]!="" and data['PlaceType'] in ALLOWED_CATEGORIES:
+                if data["PlaceName"]!="" and data['PlaceType'] in ALLOWED_CATEGORIES if not is_manual else True :
                     print("getting images and all")
                     try:
                         aa=self.cl.fbsearch_places_v1(placename,data['Latitude'],data["Longitude"])[0]["pk"]

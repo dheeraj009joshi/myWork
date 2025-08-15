@@ -49,7 +49,7 @@ def process_place(city_id, place_name, address, thread_id):
 
         city_data = scouter.get_city_data(city_id)
         scouter.get_proxies_urls()
-        scouter.insert_place(place_name,address,city_id,city_data["CityName"], city_data["Country"])  # Assuming UK as default
+        scouter.insert_place(place_name,address,city_id,city_data["CityName"], city_data["Country"],is_manual=True)  # Assuming UK as default
         
         thread_store['places'][thread_id]['status'] = 'completed'
         thread_store['places'][thread_id]['message'] = f"Completed processing {place_name} at {address}"
