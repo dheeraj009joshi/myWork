@@ -1,6 +1,6 @@
 from datetime import datetime
 import sys
-import os 
+import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 print("hii")
 from scouter.PostClass import GetPosts
@@ -13,6 +13,8 @@ scouter=GetPosts("new")
 try:
     # scouter.notify_actions_to_admin(f'''Update :- Post Extraction started  with Batch :- {current_date} :)''')
     places=scouter.get_places_data(CITY_DATA["ATLANTA"]["ID"])
+    print(len(places))
+    
     scouter.test_location_posts(places,CITY_DATA["ATLANTA"]["ID"],current_date)
     # scouter.get_offer_posts(places,CITY_DATA["LEEDS"]["ID"],current_date)
 except Exception as error :
