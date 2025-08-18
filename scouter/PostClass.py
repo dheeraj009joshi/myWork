@@ -306,7 +306,7 @@ class GetPosts():
         total_image_posts_added=0
         total_video_posts_added=0
         for scrapeDetail in scrapeDetails: 
-            # try:
+            try:
             
                 if scrapeDetail["PlaceType"] in ALLOWED_CATEGORIES:
                     print(scrapeDetail)
@@ -353,8 +353,8 @@ class GetPosts():
                     total_places_not_allowed+=1
                 
                
-            # except Exception as e:
-            #     print(e)
+            except Exception as e:
+                print(e)
         self.notify_actions_to_admin(f''' Update :-  Posts Extraction with the batch :- {batchName} and city Id :- {CityId} Successfull \nTotal n0. of posts added to db :- {total_image_posts_added+total_places_not_allowed}.\nTotal n0. of posts added to db :- {total_image_posts_added+total_video_posts_added}.\nTotal Image posts :- {total_image_posts_added}. \nTotal Video posts :- {total_video_posts_added}. \nTotal Allowed places :- {len(scrapeDetails)-total_places_not_allowed}''')
 
 
