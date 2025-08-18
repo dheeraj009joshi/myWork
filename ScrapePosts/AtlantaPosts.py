@@ -7,6 +7,8 @@ from scouter.PostClass import GetPosts
 from scouter.config import CITY_DATA
 # from scouter.utils import places
 
+
+
 current_date = datetime.now().strftime("%b %d %Y")
 
 scouter=GetPosts("new")
