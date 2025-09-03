@@ -185,8 +185,13 @@
                     <form id="placeForm" class="mt-3">
                         <div class="row">
                             <div class="col-md-4 mb-3">
-                                <label for="place_city_id" class="form-label">City ID</label>
-                                <input type="text" class="form-control" id="place_city_id" required>
+                                <label for="place_city_id" class="form-label">Select City</label>
+                                <select class="form-control" id="place_city_id" required>
+                                    <option value="">Choose a city</option>
+                                    {% for city in cities %}
+                                        <option value="{{ city.id }}">{{ city.name }}</option>
+                                    {% endfor %}
+                                </select>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="place_name" class="form-label">Place Name</label>

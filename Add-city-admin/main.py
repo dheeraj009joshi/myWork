@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify
 import threading
 import time
 import uuid
+import requests
 import sys
 import os
 
@@ -19,6 +20,30 @@ thread_store = {
     'cities': {},
     'places': {}
 }
+
+def get_cities():
+        filter_data={"filterInfo": [
+                {
+                "filterTerm":True,
+                "filterType": "EQUALS",
+                "filterBy": "IsScouter"
+                }
+                ]
+            }
+        headers=headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJVc2VySWQiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJEZXZpY2VJZCI6IjFCREVEODlCLUI1OTAtNEYwQy1BRTc0LUMyODY0OTRFMDNEOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjExLzE5LzIwMjQgMTI6MTU6MDUiLCJuYmYiOjE3MzIwMTg1MDUsImV4cCI6MTc2MzU1NDUwNSwiaWF0IjoxNzMyMDE4NTA1fQ.C3hycswaAgRvhEFesttElyq2CYI0uvqa9Y1nimar3hk"
+        }
+        
+        main=requests.post(f"https://portal.maiden-ai.com/api/v1/cube/Scouter Galactic Pvt Ltd/night life/scoutermap/City/list",json=filter_data,headers=headers).json()
+        print(main)
+        cities=[]
+        if main["total"]>0:
+            for i in main["data"]:
+                city_id=i['CityId']
+                city_name=i['CityName']
+                cities.append({"id": city_id, "name": city_name})
+        return cities
 
 def process_city(city_id, city_name, country, thread_id):
     try:
@@ -62,7 +87,7 @@ def process_place(city_id, place_name, address, thread_id):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html',cities=get_cities())
 
 @app.route('/start_city_thread', methods=['POST'])
 def start_city_thread():
@@ -162,3 +187,4 @@ def stop_thread(type, thread_id):
 if __name__ == '__main__':
     app.run(debug=True,host="0.0.0.0",port=51000)
     # app.run(debug=True,port=5000)
+
