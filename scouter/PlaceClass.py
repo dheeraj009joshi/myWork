@@ -37,7 +37,7 @@ class ScouterPlaces:
         
         self.headers= {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NzNhZWViYS00Y2FlLTRjODktYjhlZS05OWYzNDFiYTM2NmMiLCJVc2VySWQiOiI3NzNhZWViYS00Y2FlLTRjODktYjhlZS05OWYzNDFiYTM2NmMiLCJEZXZpY2VJZCI6IjUzNzM4ODBGLTkwN0UtNDc4NS04MjZELUUyRUZDREVCNzc0RCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjEyLzI4LzIwMjQgMTg6Mzc6MzciLCJuYmYiOjE3MzU0MTEwNTcsImV4cCI6MTc2Njk0NzA1NywiaWF0IjoxNzM1NDExMDU3fQ.1HQWE1HYZy08MTT7YOCuLDTQtz_8ZxM6MzCZpBWhs9I"
+        "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiJkMDEwMTBlMS00NzVkLTQyODUtOTFlYi0wODYzNjZjZDI3OGQiLCJVc2VySWQiOiJkMDEwMTBlMS00NzVkLTQyODUtOTFlYi0wODYzNjZjZDI3OGQiLCJEZXZpY2VJZCI6IkYzOEYwREU2LTIxMTItNDY4My1CRTAzLTUwNEM0NEZCNjEzOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjEyLzI5LzIwMjUgMDU6MDg6MjgiLCJuYmYiOjE3NjY5ODQ5MDgsImV4cCI6MTc5ODUyMDkwOCwiaWF0IjoxNzY2OTg0OTA4fQ.Ruwq3CiPJM_MeVaW-v7smJcrtZhM1hx66XXLQHzWcho"
     }
         
     def get_proxies_urls(self):
@@ -59,7 +59,12 @@ class ScouterPlaces:
         # try:
             address = quote(placename).split()
             user_agent = random.choice(user_agent_list)
-            headers = {'User-Agent': user_agent}
+            headers = {'User-Agent': user_agent,"Cookie": (
+        "AEC=AaJma5syFrFRjTvHaYjs0dQ6DfNqEDcCPwWMMkusZtgKxWiXEvNcidVGG7w; "
+        "NID=527=ZCgSazdsCAVm3r8SuQC3fprjjAuOvMwGqJC7sVrrGNDnvm6JJCDapnj84ruiYnGu3I8U5wgYKo8y40cXWWLKDKVIi6xKiaLRL-zGPQy7JTxgkl-y1v7aOn1v7fhEcpYNNmzKQ_yt44WH8oEHfkZm5XgIyk5vlE_Dm0sVcSuP6iQxt15zxtieKxm7yBWrnE3AT7dRKwxaELu_h0OAPghE-VzMSR5c; "
+        "__Secure-BUCKET=CPkB; "
+        "__Secure-STRP=AD6DoguEoU02LzpDfKwAEwFrcDiLmP7k5Spv1dVsz0pUpj9niSiKLI_SX8KAJt_0qLAt1JUHHA9997mZGBR2wWdHrX2_HmcWgA"
+    )}
             def get_popularity_for_day(popularity):
                 """
                 Returns popularity for day
@@ -428,7 +433,7 @@ class ScouterPlaces:
             }
         headers=headers = {
             "Content-Type": "application/json",
-            "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJVc2VySWQiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJEZXZpY2VJZCI6IjFCREVEODlCLUI1OTAtNEYwQy1BRTc0LUMyODY0OTRFMDNEOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjExLzE5LzIwMjQgMTI6MTU6MDUiLCJuYmYiOjE3MzIwMTg1MDUsImV4cCI6MTc2MzU1NDUwNSwiaWF0IjoxNzMyMDE4NTA1fQ.C3hycswaAgRvhEFesttElyq2CYI0uvqa9Y1nimar3hk"
+            "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiJkMDEwMTBlMS00NzVkLTQyODUtOTFlYi0wODYzNjZjZDI3OGQiLCJVc2VySWQiOiJkMDEwMTBlMS00NzVkLTQyODUtOTFlYi0wODYzNjZjZDI3OGQiLCJEZXZpY2VJZCI6IkYzOEYwREU2LTIxMTItNDY4My1CRTAzLTUwNEM0NEZCNjEzOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjEyLzI5LzIwMjUgMDU6MDg6MjgiLCJuYmYiOjE3NjY5ODQ5MDgsImV4cCI6MTc5ODUyMDkwOCwiaWF0IjoxNzY2OTg0OTA4fQ.Ruwq3CiPJM_MeVaW-v7smJcrtZhM1hx66XXLQHzWcho"
         }
         
         main=requests.post(f"https://portal.maiden-ai.com/api/v1/cube/Scouter Galactic Pvt Ltd/night life/scoutermap/City/list",json=filter_data,headers=headers).json()
@@ -457,7 +462,7 @@ class ScouterPlaces:
             }
         headers=headers = {
             "Content-Type": "application/json",
-            "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJVc2VySWQiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJEZXZpY2VJZCI6IjFCREVEODlCLUI1OTAtNEYwQy1BRTc0LUMyODY0OTRFMDNEOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjExLzE5LzIwMjQgMTI6MTU6MDUiLCJuYmYiOjE3MzIwMTg1MDUsImV4cCI6MTc2MzU1NDUwNSwiaWF0IjoxNzMyMDE4NTA1fQ.C3hycswaAgRvhEFesttElyq2CYI0uvqa9Y1nimar3hk"
+            "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiJkMDEwMTBlMS00NzVkLTQyODUtOTFlYi0wODYzNjZjZDI3OGQiLCJVc2VySWQiOiJkMDEwMTBlMS00NzVkLTQyODUtOTFlYi0wODYzNjZjZDI3OGQiLCJEZXZpY2VJZCI6IkYzOEYwREU2LTIxMTItNDY4My1CRTAzLTUwNEM0NEZCNjEzOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjEyLzI5LzIwMjUgMDU6MDg6MjgiLCJuYmYiOjE3NjY5ODQ5MDgsImV4cCI6MTc5ODUyMDkwOCwiaWF0IjoxNzY2OTg0OTA4fQ.Ruwq3CiPJM_MeVaW-v7smJcrtZhM1hx66XXLQHzWcho"
         }
         
         main=requests.post(f"https://portal.maiden-ai.com/api/v1/cube/Scouter Galactic Pvt Ltd/night life/scoutermap/City/list",json=filter_data,headers=headers).json()
@@ -471,7 +476,7 @@ class ScouterPlaces:
             
             headers=headers = {
             "Content-Type": "application/json",
-            "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJVc2VySWQiOiI3NDQzN2U1Ny1jOGEwLTQxYTAtYTZmMi1iNjQwYzlhNGIyMzciLCJEZXZpY2VJZCI6IjFCREVEODlCLUI1OTAtNEYwQy1BRTc0LUMyODY0OTRFMDNEOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjExLzE5LzIwMjQgMTI6MTU6MDUiLCJuYmYiOjE3MzIwMTg1MDUsImV4cCI6MTc2MzU1NDUwNSwiaWF0IjoxNzMyMDE4NTA1fQ.C3hycswaAgRvhEFesttElyq2CYI0uvqa9Y1nimar3hk"
+            "Authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJc3N1ZXIiOiJub0ZldmVyIiwidW5pcXVlX25hbWUiOiJkMDEwMTBlMS00NzVkLTQyODUtOTFlYi0wODYzNjZjZDI3OGQiLCJVc2VySWQiOiJkMDEwMTBlMS00NzVkLTQyODUtOTFlYi0wODYzNjZjZDI3OGQiLCJEZXZpY2VJZCI6IkYzOEYwREU2LTIxMTItNDY4My1CRTAzLTUwNEM0NEZCNjEzOCIsIk9yZ2FuaXphdGlvbklkIjoiMmY4MTE1NzctNTZlYy00YmRmLThlM2MtNjE5MGZkYzYzYmE4IiwiVGltZSI6IjEyLzI5LzIwMjUgMDU6MDg6MjgiLCJuYmYiOjE3NjY5ODQ5MDgsImV4cCI6MTc5ODUyMDkwOCwiaWF0IjoxNzY2OTg0OTA4fQ.Ruwq3CiPJM_MeVaW-v7smJcrtZhM1hx66XXLQHzWcho"
             }
             main=requests.post(f"https://portal.maiden-ai.com/api/v1/cube/Scouter Galactic Pvt Ltd/night life/scoutermap/City/insert",json=city_data,headers=headers).json()
             print(main)  
@@ -783,8 +788,8 @@ class ScouterPlaces:
         main=requests.post(self.BASE_URLS['BASE_URL']+self.BASE_URLS['PLACE_LIST'],json=data,headers=self.headers).json()
         # googlePlaceName=[]
         # a=0
-       
-        # print(main)
+        print(main)
+        print(main["data"])
         # for i in main["data"]:
         #     a+=1
         #     place_name=i["GooglePlaceName"]
@@ -809,7 +814,12 @@ class ScouterPlaces:
                 
                 USER_AGENT = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) "
                                     "AppleWebKit/537.36 (KHTML, like Gecko) "
-                                    "Chrome/54.0.2840.98 Safari/537.36"}
+                                    "Chrome/54.0.2840.98 Safari/537.36","Cookie": (
+        "AEC=AaJma5syFrFRjTvHaYjs0dQ6DfNqEDcCPwWMMkusZtgKxWiXEvNcidVGG7w; "
+        "NID=527=ZCgSazdsCAVm3r8SuQC3fprjjAuOvMwGqJC7sVrrGNDnvm6JJCDapnj84ruiYnGu3I8U5wgYKo8y40cXWWLKDKVIi6xKiaLRL-zGPQy7JTxgkl-y1v7aOn1v7fhEcpYNNmzKQ_yt44WH8oEHfkZm5XgIyk5vlE_Dm0sVcSuP6iQxt15zxtieKxm7yBWrnE3AT7dRKwxaELu_h0OAPghE-VzMSR5c; "
+        "__Secure-BUCKET=CPkB; "
+        "__Secure-STRP=AD6DoguEoU02LzpDfKwAEwFrcDiLmP7k5Spv1dVsz0pUpj9niSiKLI_SX8KAJt_0qLAt1JUHHA9997mZGBR2wWdHrX2_HmcWgA"
+    )}
                 params_url = {
                 "tbm": "map",
                 "tch": 1,
